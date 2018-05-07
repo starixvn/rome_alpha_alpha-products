@@ -1,0 +1,33 @@
+﻿namespace Alpha.Products.MemberInfo.ReviewSetting
+{
+    public class SettingItem
+    {
+        public SettingItem(string name)
+            : this(0, name)
+        {
+        }
+
+        public SettingItem(int id, string name)
+            : this(id, name, false)
+        {
+        }
+
+        public SettingItem(int id, string name, bool isProduct)
+            : this(id, name, isProduct, true)
+        {
+        }
+
+        public SettingItem(int id, string name, bool isProduct, bool visible)
+        {
+            Id = id;
+            Name = name;
+            IsProduct = isProduct;
+            Visible = visible;
+        }
+
+        public int Id { get; }
+        public string Name { get; }
+        public bool IsProduct { get; }
+        public bool Visible { get; }
+    }
+}

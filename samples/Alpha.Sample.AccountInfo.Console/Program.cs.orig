@@ -1,0 +1,122 @@
+﻿namespace Alpha.Sample.AccountInfo.Console11
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using Alpha.Products.AccountInfo.Integration.Contracts;
+    using Alpha.Products.AccountInfo.Integration.Specifications;
+    using Alpha.Products.AccountInfo.Setting.Configurations;
+    using Alpha.Products.AccountInfo.Setting.ViewModels;
+    using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
+    using Alpha.Products.Core.Contracts;
+    using Alpha.Products.Core.Values;
+    using Alpha.Sample.AccountInfo.Console;
+    using Products.AccountInfo.Setting;
+    using Products.Core.Domain;
+    using static StubCustomerProductStatusGetter;
+
+    internal static class Program
+    {
+        private static void Main(string[] args)
+        {
+            try
+            {
+                SetupContracts();
+
+                // setup display rule for view model
+                SetupDisplayRuleForViewModels();
+
+                var subAccountId = 0;
+                var actor = new Customer(1, subAccountId, "Actor-supertest1", 4, GetActorProductStatus);
+                var upline = new Customer(3, subAccountId, "actor-master01", 3, GetUplineProductStatus);
+                var searchAccount = new Customer(5, subAccountId, "actor-master01", 2, GetSearchAccountProductStatus, upline);
+
+                LoadAndDisplaySettingOnAccountInfoPanel(actor, searchAccount);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void LoadAndDisplaySettingOnAccountInfoPanel(Customer actor, Customer searchAccount)
+        {
+            var viewModelfactory = new SettingViewModelFactoryImpl(SampleSharedConfiguration.LoadSharedConfiguration);
+            var viewModels = viewModelfactory.GetSettingItemViewModels(actor, searchAccount);
+
+            foreach (var viewModel in viewModels)
+            {
+                if (viewModel.Visible)
+                {
+                    Console.WriteLine(viewModel);
+                    Console.WriteLine("------------------------");
+                }
+            }
+        }
+
+        private static void SetupContracts()
+        {
+            ResourceGetterManager.Use(new ResourceGetterImpl());
+        }
+
+        private static void SetupDisplayRuleForViewModels()
+        {
+            var actorCanUpdatePermission = new ActorCanUpdatePermissionSpecification();
+
+            SettingViewModelConfiguration
+                    .Current
+                    .View<ResetSecurityCodeViewModel>()
+                        .UseSpecification(actorCanUpdatePermission)
+                    .View<ResetPasswordViewModel>()
+                        .UseSpecification(actorCanUpdatePermission)
+                     .View<TransferViewModel>()
+                        .UseSpecification(new ActorCanEditDailyTransferOptionSpecification())
+                    .View<RemoveOtpViewModel>()
+                        .UseSpecification(actorCanUpdatePermission);
+        }
+    }
+
+    public static class StubCustomerProductStatusGetter
+    {
+        public static IEnumerable<CustomerProductStatus> GetUplineProductStatus(int customerId)
+        {
+            return GetCustomerProductStatus();
+        }
+
+        public static IEnumerable<CustomerProductStatus> GetActorProductStatus(int customerId)
+        {
+            return GetCustomerProductStatus();
+        }
+
+        public static IEnumerable<CustomerProductStatus> GetSearchAccountProductStatus(int customerId)
+        {
+            return GetCustomerProductStatus();
+        }
+
+        public static IEnumerable<CustomerProductStatus> GetCustomerProductStatus()
+            => new ReadOnlyCollection<CustomerProductStatus>(
+                    new List<CustomerProductStatus>()
+                    {
+                        new CustomerProductStatus(1),
+                        new CustomerProductStatus(2),
+                        new CustomerProductStatus(3),
+                        new CustomerProductStatus(4),
+                        new CustomerProductStatus(5),
+                        new CustomerProductStatus(6),
+                        new CustomerProductStatus(8),
+                        new CustomerProductStatus(12),
+                        new CustomerProductStatus(15),
+                        new CustomerProductStatus(21),
+                        new CustomerProductStatus(22),
+                        new CustomerProductStatus(23, true, true, true),
+                        new CustomerProductStatus(24, true),
+                        new CustomerProductStatus(26, true),
+                        new CustomerProductStatus(28),
+                        new CustomerProductStatus(30),
+                        new CustomerProductStatus(31),
+                        new CustomerProductStatus(32)
+                    });
+    }
+}

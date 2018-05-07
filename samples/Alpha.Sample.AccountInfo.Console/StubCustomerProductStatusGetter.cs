@@ -1,0 +1,49 @@
+﻿namespace Alpha.Sample.AccountInfo.Console
+{
+    using System.Collections.Generic;
+    using System.Collections.ObjectModel;
+    using Alpha.Products.Core.Models;
+
+    public static class StubCustomerProductStatusGetter
+    {
+        public static IEnumerable<CustomerProductStatus> GetUplineProductStatus(int customerId)
+        {
+            return GetCustomerProductStatus();
+        }
+
+        public static IEnumerable<CustomerProductStatus> GetActorProductStatus(int customerId)
+        {
+            return GetCustomerProductStatus();
+        }
+
+        public static IEnumerable<CustomerProductStatus> GetSearchAccountProductStatus(int customerId)
+        {
+            return GetCustomerProductStatus();
+        }
+
+        public static IEnumerable<CustomerProductStatus> GetCustomerProductStatus()
+            => new ReadOnlyCollection<CustomerProductStatus>(
+                    new List<CustomerProductStatus>()
+                    {
+                        new CustomerProductStatus(1),
+                        new CustomerProductStatus(2),
+                        new CustomerProductStatus(3),
+                        new CustomerProductStatus(4),
+                        new CustomerProductStatus(5),
+                        new CustomerProductStatus(6),
+                        new CustomerProductStatus(8),
+                        new CustomerProductStatus(12),
+                        new CustomerProductStatus(15),
+                        new CustomerProductStatus(16),
+                        new CustomerProductStatus(21),
+                        new CustomerProductStatus(22),
+                        new CustomerProductStatus(23, true, true, true),
+                        new CustomerProductStatus(24, true),
+                        new CustomerProductStatus(26, true),
+                        new CustomerProductStatus(28),
+                        new CustomerProductStatus(30),
+                        new CustomerProductStatus(31),
+                        new CustomerProductStatus(32)
+                    });
+    }
+}
