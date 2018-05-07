@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27428.2037
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Products.Core", "src\Alpha.Products.Core\Alpha.Products.Core.csproj", "{7D532EAC-4989-4D1A-BC8B-54A37FF5123D}"
 EndProject
@@ -32,6 +32,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Report", "Report", "{8E578321-001F-41FA-9ED4-ABED8B30A142}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MemberInfo", "MemberInfo", "{6117A355-4748-4EE0-84C2-7BE58335CC4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{FC02C3B2-5BC7-4F53-9609-8FBE4FD90A6F}"
+	ProjectSection(SolutionItems) = preProject
+		SonarQube\Alpha.ProductsCSharp.ruleset = SonarQube\Alpha.ProductsCSharp.ruleset
+		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
