@@ -18,7 +18,7 @@
         {
             get
             {
-                var paramaters = new Dictionary<string, string>()
+                var paramaters = new Dictionary<string, string>
                 {
                     ["custid"] = SearchAccount.Id.ToString(),
                     ["username"] = SearchAccount.Username,

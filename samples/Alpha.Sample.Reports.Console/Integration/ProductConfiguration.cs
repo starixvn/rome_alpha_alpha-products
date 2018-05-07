@@ -8,7 +8,7 @@
     public static class ProductConfiguration
     {
         internal static IList<IConfigurationItem> LoadApplicationProductConfiguration()
-         => new List<IConfigurationItem>()
+         => new List<IConfigurationItem>
          {
             new ConfigurationItem(1, "Sportsbook", true, new ReportProperties()
                 .DisplayInLegend(true)

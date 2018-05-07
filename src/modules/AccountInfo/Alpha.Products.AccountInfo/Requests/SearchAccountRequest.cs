@@ -18,8 +18,8 @@
         {
             Actor = actor;
             SearchAccount = searchAccount;
-            this.GetResource = GetResource ?? SimpleServiceLocator.Instance.GetService<Func<string, string>>();
-            this.GetProductName = GetProductName ?? SimpleServiceLocator.Instance.GetService<Func<int, string>>();
+            this.GetResource = GetResource ?? SimpleServiceLocator.GetService<Func<string, string>>();
+            this.GetProductName = GetProductName ?? SimpleServiceLocator.GetService<Func<int, string>>();
         }
 
         public ICustomer Actor { get; }

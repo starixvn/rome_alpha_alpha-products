@@ -62,8 +62,6 @@
     <Compile Include="Shared\Enumeration.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Alpha.Products.Core.Debug.ruleset" />
-    <None Include="Alpha.Products.Core.ruleset" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

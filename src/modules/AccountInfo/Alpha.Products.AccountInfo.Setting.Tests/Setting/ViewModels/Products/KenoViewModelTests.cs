@@ -21,7 +21,7 @@
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
             var viewModel = new KenoViewModel(request);
 
-            Assert.True(viewModel.Url.StartsWith(baseAddress, StringComparison.OrdinalIgnoreCase) == true);
+            Assert.StartsWith(baseAddress, viewModel.Url, StringComparison.OrdinalIgnoreCase);
         }
 
         [Fact]

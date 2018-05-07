@@ -18,7 +18,7 @@
             var request = RequestHelper.CreateRequest(4, 3);
             var viewModel = new ProductStatusItemViewModel(request, 15);
 
-            Assert.True(viewModel.Url.StartsWith(BaseAddress, StringComparison.OrdinalIgnoreCase) == true);
+            Assert.StartsWith(BaseAddress, viewModel.Url, StringComparison.OrdinalIgnoreCase);
         }
 
         [Fact]
@@ -34,7 +34,7 @@
         public void Url_QueryString_Returns_ProductId()
         {
             var request = RequestHelper.CreateRequest(4, 3);
-            var productId = 15;
+            const int productId = 15;
             var viewModel = new ProductStatusItemViewModel(request, productId);
 
             Assert.True(viewModel.Url.IndexOf($"productid={productId}", StringComparison.OrdinalIgnoreCase) >= 0);

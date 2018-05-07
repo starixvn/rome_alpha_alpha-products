@@ -18,7 +18,7 @@
             var request = RequestHelper.CreateRequest(4, 3);
             var viewModel = new GoldDeluxeViewModel(request);
 
-            Assert.True(viewModel.Url.StartsWith(BaseAddress, StringComparison.OrdinalIgnoreCase) == true);
+            Assert.StartsWith(BaseAddress, viewModel.Url, StringComparison.OrdinalIgnoreCase);
         }
 
         [Fact]

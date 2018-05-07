@@ -17,7 +17,7 @@
     {
         private const int subAccountId = 0;
 
-        private static void Main(string[] args)
+        private static void Main()
         {
             try
             {
@@ -25,9 +25,9 @@
 
                 ClearScreen();
 
-                var actor = new Customer(1, subAccountId, "Actor_Name", 4, GetActorProductStatus(1));
-                var upline = new Customer(3, subAccountId, "Upline_Name", 4, GetUplineProductStatus(3));
-                var searchAccount = new Customer(5, subAccountId, "Search_Account_Name", 3, GetSearchAccountProductStatus(5), upline);
+                var actor = new Customer(1, subAccountId, "Actor_Name", 4, GetActorProductStatus());
+                var upline = new Customer(3, subAccountId, "Upline_Name", 4, GetUplineProductStatus());
+                var searchAccount = new Customer(5, subAccountId, "Search_Account_Name", 3, GetSearchAccountProductStatus(), upline);
 
                 LoadAndDisplaySettingOnAccountInfoPanel(actor, searchAccount);
 

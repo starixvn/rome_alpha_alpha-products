@@ -10,7 +10,7 @@
         /// </summary>
         /// <returns></returns>
         internal static IList<IConfigurationItem> LoadApplicationProductConfiguration()
-        => new List<IConfigurationItem>()
+        => new List<IConfigurationItem>
         {
                 new ConfigurationItem(1, "Sportsbook", true),
                 new ConfigurationItem(2, "Racing", false),

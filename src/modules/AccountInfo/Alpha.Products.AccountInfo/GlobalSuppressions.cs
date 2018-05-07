@@ -11,6 +11,35 @@ using System.Diagnostics.CodeAnalysis;
 [assembly:
     SuppressMessage("Sonar Code Smell", "S101:Types should be named in camel case", Justification = "<Pending>",
         Scope = "type", Target = "~T:Alpha.Products.AccountInfo.Status.ProductManager")]
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.AccountInfo.Setting.SettingViewModelFactory")]
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.AccountInfo.Status.StatusViewModelFactory")]
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S3358:Ternary operators should not be nested", Justification = "<Pending>", Scope = "member", Target = "~P:Alpha.Products.AccountInfo.Setting.ViewModels.Products.ColossusBetsViewModel.QueryStringParamaters")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.AccountInfo.Setting.SettingViewModelFactory")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.AccountInfo.Status.StatusViewModelFactory")]
+[assembly: SuppressMessage(
+    "Major Code Smell",
+    "S3358:Ternary operators should not be nested",
+    Justification = "<Pending>",
+    Scope = "member",
+    Target = "~P:Alpha.Products.AccountInfo.Setting.ViewModels.Products.ColossusBetsViewModel.QueryStringParamaters")]
+[assembly: SuppressMessage(
+    "Major Code Smell",
+    "S3996:URI properties should not be strings",
+    Justification = "<Pending>",
+    Scope = "member",
+    Target = "~P:Alpha.Products.AccountInfo.Setting.ViewModels.Base.SettingItemViewModel.Url")]
+[assembly: SuppressMessage(
+    "Major Code Smell",
+    "S3996:URI properties should not be strings",
+    Justification = "<Pending>",
+    Scope = "member",
+    Target = "~P:Alpha.Products.AccountInfo.Setting.ViewModels.Base.ISettingItemViewModel.Url")]
+[assembly: SuppressMessage(
+    "Major Code Smell",
+    "S3996:URI properties should not be strings",
+    Justification = "<Pending>",
+    Scope = "member",
+    Target = "~P:Alpha.Products.AccountInfo.Status.ViewModels.Base.IStatusItemViewModel.Url")]
+[assembly: SuppressMessage(
+    "Major Code Smell",
+    "S3996:URI properties should not be strings",
+    Justification = "<Pending>",
+    Scope = "member",
+    Target = "~P:Alpha.Products.AccountInfo.Status.ViewModels.Base.StatusItemViewModel.Url")]

@@ -12,7 +12,7 @@
             Func<int, string> getProductName = null)
         {
             Actor = actor;
-            GetProductName = getProductName ?? SimpleServiceLocator.Instance.GetService<Func<int, string>>();
+            GetProductName = getProductName ?? SimpleServiceLocator.GetService<Func<int, string>>();
         }
 
         public ReportProductRequest(

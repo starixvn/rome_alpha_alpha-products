@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="SonarQube - Alpha / Alpha Products Nexcel CSharp" ToolsVersion="14.0">
-  <Include Path="..\..\.sonarlint\alpha.productscsharp.ruleset" Action="Default" />
-  <Include Path="..\..\sonarqube\alpha.productscsharp.ruleset" Action="Default" />
-  <Include Path="e:\gitscm\fanex.logging\sonarqube\fanex.loggingcsharp.ruleset" Action="Default" />
-</RuleSet>

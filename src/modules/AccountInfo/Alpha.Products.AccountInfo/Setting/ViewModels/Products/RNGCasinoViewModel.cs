@@ -48,7 +48,7 @@
                 {
                     var memberProductStatus = SearchAccount.ProductStatusOf(ProductId);
 
-                    return memberProductStatus.Synced & memberProductStatus.Enabled;
+                    return memberProductStatus.Synced && memberProductStatus.Enabled;
                 }
 
                 return false;

@@ -6,24 +6,24 @@
 
     public static class StubCustomerProductStatusGetter
     {
-        public static IEnumerable<CustomerProductStatus> GetUplineProductStatus(int customerId)
+        public static IEnumerable<CustomerProductStatus> GetUplineProductStatus()
         {
             return GetCustomerProductStatus();
         }
 
-        public static IEnumerable<CustomerProductStatus> GetActorProductStatus(int customerId)
+        public static IEnumerable<CustomerProductStatus> GetActorProductStatus()
         {
             return GetCustomerProductStatus();
         }
 
-        public static IEnumerable<CustomerProductStatus> GetSearchAccountProductStatus(int customerId)
+        public static IEnumerable<CustomerProductStatus> GetSearchAccountProductStatus()
         {
             return GetCustomerProductStatus();
         }
 
         public static IEnumerable<CustomerProductStatus> GetCustomerProductStatus()
             => new ReadOnlyCollection<CustomerProductStatus>(
-                    new List<CustomerProductStatus>()
+                    new List<CustomerProductStatus>
                     {
                         new CustomerProductStatus(1),
                         new CustomerProductStatus(2),

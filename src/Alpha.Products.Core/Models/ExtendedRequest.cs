@@ -13,9 +13,12 @@
         bool ContainKey(string key);
     }
 
-    public abstract class ExtendedRequest : IExtendedRequest
+    public class ExtendedRequest : IExtendedRequest
     {
         protected Dictionary<string, object> dataBag = new Dictionary<string, object>();
+
+        protected ExtendedRequest()
+        { }
 
         public IExtendedRequest AddData<T>(string key, T value)
         {

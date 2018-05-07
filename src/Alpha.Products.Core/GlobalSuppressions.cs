@@ -1,7 +1,4 @@
-﻿// This file is used by Code Analysis to maintain SuppressMessage
-// attributes that are applied to this project.
-// Project-level suppressions either have no target or are given
-// a specific target and scoped to a namespace, type, member, etc.
+﻿//<generated />
 
 using System.Diagnostics.CodeAnalysis;
 
@@ -14,4 +11,6 @@ using System.Diagnostics.CodeAnalysis;
     Scope = "type",
     Target = "~T:Alpha.Products.Core.Shared.Enumeration")]
 [assembly: SuppressMessage("Formatting", "RCS1057:Add empty line between declarations.", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.Core.Values.ProductStatus")]
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.Core.Services.ConfigurationService")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.Core.Services.ConfigurationService")]
+
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.Core.Configuration.ConfigurationService")]

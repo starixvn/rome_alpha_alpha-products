@@ -26,7 +26,7 @@
         {
             var productConfigurationService
                 = GetApplicationProductConfiguration
-                ?? SimpleServiceLocator.Instance.GetService<Func<IEnumerable<IConfigurationItem>>>();
+                ?? SimpleServiceLocator.GetService<Func<IEnumerable<IConfigurationItem>>>();
 
             if (ConfigurationDataSource == null || ConfigurationDataSource.Count == 0)
             {

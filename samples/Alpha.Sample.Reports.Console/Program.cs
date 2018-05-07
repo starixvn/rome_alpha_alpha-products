@@ -12,7 +12,7 @@
 
     internal static class Program
     {
-        private static void Main(string[] args)
+        private static void Main()
         {
             try
             {
@@ -21,7 +21,7 @@
                 ClearScreen();
 
                 var actor
-                    = new Customer(1, 0, "Customer 1", 4, StubCustomerProductStatusGetter.GetActorProductStatus(1));
+                    = new Customer(1, 0, "Customer 1", 4, StubCustomerProductStatusGetter.GetActorProductStatus());
 
                 PrintReport(new ReportProductRequest(actor));
 
@@ -58,7 +58,7 @@
         private static void PrintReport(IRequest productRequest, string reportName = "")
         {
             var reportProductFactory = new ReportProductViewModelFactory();
-            Console.WriteLine((string.IsNullOrWhiteSpace(reportName) ? "Outstanding Report" : reportName).ToUpper());
+            Console.WriteLine((string.IsNullOrWhiteSpace(reportName) ? "Outstanding Report" : reportName).ToUpperInvariant());
             Console.WriteLine();
             foreach (var product in reportProductFactory.GetViewModels(productRequest))
             {

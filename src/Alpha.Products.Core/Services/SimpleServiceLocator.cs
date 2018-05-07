@@ -8,10 +8,6 @@
         private static readonly Dictionary<string, object> container
             = new Dictionary<string, object>();
 
-        static SimpleServiceLocator()
-        {
-        }
-
         private SimpleServiceLocator()
         {
         }
@@ -25,14 +21,14 @@
             return this;
         }
 
-        public T GetService<T>()
+        public static T GetService<T>()
         {
             if (container.ContainsKey(typeof(T).ToString()))
             {
                 return (T)container[typeof(T).ToString()];
             }
 
-            throw new ApplicationException($"cannot resolve type {typeof(T).FullName}");
+            throw new InvalidOperationException($"cannot resolve type {typeof(T).FullName}");
         }
     }
 }
