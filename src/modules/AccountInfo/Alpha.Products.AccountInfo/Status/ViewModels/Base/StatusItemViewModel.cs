@@ -13,7 +13,9 @@
         protected StatusItemViewModel(ISearchAccountInfoRequest request, int displayOrder = 0)
         {
             Request = request ?? throw new ArgumentNullException(nameof(request));
+#pragma warning disable RECS0021 // Warns about calls to virtual member functions occuring in the constructor
             DisplayOrder = displayOrder;
+#pragma warning restore RECS0021 // Warns about calls to virtual member functions occuring in the constructor
         }
 
         protected ICustomer Actor => Request.Actor;

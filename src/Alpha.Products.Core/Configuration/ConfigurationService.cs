@@ -30,7 +30,9 @@
 
             if (ConfigurationDataSource == null || ConfigurationDataSource.Count == 0)
             {
+#pragma warning disable S3010 // Static fields should not be updated in constructors
                 ConfigurationDataSource = new ReadOnlyCollection<IConfigurationItem>(productConfigurationService().ToList());
+#pragma warning restore S3010 // Static fields should not be updated in constructors
             }
 
             ExcludedProductIds = excludedProductIds ?? Enumerable.Empty<int>();

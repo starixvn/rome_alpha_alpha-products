@@ -13,9 +13,9 @@
 
         public override bool Disabled
             => base.Disabled
-                || !Request.GetData<bool>("SearchAccount.Upline.IsAllowedDoubleComm")
+                || !Request.GetData<bool>(Constants.SearchAccount_Upline_IsAllowedDoubleComm)
                 || Request.ActorIsNotEdittingDirectDownline;
 
-        public override bool Checked => Request.GetData<bool>("SearchAccount.IsAllowedDoubleComm");
+        public override bool Checked => Request.GetData<bool>(Constants.SearchAccount_IsAllowedDoubleComm);
     }
 }

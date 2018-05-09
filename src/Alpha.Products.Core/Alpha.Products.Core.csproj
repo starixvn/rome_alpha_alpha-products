@@ -31,7 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Alpha.Products.Core.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Alpha.Products.Core.Release.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -62,6 +62,8 @@
     <Compile Include="Shared\Enumeration.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Alpha.Products.Core.Debug.ruleset" />
+    <None Include="Alpha.Products.Core.Release.ruleset" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

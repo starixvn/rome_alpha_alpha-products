@@ -16,6 +16,6 @@
             && Actor.IsSuper
             && SearchAccount.IsMaster;
 
-        public override bool Checked => Request.GetData<bool>("SearchAccount.IsAllowedMasterAutoPT");
+        public override bool Checked => Request.GetData<bool>(Constants.SearchAccount_IsAllowedMasterAutoPT);
     }
 }

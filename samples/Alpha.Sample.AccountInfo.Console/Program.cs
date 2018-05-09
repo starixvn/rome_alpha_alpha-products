@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using Alpha.Products.AccountInfo;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Status;
     using Alpha.Products.Core.Configuration;
@@ -63,8 +64,8 @@
             var request = new SearchAccountRequest(actor, searchAccount);
 
             request
-                .AddData("Actor.CanEditDailyTransferOption", true)
-                .AddData("Actor.HasUpdateAccountPermission", true);
+                .AddData(Constants.Actor_CanEditDailyTransferOption, true)
+                .AddData(Constants.Actor_HasUpdateAccountPermission, true);
 
             Console.WriteLine($"------------Account Info Edit Setting------------\n");
             foreach (var viewModel in viewModelfactory.GetViewModels(request))
@@ -87,21 +88,21 @@
             var request = new SearchAccountRequest(actor, searchAccount);
 
             request
-                .AddData("Actor.HasUpdateAccountPermission", true)
+                .AddData(Constants.Actor_HasUpdateAccountPermission, true)
 
-                .AddData("SearchAccount.IsAllowedMasterAutoPT", true)
+                .AddData(Constants.SearchAccount_IsAllowedMasterAutoPT, true)
 
-                .AddData("SearchAccount.Upline.IsAllowedOutright", true)
-                .AddData("SearchAccount.IsAllowedOutright", true)
+                .AddData(Constants.SearchAccount_Upline_IsAllowedOutright, true)
+                .AddData(Constants.SearchAccount_IsAllowedOutright, true)
 
-                .AddData("SearchAccount.Upline.IsClosed", true)
-                .AddData("SearchAccount.IsClosed", true)
+                .AddData(Constants.SearchAccount_Upline_IsClosed, true)
+                .AddData(Constants.SearchAccount_IsClosed, true)
 
-                .AddData("SearchAccount.Upline.IsAllowedDoubleComm", true)
-                .AddData("SearchAccount.IsAllowedDoubleComm", true)
+                .AddData(Constants.SearchAccount_Upline_IsAllowedDoubleComm, true)
+                .AddData(Constants.SearchAccount_IsAllowedDoubleComm, true)
 
-                .AddData("SearchAccount.Upline.IsSuspended", true)
-                .AddData("SearchAccount.IsSuspended", true);
+                .AddData(Constants.SearchAccount_Upline_IsSuspended, true)
+                .AddData(Constants.SearchAccount_IsSuspended, true);
 
             foreach (var viewModel in viewModelfactory.GetViewModels(request))
             {
