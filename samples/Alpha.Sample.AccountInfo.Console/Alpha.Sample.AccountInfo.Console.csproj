@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Integration\AccountInfoConfigurationItem.cs" />
     <Compile Include="Integration\ProductConfiguration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,13 +92,17 @@
     <None Include="ProductConfiguration.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\modules\AccountInfo\Alpha.Products.AccountInfo\Alpha.Products.AccountInfo.csproj">
-      <Project>{d00a2d4e-7115-48a5-a8a5-5da2354cf1e9}</Project>
-      <Name>Alpha.Products.AccountInfo</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\Alpha.Products.Core\Alpha.Products.Core.csproj">
       <Project>{7d532eac-4989-4d1a-bc8b-54a37ff5123d}</Project>
       <Name>Alpha.Products.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Alpha.Products.Integration\Alpha.Products.Integration.csproj">
+      <Project>{68308cbd-b58f-49ec-a7bb-f6da2a29a232}</Project>
+      <Name>Alpha.Products.Integration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\modules\AccountInfo\Alpha.Products.AccountInfo\Alpha.Products.AccountInfo.csproj">
+      <Project>{d00a2d4e-7115-48a5-a8a5-5da2354cf1e9}</Project>
+      <Name>Alpha.Products.AccountInfo</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

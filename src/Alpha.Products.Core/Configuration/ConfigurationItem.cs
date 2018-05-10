@@ -2,14 +2,15 @@
 {
     using System;
 
-    public class ConfigurationItem : IConfigurationItem
+    public class ConfigurationItem<T> : IConfigurationItem<T> 
+        where T : IExtendProductProperty
     {
         public ConfigurationItem(
             int productId,
             string productName,
             bool enabled,
             DateTime endSupportDate,
-            IExtendProductProperty extendProductProperty = null)
+            T extendProductProperty = default(T))
         {
             ProductId = productId;
             ProductName = productName;
@@ -18,7 +19,7 @@
             ExtendProductProperty = extendProductProperty;
         }
 
-        public ConfigurationItem(int productId, string productName, bool enabled = true, IExtendProductProperty extendProductProperty = null)
+        public ConfigurationItem(int productId, string productName, bool enabled = true, T extendProductProperty = default(T))
             : this(productId, productName, enabled, DateTime.MaxValue, extendProductProperty)
         {
         }
@@ -31,6 +32,6 @@
 
         public DateTime EndSupportDate { get; }
 
-        public IExtendProductProperty ExtendProductProperty { get; }
+        public T ExtendProductProperty { get; }
     }
 }

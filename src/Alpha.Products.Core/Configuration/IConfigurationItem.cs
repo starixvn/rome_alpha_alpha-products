@@ -6,7 +6,8 @@
     {
     }
 
-    public interface IConfigurationItem
+    public interface IConfigurationItem<out T> 
+        where T : IExtendProductProperty
     {
         int ProductId { get; }
 
@@ -16,6 +17,6 @@
 
         DateTime EndSupportDate { get; }
 
-        IExtendProductProperty ExtendProductProperty { get; }
+        T ExtendProductProperty { get; }
     }
 }

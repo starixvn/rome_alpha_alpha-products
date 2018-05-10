@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Products.Core", "src\Alpha.Products.Core\Alpha.Products.Core.csproj", "{7D532EAC-4989-4D1A-BC8B-54A37FF5123D}"
 EndProject
@@ -38,6 +38,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 		SonarQube\Alpha.ProductsCSharp.ruleset = SonarQube\Alpha.ProductsCSharp.ruleset
 		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Products.Integration", "src\Alpha.Products.Integration\Alpha.Products.Integration.csproj", "{68308CBD-B58F-49EC-A7BB-F6DA2A29A232}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{A3BD0E13-D274-4BC7-B0D9-6953BD4852F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3BD0E13-D274-4BC7-B0D9-6953BD4852F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3BD0E13-D274-4BC7-B0D9-6953BD4852F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68308CBD-B58F-49EC-A7BB-F6DA2A29A232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68308CBD-B58F-49EC-A7BB-F6DA2A29A232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68308CBD-B58F-49EC-A7BB-F6DA2A29A232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68308CBD-B58F-49EC-A7BB-F6DA2A29A232}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +100,7 @@ Global
 		{24769E7A-BA90-4437-A5C9-81AA2F6D525D} = {5BAC77A4-6047-4349-B408-3F34BD510F40}
 		{8E578321-001F-41FA-9ED4-ABED8B30A142} = {5BAC77A4-6047-4349-B408-3F34BD510F40}
 		{6117A355-4748-4EE0-84C2-7BE58335CC4B} = {5BAC77A4-6047-4349-B408-3F34BD510F40}
+		{68308CBD-B58F-49EC-A7BB-F6DA2A29A232} = {BEBEC465-DEB1-4A3E-8C1D-6FB2A4A6D739}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A20A29C-BF15-4FF7-A528-9F5F76D35505}

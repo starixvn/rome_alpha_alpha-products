@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Alpha.Products.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Provided the core class for implementing integration new feature (product/non-product)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Starixsoft")]
 [assembly: AssemblyProduct("Alpha.Products.Core")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]

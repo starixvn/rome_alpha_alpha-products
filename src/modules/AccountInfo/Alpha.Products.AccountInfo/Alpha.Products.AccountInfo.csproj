@@ -35,6 +35,9 @@
     <CodeAnalysisRuleSet>Alpha.Products.AccountInfo.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Alpha.Products.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Alpha.Products.Core.1.0.0-beta1\lib\net461\Alpha.Products.Core.dll</HintPath>
+    </Reference>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -80,12 +83,6 @@
     <Compile Include="Status\ViewModels\Base\ProductStatusItemViewModel.cs" />
     <Compile Include="Status\ViewModels\Base\StatusItemViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmSuspendedViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Alpha.Products.Core\Alpha.Products.Core.csproj">
-      <Project>{7d532eac-4989-4d1a-bc8b-54a37ff5123d}</Project>
-      <Name>Alpha.Products.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Alpha.Products.AccountInfo.ruleset" />
