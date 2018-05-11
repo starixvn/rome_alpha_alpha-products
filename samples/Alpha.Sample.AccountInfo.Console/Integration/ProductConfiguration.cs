@@ -10,14 +10,12 @@
         /// it will be replaced by code loading setting from shared config
         /// </summary>
         /// <returns></returns>
-        internal static IList<IConfigurationItem> LoadApplicationProductConfiguration()
+        internal static IEnumerable<IConfigurationItem> LoadApplicationProductConfiguration()
         {
             // This path will be stored in AppSettings on Global
-            var loader = new SearchAccountConfigurationLoader(
-                @"..\..\..\globalconfigs\ProductConfiguration.json",
-                new ProductJsonConverter());
+            var loader = new SearchAccountConfigurationLoader(new ProductJsonConverter());
 
-            return loader.LoadApplicationProductConfiguration("AccountInfo");
+            return loader.LoadProductConfiguration("AccountInfo");
         }
     }
 }

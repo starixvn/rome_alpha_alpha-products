@@ -15,9 +15,13 @@
             var absoluteConfigFilePath = Path.Combine(currentDirectory, relativePath);
             if (File.Exists(absoluteConfigFilePath))
             {
-                using (StreamReader sr = new StreamReader(relativePath))
+                // Read file without locking file
+                using (FileStream fileStream = new FileStream(relativePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
-                    return sr.ReadToEnd();
+                    using (StreamReader streamReader = new StreamReader(fileStream))
+                    {
+                        return streamReader.ReadToEnd();
+                    }
                 }
             }
             else

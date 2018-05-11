@@ -6,14 +6,12 @@
 
     public static class ProductConfiguration
     {
-        internal static IList<IConfigurationItem> LoadApplicationProductConfiguration()
+        internal static IEnumerable<IConfigurationItem> LoadApplicationProductConfiguration()
         {
             // This path will be stored in AppSettings on Global
-            var loader = new ReportConfigurationLoader(
-                @"..\..\..\globalconfigs\ProductConfiguration.json",
-                new ProductJsonConverter());
+            var loader = new ReportConfigurationLoader(new ProductJsonConverter());
 
-            return loader.LoadApplicationProductConfiguration("Report");
+            return loader.LoadProductConfiguration("Report");
         }
     }
 }

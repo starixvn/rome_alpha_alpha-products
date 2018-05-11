@@ -12,8 +12,8 @@
             .Properties()
             .ToDictionary(jproperty => jproperty.Name, jproperty => jproperty.Value.ToString());
 
-        public IList<string> DeserializeToProductConfigs(string jsonString)
-            => JObject.Parse(jsonString)["Products"]
+        public IList<string> DeserializeToProductConfigs(string productConfigJson)
+            => JObject.Parse(productConfigJson)["Products"]
             .Children()
             .Select(jtoken => jtoken.ToString())
             .ToList();

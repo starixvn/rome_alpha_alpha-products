@@ -6,7 +6,7 @@
 
     public interface IProductConfigurationLoader
     {
-        IList<IConfigurationItem> LoadApplicationProductConfiguration(string siteName);
+        IEnumerable<IConfigurationItem> LoadProductConfiguration(string siteName);
     }
 
     /// <summary>
@@ -15,37 +15,37 @@
     public class DefaultProductConfigurationLoader : IProductConfigurationLoader
     {
         private readonly IProductJsonConverter jsonConverter;
-        private readonly string jsonConfigFileRelativePath;
+        private readonly string productConfigFileRelativePath;
         private readonly Func<int, bool> isProductEnableFunc;
         private readonly IJsonFileReader jsonFileReader;
 
         public DefaultProductConfigurationLoader(
-            string jsonConfigFileRelativePath,
             IProductJsonConverter jsonConverter,
+            string jsonConfigFileRelativePath = null,
             IJsonFileReader jsonFileReader = null,
             Func<int, bool> isProductEnableFunc = null)
         {
-            this.jsonConfigFileRelativePath = jsonConfigFileRelativePath;
+            this.productConfigFileRelativePath = jsonConfigFileRelativePath ?? GlobalProductSettings.ProductConfigFileRelativePath;
             this.jsonConverter = jsonConverter;
             this.isProductEnableFunc = isProductEnableFunc ?? GlobalProductSettings.IsProductEnabled;
             this.jsonFileReader = jsonFileReader ?? new JsonFileReader();
         }
 
-        public IList<IConfigurationItem> LoadApplicationProductConfiguration(string siteName)
+        public IEnumerable<IConfigurationItem> LoadProductConfiguration(string siteName)
         {
-            var productsJsonString = jsonFileReader.ReadProductJsonConfig(jsonConfigFileRelativePath);
+            var productsJsonString = jsonFileReader.ReadProductJsonConfig(productConfigFileRelativePath);
             var productConfigs = jsonConverter.DeserializeToProductConfigs(productsJsonString);
             var configItems = new List<IConfigurationItem>();
 
             foreach (var productConfig in productConfigs)
             {
-                configItems.Add(GetConfigurationItem(productConfig, siteName));
+                configItems.Add(BuildConfigurationItem(productConfig, siteName));
             }
 
             return configItems;
         }
 
-        private IConfigurationItem GetConfigurationItem(string productJson, string siteName)
+        private IConfigurationItem BuildConfigurationItem(string productJson, string siteName)
         {
             var productConfig = jsonConverter.DeserializeToDictionary(productJson);
             var productId = int.Parse(productConfig["ProductId"]);
@@ -59,12 +59,12 @@
                 productId,
                 productName,
                 isProductEnableFunc(productId),
-                GetExtendProductProperty(extendedPropertyData));
+                BuildExtendProductProperty(extendedPropertyData));
 
             return configurationItem;
         }
 
-        protected virtual IExtendProductProperty GetExtendProductProperty(IDictionary<string, string> extendedPropertyData)
+        protected virtual IExtendProductProperty BuildExtendProductProperty(IDictionary<string, string> extendedPropertyData)
             => null;
 
         protected static bool GetBoolValue(IDictionary<string, string> extendedPropertyData, string key)

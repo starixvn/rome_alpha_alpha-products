@@ -6,12 +6,12 @@
 
     public class ReportConfigurationLoader : DefaultProductConfigurationLoader
     {
-        public ReportConfigurationLoader(string jsonConfigFileRelativePath, IProductJsonConverter jsonConverter)
-            : base(jsonConfigFileRelativePath, jsonConverter)
+        public ReportConfigurationLoader(IProductJsonConverter jsonConverter)
+            : base(jsonConverter)
         {
         }
 
-        protected override IExtendProductProperty GetExtendProductProperty(IDictionary<string, string> extendedPropertyData)
+        protected override IExtendProductProperty BuildExtendProductProperty(IDictionary<string, string> extendedPropertyData)
             => new ReportProperties(
                 GetBoolValue(extendedPropertyData, "ShowInLegend"),
                 GetBoolValue(extendedPropertyData, "HasMatchInfo"),

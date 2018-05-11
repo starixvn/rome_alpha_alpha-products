@@ -6,6 +6,6 @@
     {
         IDictionary<string, string> DeserializeToDictionary(string jsonString);
 
-        IList<string> DeserializeToProductConfigs(string jsonString);
+        IList<string> DeserializeToProductConfigs(string productConfigJson);
     }
 }
