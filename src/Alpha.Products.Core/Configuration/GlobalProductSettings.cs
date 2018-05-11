@@ -1,4 +1,4 @@
-﻿namespace Alpha.Products.Integration
+﻿namespace Alpha.Products.Core.Integration
 {
     using System;
     using System.Collections.Specialized;

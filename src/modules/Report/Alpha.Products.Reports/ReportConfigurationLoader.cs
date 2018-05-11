@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using Alpha.Products.Core.Configuration;
-    using Alpha.Products.Integration.Helpers;
+    using Alpha.Products.Core.Integration;
 
     public class ReportConfigurationLoader : DefaultProductConfigurationLoader
     {

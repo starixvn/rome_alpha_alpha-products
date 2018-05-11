@@ -75,10 +75,6 @@
       <Project>{7d532eac-4989-4d1a-bc8b-54a37ff5123d}</Project>
       <Name>Alpha.Products.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\src\Alpha.Products.Integration\Alpha.Products.Integration.csproj">
-      <Project>{68308cbd-b58f-49ec-a7bb-f6da2a29a232}</Project>
-      <Name>Alpha.Products.Integration</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\modules\Report\Alpha.Products.Reports\Alpha.Products.Reports.csproj">
       <Project>{14684520-afc2-4f57-93db-6a74348b7291}</Project>
       <Name>Alpha.Products.Reports</Name>

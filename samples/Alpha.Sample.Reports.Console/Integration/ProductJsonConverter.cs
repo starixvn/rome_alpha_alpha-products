@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Alpha.Products.Integration.Helpers;
+    using Alpha.Products.Core.Integration;
     using Newtonsoft.Json.Linq;
 
     public class ProductJsonConverter : IProductJsonConverter

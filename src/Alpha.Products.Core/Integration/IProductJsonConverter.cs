@@ -1,4 +1,4 @@
-﻿namespace Alpha.Products.Integration.Helpers
+﻿namespace Alpha.Products.Core.Integration
 {
     using System.Collections.Generic;
 

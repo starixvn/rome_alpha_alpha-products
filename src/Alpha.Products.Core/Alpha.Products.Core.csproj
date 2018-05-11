@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,8 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\GlobalProductSettings.cs" />
     <Compile Include="Configuration\IConfigurationItem.cs" />
     <Compile Include="Configuration\ConfigurationItem.cs" />
+    <Compile Include="Integration\IProductJsonConverter.cs" />
+    <Compile Include="Integration\JsonFileLoader.cs" />
+    <Compile Include="Integration\ProductConfigurationLoader.cs" />
     <Compile Include="Models\IRequest.cs" />
     <Compile Include="ViewModels\GenericViewModelFactory.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />

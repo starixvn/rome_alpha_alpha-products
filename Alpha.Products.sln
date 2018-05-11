@@ -39,8 +39,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Products.Integration", "src\Alpha.Products.Integration\Alpha.Products.Integration.csproj", "{68308CBD-B58F-49EC-A7BB-F6DA2A29A232}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "globalconfigs", "globalconfigs", "{7BB39035-E550-4DCC-930B-EEAD536C6605}"
 	ProjectSection(SolutionItems) = preProject
 		samples\globalconfigs\ProductConfiguration.json = samples\globalconfigs\ProductConfiguration.json
@@ -84,10 +82,6 @@ Global
 		{A3BD0E13-D274-4BC7-B0D9-6953BD4852F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3BD0E13-D274-4BC7-B0D9-6953BD4852F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3BD0E13-D274-4BC7-B0D9-6953BD4852F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{68308CBD-B58F-49EC-A7BB-F6DA2A29A232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68308CBD-B58F-49EC-A7BB-F6DA2A29A232}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68308CBD-B58F-49EC-A7BB-F6DA2A29A232}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68308CBD-B58F-49EC-A7BB-F6DA2A29A232}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,7 +99,6 @@ Global
 		{24769E7A-BA90-4437-A5C9-81AA2F6D525D} = {5BAC77A4-6047-4349-B408-3F34BD510F40}
 		{8E578321-001F-41FA-9ED4-ABED8B30A142} = {5BAC77A4-6047-4349-B408-3F34BD510F40}
 		{6117A355-4748-4EE0-84C2-7BE58335CC4B} = {5BAC77A4-6047-4349-B408-3F34BD510F40}
-		{68308CBD-B58F-49EC-A7BB-F6DA2A29A232} = {BEBEC465-DEB1-4A3E-8C1D-6FB2A4A6D739}
 		{7BB39035-E550-4DCC-930B-EEAD536C6605} = {95802836-483B-487E-9383-49B431DB5300}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
