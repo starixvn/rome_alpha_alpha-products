@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants.cs" />
+    <Compile Include="DataKey.cs" />
     <Compile Include="Requests\SearchAccountRequest.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Requests\ISearchAccountInfoRequest.cs" />

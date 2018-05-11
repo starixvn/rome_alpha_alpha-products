@@ -21,7 +21,7 @@
 
         public DefaultProductConfigurationLoader(
             string jsonConfigFileRelativePath,
-            IProductJsonConverter jsonConverter, 
+            IProductJsonConverter jsonConverter,
             IJsonFileReader jsonFileReader = null,
             Func<int, bool> isProductEnableFunc = null)
         {
