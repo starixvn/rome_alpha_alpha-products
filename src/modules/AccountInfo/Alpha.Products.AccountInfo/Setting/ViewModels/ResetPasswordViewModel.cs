@@ -22,6 +22,6 @@
               ["isCasinoSync"] = "true",
           };
 
-        public override bool Visible => Actor.IsMainAccount || Request.GetData<bool>(Constants.Actor_HasUpdateAccountPermission);
+        public override bool Visible => Actor.IsMainAccount || Request.GetData<bool>(DataKey.Actor_HasUpdateAccountPermission);
     }
 }

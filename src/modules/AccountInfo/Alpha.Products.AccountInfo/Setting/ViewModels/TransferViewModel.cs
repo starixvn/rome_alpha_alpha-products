@@ -24,6 +24,6 @@
             => base.Visible
             && (SearchAccount.IsMaster
                 || (SearchAccount.IsAgent
-                     && Request.GetData<bool>(Constants.Actor_CanEditDailyTransferOption)));
+                     && Request.GetData<bool>(DataKey.Actor_CanEditDailyTransferOption)));
     }
 }

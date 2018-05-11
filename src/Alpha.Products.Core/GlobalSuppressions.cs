@@ -12,5 +12,4 @@ using System.Diagnostics.CodeAnalysis;
     Target = "~T:Alpha.Products.Core.Shared.Enumeration")]
 [assembly: SuppressMessage("Formatting", "RCS1057:Add empty line between declarations.", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.Core.Values.ProductStatus")]
 [assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.Core.Services.ConfigurationService")]
-
 [assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "type", Target = "~T:Alpha.Products.Core.Configuration.ConfigurationService")]

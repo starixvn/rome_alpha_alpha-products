@@ -11,8 +11,8 @@
 
         public override string Url => "_AccountInfo/Handlers/UpdateSuspendedStatus.ashx";
 
-        public override bool Disabled => base.Disabled || Request.GetData<bool>(Constants.SearchAccount_Upline_IsSuspended);
+        public override bool Disabled => base.Disabled || Request.GetData<bool>(DataKey.SearchAccount.Upline.IsSuspended);
 
-        public override bool Checked => Request.GetData<bool>(Constants.SearchAccount_IsSuspended);
+        public override bool Checked => Request.GetData<bool>(DataKey.SearchAccount.IsSuspended);
     }
 }

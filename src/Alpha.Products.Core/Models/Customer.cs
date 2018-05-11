@@ -204,7 +204,8 @@
         public bool IsEqualOrUplineOf(Enumeration custLevel)
             => Value == custLevel.Value || IsUplineOf(custLevel.Value);
 
-        public CustomerLevel GetDirectDownLineLevel() => FromValue<CustomerLevel>((byte)(Value - 1));
+        public CustomerLevel GetDirectDownLineLevel() 
+            => FromValue<CustomerLevel>((byte)(Value - 1));
 
         public bool IsDirectDownlineOf(Enumeration uplineLevel)
             => uplineLevel != null && GapBetweenTwoLevels(uplineLevel.Value, Value) == 1;
@@ -216,5 +217,28 @@
 
         private static int GapBetweenTwoLevels(byte uplineLevelValue, byte downlineLevelValue)
             => uplineLevelValue - downlineLevelValue;
+
+        public override bool Equals(object obj) 
+            => !(obj is null) && ReferenceEquals(this, obj);
+
+        public override int GetHashCode() => Value.GetHashCode();
+
+        public static bool operator ==(CustomerLevel left, CustomerLevel right) 
+            => (left is null) ? right is null : left.Equals(right);
+
+        public static bool operator !=(CustomerLevel left, CustomerLevel right)
+            => !(left == right);
+
+        public static bool operator <(CustomerLevel left, CustomerLevel right)
+            => left is null ? !(right is null) : left.CompareTo(right) < 0;
+
+        public static bool operator <=(CustomerLevel left, CustomerLevel right)
+            => left is null || left.CompareTo(right) <= 0;
+
+        public static bool operator >(CustomerLevel left, CustomerLevel right)
+            => !(left is null) && left.CompareTo(right) > 0;
+
+        public static bool operator >=(CustomerLevel left, CustomerLevel right)
+            => left is null ? right is null : left.CompareTo(right) >= 0;
     }
 }

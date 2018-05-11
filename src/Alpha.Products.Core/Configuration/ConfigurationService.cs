@@ -44,8 +44,8 @@
 
         public IEnumerable<IConfigurationItem> GetEnabledProductItems(Func<IConfigurationItem, bool> predicate)
             => ConfigurationDataSource
-                .Where(configItem => 
-                    configItem.Enabled 
+                .Where(configItem =>
+                    configItem.Enabled
                     && (predicate ?? DefaultPredicate)(configItem));
 
         public IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate)

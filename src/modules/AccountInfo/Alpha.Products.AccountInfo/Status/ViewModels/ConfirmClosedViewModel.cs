@@ -11,8 +11,8 @@
 
         public override string Url => "_AccountInfo/Handlers/UpdateClosedStatus.ashx";
 
-        public override bool Disabled => base.Disabled || Request.GetData<bool>(Constants.SearchAccount_Upline_IsClosed);
+        public override bool Disabled => base.Disabled || Request.GetData<bool>(DataKey.SearchAccount_Upline_IsClosed);
 
-        public override bool Checked => Request.GetData<bool>(Constants.SearchAccount_IsClosed);
+        public override bool Checked => Request.GetData<bool>(DataKey.SearchAccount_IsClosed);
     }
 }

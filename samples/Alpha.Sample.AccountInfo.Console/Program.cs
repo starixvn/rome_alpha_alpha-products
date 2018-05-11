@@ -10,9 +10,8 @@
     using Alpha.Products.Core.Services;
     using Alpha.RemotingRef;
     using Alpha.Sample.AccountInfo.Console.Integration;
-    using Newtonsoft.Json.Linq;
     using Products.AccountInfo.Setting;
-
+    using static Alpha.Products.AccountInfo.DataKey;
     using static StubCustomerProductStatusGetter;
 
     internal static class Program
@@ -39,7 +38,7 @@
             {
                 Console.WriteLine(ex.Message);
             }
-            
+
             Console.ReadKey();
         }
 
@@ -65,8 +64,8 @@
             var request = new SearchAccountRequest(actor, searchAccount);
 
             request
-                .AddData(Constants.Actor_CanEditDailyTransferOption, true)
-                .AddData(Constants.Actor_HasUpdateAccountPermission, true);
+                .AddData(DataKey.Actor_CanEditDailyTransferOption, true)
+                .AddData(DataKey.Actor_HasUpdateAccountPermission, true);
 
             Console.WriteLine($"------------Account Info Edit Setting------------\n");
             foreach (var viewModel in viewModelfactory.GetViewModels(request))
@@ -89,21 +88,21 @@
             var request = new SearchAccountRequest(actor, searchAccount);
 
             request
-                .AddData(Constants.Actor_HasUpdateAccountPermission, true)
+                .AddData(DataKey.Actor_HasUpdateAccountPermission, true)
 
-                .AddData(Constants.SearchAccount_IsAllowedMasterAutoPT, true)
+                .AddData(SearchAccount.IsAllowedMasterAutoPT, true)
 
-                .AddData(Constants.SearchAccount_Upline_IsAllowedOutright, true)
-                .AddData(Constants.SearchAccount_IsAllowedOutright, true)
+                .AddData(DataKey.SearchAccount_Upline_IsAllowedOutright, true)
+                .AddData(DataKey.SearchAccount_IsAllowedOutright, true)
 
-                .AddData(Constants.SearchAccount_Upline_IsClosed, true)
-                .AddData(Constants.SearchAccount_IsClosed, true)
+                .AddData(DataKey.SearchAccount_Upline_IsClosed, true)
+                .AddData(DataKey.SearchAccount_IsClosed, true)
 
-                .AddData(Constants.SearchAccount_Upline_IsAllowedDoubleComm, true)
-                .AddData(Constants.SearchAccount_IsAllowedDoubleComm, true)
+                .AddData(DataKey.SearchAccount_Upline_IsAllowedDoubleComm, true)
+                .AddData(DataKey.SearchAccount_IsAllowedDoubleComm, true)
 
-                .AddData(Constants.SearchAccount_Upline_IsSuspended, true)
-                .AddData(Constants.SearchAccount_IsSuspended, true);
+                .AddData(SearchAccount.Upline.IsSuspended, true)
+                .AddData(SearchAccount.IsSuspended, true);
 
             foreach (var viewModel in viewModelfactory.GetViewModels(request))
             {
