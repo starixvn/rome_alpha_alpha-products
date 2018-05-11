@@ -33,29 +33,5 @@
         public virtual bool Disabled => !Request.GetData<bool>("Actor.HasUpdateAccountPermission");
 
         public abstract bool Checked { get; }
-
-        public override string ToString()
-        {
-            var properties = GetType().GetProperties().ToList();
-            var lastPropertyInfo = properties.Last();
-
-            var builder = new StringBuilder();
-
-            builder.AppendLine("{");
-            foreach (var propertyInfo in properties)
-            {
-                builder
-                    .Append(" \"")
-                    .Append(propertyInfo.Name)
-                    .Append("\": \"")
-                    .Append(propertyInfo.GetValue(this))
-                    .Append("\"")
-                    .AppendLine((propertyInfo != lastPropertyInfo) ? "," : string.Empty);
-            }
-
-            builder.AppendLine("}");
-
-            return builder.ToString();
-        }
     }
 }

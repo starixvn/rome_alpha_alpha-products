@@ -10,6 +10,7 @@
     using Alpha.Products.Core.Services;
     using Alpha.RemotingRef;
     using Alpha.Sample.AccountInfo.Console.Integration;
+    using Newtonsoft.Json;
     using Products.AccountInfo.Setting;
     using static Alpha.Products.AccountInfo.DataKey;
     using static StubCustomerProductStatusGetter;
@@ -64,8 +65,8 @@
             var request = new SearchAccountRequest(actor, searchAccount);
 
             request
-                .AddData(DataKey.Actor_CanEditDailyTransferOption, true)
-                .AddData(DataKey.Actor_HasUpdateAccountPermission, true);
+                .AddData(DataKey.Actor.CanEditDailyTransferOption, true)
+                .AddData(DataKey.Actor.HasUpdateAccountPermission, true);
 
             Console.WriteLine($"------------Account Info Edit Setting------------\n");
             foreach (var viewModel in viewModelfactory.GetViewModels(request))
@@ -73,7 +74,7 @@
                 if (viewModel.Visible)
                 {
                     Console.WriteLine(viewModel.Text);
-                    Console.WriteLine(viewModel);
+                    Console.WriteLine(JsonConvert.SerializeObject(viewModel, Formatting.Indented));
                     Console.WriteLine();
                 }
             }
@@ -88,18 +89,18 @@
             var request = new SearchAccountRequest(actor, searchAccount);
 
             request
-                .AddData(DataKey.Actor_HasUpdateAccountPermission, true)
+                .AddData(DataKey.Actor.HasUpdateAccountPermission, true)
 
                 .AddData(SearchAccount.IsAllowedMasterAutoPT, true)
 
-                .AddData(DataKey.SearchAccount_Upline_IsAllowedOutright, true)
-                .AddData(DataKey.SearchAccount_IsAllowedOutright, true)
+                .AddData(DataKey.SearchAccount.Upline.IsAllowedOutright, true)
+                .AddData(DataKey.SearchAccount.IsAllowedOutright, true)
 
-                .AddData(DataKey.SearchAccount_Upline_IsClosed, true)
-                .AddData(DataKey.SearchAccount_IsClosed, true)
+                .AddData(DataKey.SearchAccount.Upline.IsClosed, true)
+                .AddData(DataKey.SearchAccount.IsClosed, true)
 
-                .AddData(DataKey.SearchAccount_Upline_IsAllowedDoubleComm, true)
-                .AddData(DataKey.SearchAccount_IsAllowedDoubleComm, true)
+                .AddData(DataKey.SearchAccount.Upline.IsAllowedDoubleComm, true)
+                .AddData(DataKey.SearchAccount.IsAllowedDoubleComm, true)
 
                 .AddData(SearchAccount.Upline.IsSuspended, true)
                 .AddData(SearchAccount.IsSuspended, true);
@@ -109,7 +110,7 @@
                 if (viewModel.Visible)
                 {
                     Console.WriteLine(viewModel.Text);
-                    Console.WriteLine(viewModel);
+                    Console.WriteLine(JsonConvert.SerializeObject(viewModel, Formatting.Indented));
                     Console.WriteLine();
                 }
             }
