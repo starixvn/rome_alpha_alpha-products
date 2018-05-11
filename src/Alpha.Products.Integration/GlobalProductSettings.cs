@@ -16,7 +16,7 @@
             {
                 return defaultValue;
             }
-
+            
             return value == "1" || value.Equals("true", StringComparison.CurrentCultureIgnoreCase);
         }
     }

@@ -1,6 +1,8 @@
 ﻿namespace Alpha.Products.AccountInfo
 {
-    public class SearchAccountProperties
+    using Alpha.Products.Core.Configuration;
+
+    public class SearchAccountProperties : IExtendProductProperty
     {
         public SearchAccountProperties(bool setting, bool status)
         {

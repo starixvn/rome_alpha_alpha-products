@@ -39,6 +39,6 @@
 
         public Func<int, string> GetProductName { get; }
 
-        public Func<IConfigurationItem, bool> Predicate => configItem => configItem.Enabled;
+        public Func<IConfigurationItem, bool> Predicate { get; }
     }
 }

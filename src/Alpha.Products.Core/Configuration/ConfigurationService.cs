@@ -39,13 +39,14 @@
         }
 
         private Func<IConfigurationItem, bool> DefaultPredicate
-            => config => config.Enabled
-                            && config.EndSupportDate >= DateTime.Now
+            => config => config.EndSupportDate >= DateTime.Now
                             && !ExcludedProductIds.Contains(config.ProductId);
 
         public IEnumerable<IConfigurationItem> GetEnabledProductItems(Func<IConfigurationItem, bool> predicate)
             => ConfigurationDataSource
-                .Where(predicate ?? DefaultPredicate);
+                .Where(configItem => 
+                    configItem.Enabled 
+                    && (predicate ?? DefaultPredicate)(configItem));
 
         public IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate)
             => GetEnabledProductItems(predicate)

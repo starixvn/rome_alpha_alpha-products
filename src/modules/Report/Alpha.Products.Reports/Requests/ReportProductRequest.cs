@@ -21,7 +21,7 @@
            Func<IConfigurationItem, bool> predicate = null)
             : this(actor, getProductName)
         {
-            Predicate = predicate ?? (_ => true);
+            Predicate = predicate;
         }
 
         public Func<int, string> GetProductName { get; }

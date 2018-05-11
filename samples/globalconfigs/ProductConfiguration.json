@@ -1,0 +1,73 @@
+﻿{
+  "Products": [
+    {
+      "ProductId": 1,
+      "ProductName": "Sportsbook1",
+      "AccountInfoProperties": {
+        "Setting": true,
+        "Status": false
+      },
+      "ReportProperties": {
+        "ShowInLegend": true,
+        "HasMatchInfo": true,
+        "OfferPlayForFun": true
+      },
+      "CustomerInfoProperties": {
+        "OfferComm": true,
+        "OfferPT": true
+      }
+    },
+    {
+      "ProductId": 2,
+      "ProductName": "Racing",
+      "EndSupportDate": "2018-2-2",
+      "AccountInfoProperties": {
+        "Setting": true,
+        "Status": true
+      },
+      "ReportProperties": {
+        "ShowInLegend": false,
+        "HasMatchInfo": true,
+        "OfferPlayForFun": false
+      },
+      "CustomerInfoProperties": {
+        "OfferComm": true,
+        "OfferPT": true
+      }
+    },
+    {
+      "ProductId": 3,
+      "ProductName": "Number Game",
+      "AccountInfoProperties": {
+        "Setting": false,
+        "Status": false
+      },
+      "ReportProperties": {
+        "ShowInLegend": true,
+        "HasMatchInfo": false,
+        "OfferPlayForFun": false
+      },
+      "CustomerInfoProperties": {
+        "OfferComm": true,
+        "OfferPT": true
+      }
+    },
+    {
+      "ProductId": 6,
+      "ProductName": "Casino",
+      "AccountInfoProperties": {
+        "Setting": true,
+        "Status": true
+      },
+      "ReportProperties": {
+        "ShowInLegend": true,
+        "HasMatchInfo": false,
+        "OfferPlayForFun": true
+      },
+      "CustomerInfoProperties": {
+        "OfferComm": true,
+        "OfferPT": false
+      }
+    }
+  ]
+}

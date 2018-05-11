@@ -10,6 +10,7 @@
     using Alpha.Products.Core.Services;
     using Alpha.RemotingRef;
     using Alpha.Sample.AccountInfo.Console.Integration;
+    using Newtonsoft.Json.Linq;
     using Products.AccountInfo.Setting;
 
     using static StubCustomerProductStatusGetter;
@@ -38,7 +39,7 @@
             {
                 Console.WriteLine(ex.Message);
             }
-
+            
             Console.ReadKey();
         }
 
