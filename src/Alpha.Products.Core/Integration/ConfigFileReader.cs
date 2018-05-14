@@ -2,14 +2,14 @@
 {
     using System.IO;
 
-    public interface IJsonFileReader
+    public interface IConfigFileReader
     {
-        string ReadProductJsonConfig(string relativePath);
+        string ReadProductConfig(string relativePath);
     }
 
-    public class JsonFileReader : IJsonFileReader
+    public class ConfigFileReader : IConfigFileReader
     {
-        public string ReadProductJsonConfig(string relativePath)
+        public string ReadProductConfig(string relativePath)
         {
             var currentDirectory = Directory.GetCurrentDirectory();
             var absoluteConfigFilePath = Path.Combine(currentDirectory, relativePath);

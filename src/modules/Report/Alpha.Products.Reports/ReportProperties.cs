@@ -19,23 +19,5 @@
         public bool HasMatchInfo { get; private set; }
 
         public bool OfferPlayForFun { get; private set; }
-
-        public ReportProperties DisplayInLegend(bool display)
-        {
-            ShowInLegend = display;
-            return this;
-        }
-
-        public ReportProperties DisplayInMatchWinLoss(bool hasMatchInfo)
-        {
-            HasMatchInfo = hasMatchInfo;
-            return this;
-        }
-
-        public ReportProperties PlayForFun(bool offerPlayForFun)
-        {
-            OfferPlayForFun = offerPlayForFun;
-            return this;
-        }
     }
 }

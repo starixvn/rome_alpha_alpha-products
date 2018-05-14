@@ -16,25 +16,25 @@
     {
         private readonly IProductJsonConverter jsonConverter;
         private readonly string productConfigFileRelativePath;
-        private readonly Func<int, bool> isProductEnableFunc;
-        private readonly IJsonFileReader jsonFileReader;
+        private readonly Func<int, bool> isProductEnabled;
+        private readonly IConfigFileReader configFileReader;
 
         public DefaultProductConfigurationLoader(
             IProductJsonConverter jsonConverter,
             string jsonConfigFileRelativePath = null,
-            IJsonFileReader jsonFileReader = null,
-            Func<int, bool> isProductEnableFunc = null)
+            IConfigFileReader configFileReader = null,
+            Func<int, bool> isProductEnabled = null)
         {
             this.productConfigFileRelativePath = jsonConfigFileRelativePath ?? GlobalProductSettings.ProductConfigFileRelativePath;
             this.jsonConverter = jsonConverter;
-            this.isProductEnableFunc = isProductEnableFunc ?? GlobalProductSettings.IsProductEnabled;
-            this.jsonFileReader = jsonFileReader ?? new JsonFileReader();
+            this.isProductEnabled = isProductEnabled ?? GlobalProductSettings.IsProductEnabled;
+            this.configFileReader = configFileReader ?? new ConfigFileReader();
         }
 
         public IEnumerable<IConfigurationItem> LoadProductConfiguration(string siteName)
         {
-            var productsJsonString = jsonFileReader.ReadProductJsonConfig(productConfigFileRelativePath);
-            var productConfigs = jsonConverter.DeserializeToProductConfigs(productsJsonString);
+            var productsJsonString = configFileReader.ReadProductConfig(productConfigFileRelativePath);
+            var productConfigs = jsonConverter.ToProductConfigs(productsJsonString);
             var configItems = new List<IConfigurationItem>();
 
             foreach (var productConfig in productConfigs)
@@ -47,25 +47,25 @@
 
         private IConfigurationItem BuildConfigurationItem(string productJson, string siteName)
         {
-            var productConfig = jsonConverter.DeserializeToDictionary(productJson);
+            var productConfig = jsonConverter.ToDictionary(productJson);
             var productId = int.Parse(productConfig["ProductId"]);
             var productName = productConfig["ProductName"];
             var extendedPropertyName = $"{siteName}Properties";
             var extendedPropertyData = productConfig.ContainsKey(extendedPropertyName)
-                ? jsonConverter.DeserializeToDictionary(productConfig[extendedPropertyName])
+                ? jsonConverter.ToDictionary(productConfig[extendedPropertyName])
                 : new Dictionary<string, string>();
 
             var configurationItem = new ConfigurationItem(
                 productId,
                 productName,
-                isProductEnableFunc(productId),
+                isProductEnabled(productId),
                 BuildExtendProductProperty(extendedPropertyData));
 
             return configurationItem;
         }
 
         protected virtual IExtendProductProperty BuildExtendProductProperty(IDictionary<string, string> extendedPropertyData)
-            => null;
+            => default(IExtendProductProperty);
 
         protected static bool GetBoolValue(IDictionary<string, string> extendedPropertyData, string key)
             => extendedPropertyData.ContainsKey(key)

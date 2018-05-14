@@ -7,12 +7,12 @@
 
     public class ProductJsonConverter : IProductJsonConverter
     {
-        public IDictionary<string, string> DeserializeToDictionary(string jsonString)
+        public IDictionary<string, string> ToDictionary(string jsonString)
             => JObject.Parse(jsonString)
             .Properties()
             .ToDictionary(jproperty => jproperty.Name, jproperty => jproperty.Value.ToString());
 
-        public IList<string> DeserializeToProductConfigs(string productConfigJson)
+        public IList<string> ToProductConfigs(string productConfigJson)
             => JObject.Parse(productConfigJson)["Products"]
             .Children()
             .Select(jtoken => jtoken.ToString())

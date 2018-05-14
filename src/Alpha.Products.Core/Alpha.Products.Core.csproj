@@ -49,7 +49,7 @@
     <Compile Include="Configuration\IConfigurationItem.cs" />
     <Compile Include="Configuration\ConfigurationItem.cs" />
     <Compile Include="Integration\IProductJsonConverter.cs" />
-    <Compile Include="Integration\JsonFileLoader.cs" />
+    <Compile Include="Integration\ConfigFileReader.cs" />
     <Compile Include="Integration\ProductConfigurationLoader.cs" />
     <Compile Include="Models\IRequest.cs" />
     <Compile Include="ViewModels\GenericViewModelFactory.cs" />

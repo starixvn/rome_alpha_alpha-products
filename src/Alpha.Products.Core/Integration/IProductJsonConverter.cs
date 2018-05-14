@@ -4,8 +4,8 @@
 
     public interface IProductJsonConverter
     {
-        IDictionary<string, string> DeserializeToDictionary(string jsonString);
+        IDictionary<string, string> ToDictionary(string jsonString);
 
-        IList<string> DeserializeToProductConfigs(string productConfigJson);
+        IList<string> ToProductConfigs(string productConfigJson);
     }
 }
