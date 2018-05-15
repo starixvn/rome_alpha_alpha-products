@@ -10,7 +10,7 @@
 
         public static bool IsProductEnabled(int productId) => ToBoolean(Configs[$"EnableProduct-{productId}"]);
 
-        public static string ProductConfigFileRelativePath => Configs[$"ProductConfigsFileRelativePath"];
+        public static string ProductConfigFileRelativePath => Configs["ProductConfigsFileRelativePath"];
 
         private static bool ToBoolean(string value, bool defaultValue = false)
             => (string.IsNullOrWhiteSpace(value))

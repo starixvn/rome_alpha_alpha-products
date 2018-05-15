@@ -4,6 +4,8 @@
 
     public class ConfigurationItem : IConfigurationItem
     {
+        public ConfigurationItem() { }
+
         public ConfigurationItem(
             int productId,
             string productName,
@@ -23,14 +25,14 @@
         {
         }
 
-        public int ProductId { get; }
+        public int ProductId { get; private set; }
 
-        public string ProductName { get; }
+        public string ProductName { get; private set; }
 
-        public bool Enabled { get; }
+        public bool Enabled { get; private set; }
 
-        public DateTime EndSupportDate { get; }
+        public DateTime EndSupportDate { get; private set; }
 
-        public IExtendProductProperty ExtendProductProperty { get; }
+        public IExtendProductProperty ExtendProductProperty { get; private set; }
     }
 }

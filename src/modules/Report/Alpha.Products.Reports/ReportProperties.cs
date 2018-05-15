@@ -5,9 +5,9 @@
     public class ReportProperties : IExtendProductProperty
     {
         public ReportProperties(
-            bool showInLegend = false,
-            bool hasMatchInfo = false,
-            bool offerPlayForFun = false)
+            bool showInLegend,
+            bool hasMatchInfo,
+            bool offerPlayForFun)
         {
             ShowInLegend = showInLegend;
             HasMatchInfo = hasMatchInfo;

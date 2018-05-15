@@ -7,14 +7,11 @@
     public class ReportConfigurationLoader : DefaultConfigurationLoader
     {
         public ReportConfigurationLoader(IProductJsonConverter jsonConverter)
-            : base("Report", jsonConverter)
+            : base("report", jsonConverter)
         {
         }
 
         protected override IExtendProductProperty BuildExtendProductProperty(IDictionary<string, string> extendedPropertyData)
-            => new ReportProperties(
-                GetBoolValue(extendedPropertyData, "ShowInLegend"),
-                GetBoolValue(extendedPropertyData, "HasMatchInfo"),
-                GetBoolValue(extendedPropertyData, "OfferPlayForFun"));
+            => BuildProductProperty<ReportProperties>(extendedPropertyData);
     }
 }

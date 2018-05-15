@@ -1,72 +1,72 @@
 ﻿{
-  "Products": [
+  "products": [
     {
-      "ProductId": 1,
-      "ProductName": "Sportsbook1",
-      "AccountInfoProperties": {
-        "Setting": true,
-        "Status": false
+      "productId": 1,
+      "productName": "Sportsbook1",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": false
       },
-      "ReportProperties": {
-        "ShowInLegend": true,
-        "HasMatchInfo": true,
-        "OfferPlayForFun": true
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": true,
+        "offerPlayForFun": true
       },
-      "CustomerInfoProperties": {
-        "OfferComm": true,
-        "OfferPT": true
+      "customerInfoProperties": {
+        "offerComm": true,
+        "offerPT": true
       }
     },
     {
-      "ProductId": 2,
-      "ProductName": "Racing",
-      "EndSupportDate": "2018-2-2",
-      "AccountInfoProperties": {
-        "Setting": true,
-        "Status": true
+      "productId": 2,
+      "productName": "Racing",
+      "endSupportDate": "2018-2-2",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true
       },
-      "ReportProperties": {
-        "ShowInLegend": false,
-        "HasMatchInfo": true,
-        "OfferPlayForFun": false
+      "reportProperties": {
+        "showInLegend": false,
+        "hasMatchInfo": true,
+        "offerPlayForFun": false
       },
-      "CustomerInfoProperties": {
-        "OfferComm": true,
-        "OfferPT": true
+      "customerInfoProperties": {
+        "offerComm": true,
+        "offerPT": true
       }
     },
     {
-      "ProductId": 3,
-      "ProductName": "Number Game",
-      "AccountInfoProperties": {
-        "Setting": false,
-        "Status": false
+      "productId": 3,
+      "productName": "Number Game",
+      "accountInfoProperties": {
+        "setting": false,
+        "status": false
       },
-      "ReportProperties": {
-        "ShowInLegend": true,
-        "HasMatchInfo": false,
-        "OfferPlayForFun": false
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
       },
-      "CustomerInfoProperties": {
-        "OfferComm": true,
-        "OfferPT": true
+      "customerInfoProperties": {
+        "offerComm": true,
+        "offerPT": true
       }
     },
     {
-      "ProductId": 6,
-      "ProductName": "Casino",
-      "AccountInfoProperties": {
-        "Setting": true,
-        "Status": true
+      "productId": 6,
+      "productName": "Casino",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true
       },
-      "ReportProperties": {
-        "ShowInLegend": true,
-        "HasMatchInfo": false,
-        "OfferPlayForFun": true
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": true
       },
-      "CustomerInfoProperties": {
-        "OfferComm": true,
-        "OfferPT": false
+      "customerInfoProperties": {
+        "offerComm": true,
+        "offerPT": false
       }
     }
   ]
