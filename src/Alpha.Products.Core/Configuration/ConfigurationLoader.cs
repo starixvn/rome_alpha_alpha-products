@@ -7,7 +7,7 @@
 
     public interface IConfigurationLoader
     {
-        IEnumerable<IConfigurationItem> LoadConfiguration();
+        IEnumerable<IConfigurationItem> Load();
     }
 
     /// <summary>
@@ -36,7 +36,7 @@
             this.configFileReader = configFileReader ?? new ConfigFileReader();
         }
 
-        public IEnumerable<IConfigurationItem> LoadConfiguration()
+        public IEnumerable<IConfigurationItem> Load()
         {
             if (cachedConfigurationItems == null || !cachedConfigurationItems.Any())
             {

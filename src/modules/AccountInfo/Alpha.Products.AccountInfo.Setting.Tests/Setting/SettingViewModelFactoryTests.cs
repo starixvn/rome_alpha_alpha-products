@@ -28,21 +28,7 @@
 
             factory = new SettingViewModelFactory();
         }
-
-        [Theory]
-        [InlineData(NumberGame)]
-        public void GetViewModels_DoesNotContain_NumberGame(int excludedProductId)
-        {
-            var request = new SearchAccountRequest(CreateSuper(), CreateMaster());
-
-            var viewModels = factory.GetViewModels(request);
-
-            var productViewModelsContainExcludedProductId = viewModels
-                 .Any(viewModel => viewModel is ProductSettingItemViewModel productViewModel
-                 && productViewModel.ProductId == excludedProductId);
-
-            Assert.False(productViewModelsContainExcludedProductId);
-        }
+       
 
         [Theory]
         [InlineData(Sportsbook, typeof(SportsbookViewModel))]

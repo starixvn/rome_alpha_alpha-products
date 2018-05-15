@@ -7,34 +7,32 @@
 
     public interface ConfigurationService
     {
-        IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate);
+        IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate, DateTime? currentDate = null);
 
-        IEnumerable<IConfigurationItem> GetEnabledProductItems(Func<IConfigurationItem, bool> predicate);
+        IEnumerable<IConfigurationItem> GetEnabledProductItems(Func<IConfigurationItem, bool> predicate, DateTime? currentDate = null);
     }
 
     internal class ConfigurationServiceImpl : ConfigurationService
     {
         private readonly IConfigurationLoader configurationLoader;
-        private readonly Func<DateTime> dateTimeNow;
 
-        public ConfigurationServiceImpl(
-            IConfigurationLoader configurationLoader = null,
-            Func<DateTime> dateTimeNow = null)
+        public ConfigurationServiceImpl(IConfigurationLoader configurationLoader = null)
         {
             this.configurationLoader = configurationLoader ?? SimpleServiceLocator.GetService<IConfigurationLoader>();
-            this.dateTimeNow = dateTimeNow ?? (() => DateTime.Now);
         }
 
-        public IEnumerable<IConfigurationItem> GetEnabledProductItems(Func<IConfigurationItem, bool> predicate)
-            => configurationLoader
-                .LoadConfiguration()
+        public IEnumerable<IConfigurationItem> GetEnabledProductItems(
+            Func<IConfigurationItem, bool> predicate,
+            DateTime? currentDate = null)
+         => configurationLoader
+                .Load()
                 .Where(configItem =>
                     configItem.Enabled
-                    && configItem.EndSupportDate >= dateTimeNow()
+                    && configItem.EndSupportDate >= (currentDate ?? DateTime.Now)
                     && (predicate == null || predicate(configItem)));
 
-        public IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate)
-            => GetEnabledProductItems(predicate)
+        public IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate, DateTime? currentDate = null)
+            => GetEnabledProductItems(predicate, currentDate)
                 .Select(configuration => configuration.ProductId);
     }
 }
