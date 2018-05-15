@@ -7,7 +7,7 @@
     public class ReportConfigurationLoader : DefaultConfigurationLoader
     {
         public ReportConfigurationLoader(IProductJsonConverter jsonConverter)
-            : base("Reports", jsonConverter)
+            : base("Report", jsonConverter)
         {
         }
 
