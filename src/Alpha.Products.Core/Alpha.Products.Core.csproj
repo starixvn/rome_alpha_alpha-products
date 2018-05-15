@@ -48,6 +48,7 @@
     <Compile Include="Configuration\GlobalProductSettings.cs" />
     <Compile Include="Configuration\IConfigurationItem.cs" />
     <Compile Include="Configuration\ConfigurationItem.cs" />
+    <Compile Include="Integration\IDateTimeWrapper.cs" />
     <Compile Include="Integration\IProductJsonConverter.cs" />
     <Compile Include="Integration\ConfigFileReader.cs" />
     <Compile Include="Configuration\ConfigurationLoader.cs" />
