@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Alpha.Products.Core.Integration;
     using Alpha.Products.Core.Services;
 
     public interface ConfigurationService
@@ -13,17 +12,17 @@
         IEnumerable<IConfigurationItem> GetEnabledProductItems(Func<IConfigurationItem, bool> predicate);
     }
 
-    public class ConfigurationServiceImpl : ConfigurationService
+    internal class ConfigurationServiceImpl : ConfigurationService
     {
         private readonly IConfigurationLoader configurationLoader;
-        private readonly IDateTimeWrapper dateTimeWrapper;
+        private readonly Func<DateTime> dateTimeNow;
 
         public ConfigurationServiceImpl(
             IConfigurationLoader configurationLoader = null,
-            IDateTimeWrapper dateTimeWrapper = null)
+            Func<DateTime> dateTimeNow = null)
         {
             this.configurationLoader = configurationLoader ?? SimpleServiceLocator.GetService<IConfigurationLoader>();
-            this.dateTimeWrapper = dateTimeWrapper ?? new DateTimeWrapper();
+            this.dateTimeNow = dateTimeNow ?? (() => DateTime.Now);
         }
 
         public IEnumerable<IConfigurationItem> GetEnabledProductItems(Func<IConfigurationItem, bool> predicate)
@@ -31,7 +30,7 @@
                 .LoadConfiguration()
                 .Where(configItem =>
                     configItem.Enabled
-                    && configItem.EndSupportDate >= dateTimeWrapper.Now
+                    && configItem.EndSupportDate >= dateTimeNow()
                     && (predicate == null || predicate(configItem)));
 
         public IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate)
