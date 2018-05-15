@@ -14,10 +14,10 @@
             OfferPlayForFun = offerPlayForFun;
         }
 
-        public bool ShowInLegend { get; private set; }
+        public bool ShowInLegend { get; }
 
-        public bool HasMatchInfo { get; private set; }
+        public bool HasMatchInfo { get; }
 
-        public bool OfferPlayForFun { get; private set; }
+        public bool OfferPlayForFun { get; }
     }
 }

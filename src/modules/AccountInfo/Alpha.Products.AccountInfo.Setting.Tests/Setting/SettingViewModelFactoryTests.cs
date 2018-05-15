@@ -9,8 +9,8 @@
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Services;
     using Xunit;
-    using static Alpha.Products.AccountInfo.Setting.Tests.Utility.AppProductConfigurationHelper;
-    using static Alpha.Products.AccountInfo.Setting.Tests.Utility.CustomerHelper;
+    using static Tests.Utility.AppProductConfigurationHelper;
+    using static Tests.Utility.CustomerHelper;
     using static Alpha.Products.Core.Shared.ProductConstants;
 
     [Trait("Setting", "SettingViewModelFactory")]
@@ -28,7 +28,6 @@
 
             factory = new SettingViewModelFactory();
         }
-       
 
         [Theory]
         [InlineData(Sportsbook, typeof(SportsbookViewModel))]

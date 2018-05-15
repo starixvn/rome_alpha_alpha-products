@@ -13,13 +13,8 @@
         public static string ProductConfigFileRelativePath => Configs[$"ProductConfigsFileRelativePath"];
 
         private static bool ToBoolean(string value, bool defaultValue = false)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                return defaultValue;
-            }
-            
-            return value == "1" || value.Equals("true", StringComparison.CurrentCultureIgnoreCase);
-        }
+            => (string.IsNullOrWhiteSpace(value))
+            ? defaultValue
+            : value == "1" || value.Equals("true", StringComparison.CurrentCultureIgnoreCase);
     }
 }
