@@ -2,57 +2,35 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.Linq;
     using Alpha.Products.Core.Services;
 
     public interface ConfigurationService
     {
-        IEnumerable<int> GetEnabledProductIds();
-
         IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate);
 
         IEnumerable<IConfigurationItem> GetEnabledProductItems(Func<IConfigurationItem, bool> predicate);
     }
 
-    internal class ConfigurationServiceImpl : ConfigurationService
+    public class ConfigurationServiceImpl : ConfigurationService
     {
-        private readonly IEnumerable<int> ExcludedProductIds;
-        private static IReadOnlyCollection<IConfigurationItem> ConfigurationDataSource;
+        private readonly IConfigurationLoader configurationLoader;
 
-        internal ConfigurationServiceImpl(
-            Func<IEnumerable<IConfigurationItem>> GetApplicationProductConfiguration = null,
-            params int[] excludedProductIds)
+        public ConfigurationServiceImpl(IConfigurationLoader configurationLoader = null)
         {
-            var productConfigurationService
-                = GetApplicationProductConfiguration
-                ?? SimpleServiceLocator.GetService<Func<IEnumerable<IConfigurationItem>>>();
-
-            if (ConfigurationDataSource == null || ConfigurationDataSource.Count == 0)
-            {
-#pragma warning disable S3010 // Static fields should not be updated in constructors
-                ConfigurationDataSource = new ReadOnlyCollection<IConfigurationItem>(productConfigurationService().ToList());
-#pragma warning restore S3010 // Static fields should not be updated in constructors
-            }
-
-            ExcludedProductIds = excludedProductIds ?? Enumerable.Empty<int>();
+            this.configurationLoader = configurationLoader ?? SimpleServiceLocator.GetService<IConfigurationLoader>();
         }
 
-        private Func<IConfigurationItem, bool> DefaultPredicate
-            => config => config.EndSupportDate >= DateTime.Now
-                            && !ExcludedProductIds.Contains(config.ProductId);
-
         public IEnumerable<IConfigurationItem> GetEnabledProductItems(Func<IConfigurationItem, bool> predicate)
-            => ConfigurationDataSource
+            => configurationLoader
+                .LoadConfiguration()
                 .Where(configItem =>
                     configItem.Enabled
-                    && (predicate ?? DefaultPredicate)(configItem));
+                    && configItem.EndSupportDate >= DateTime.Now
+                    && (predicate == null || predicate(configItem)));
 
         public IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate)
             => GetEnabledProductItems(predicate)
                 .Select(configuration => configuration.ProductId);
-
-        public IEnumerable<int> GetEnabledProductIds()
-            => GetEnabledProductIds(null);
     }
 }

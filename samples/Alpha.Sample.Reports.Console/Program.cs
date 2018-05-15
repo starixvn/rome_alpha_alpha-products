@@ -45,7 +45,7 @@
         {
             SimpleServiceLocator
               .Instance
-              .Register<Func<IEnumerable<IConfigurationItem>>>(ProductConfiguration.LoadApplicationProductConfiguration)
+              .Register<IConfigurationLoader>(new ReportConfigurationLoader(new ProductJsonConverter()))
               .Register<Func<int, string>>(CacheRef.GetProductName);
         }
 

@@ -27,13 +27,5 @@
 
         protected override IStatusItemViewModel GetProductViewModel(int productId, ISearchAccountInfoRequest request)
             => new ProductStatusItemViewModel(request, productId);
-
-        protected override IEnumerable<int> GetExcludedProductIds()
-        {
-            yield return Sportsbook;
-            yield return NumberGame;
-            yield return GoldDeluxe;
-            yield return Sportsbook2;
-        }
     }
 }

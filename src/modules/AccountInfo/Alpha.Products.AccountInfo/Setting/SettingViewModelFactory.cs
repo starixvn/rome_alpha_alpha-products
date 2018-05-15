@@ -54,10 +54,5 @@
                     return new DynamicProductViewModel(request, productId);
             }
         }
-
-        protected override IEnumerable<int> GetExcludedProductIds()
-        {
-            yield return NumberGame;
-        }
     }
 }

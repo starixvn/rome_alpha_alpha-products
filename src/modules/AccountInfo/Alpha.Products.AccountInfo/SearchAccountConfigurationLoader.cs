@@ -4,10 +4,10 @@
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Integration;
 
-    public class SearchAccountConfigurationLoader : DefaultProductConfigurationLoader
+    public class SearchAccountConfigurationLoader : DefaultConfigurationLoader
     {
         public SearchAccountConfigurationLoader(IProductJsonConverter jsonConverter)
-            : base(jsonConverter)
+            : base("AccountInfo", jsonConverter)
         {
         }
 

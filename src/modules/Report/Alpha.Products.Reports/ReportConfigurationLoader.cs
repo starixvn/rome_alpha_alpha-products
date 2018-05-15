@@ -4,10 +4,10 @@
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Integration;
 
-    public class ReportConfigurationLoader : DefaultProductConfigurationLoader
+    public class ReportConfigurationLoader : DefaultConfigurationLoader
     {
         public ReportConfigurationLoader(IProductJsonConverter jsonConverter)
-            : base(jsonConverter)
+            : base("Reports", jsonConverter)
         {
         }
 

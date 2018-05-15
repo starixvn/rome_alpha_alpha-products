@@ -8,7 +8,6 @@
     public abstract class GenericViewModelFactory<TRequest, TView>
         where TRequest : IRequest
         where TView : IViewModel
-
     {
         protected readonly ConfigurationService ConfigurationService;
 
@@ -33,16 +32,10 @@
 
         protected abstract TView GetProductViewModel(int productId, TRequest request);
 
-        protected virtual IEnumerable<int> GetExcludedProductIds()
-            => Enumerable.Empty<int>();
-
         protected IEnumerable<int> GetProductIds(TRequest request)
         {
-            var excludedIds = GetExcludedProductIds();
-
             var enableProductIds = ConfigurationService
-                .GetEnabledProductIds(request.Predicate)
-                .Where(productId => !excludedIds.Contains(productId));
+                .GetEnabledProductIds(request.Predicate);
 
             return request.Actor.GetProductStatus()
               .Where(productStatus

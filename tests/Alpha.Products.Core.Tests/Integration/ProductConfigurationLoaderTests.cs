@@ -11,11 +11,11 @@
     [Trait("Core", "ProductConfigurationLoader")]
     public class ProductConfigurationLoaderTests
     {
-        private readonly IProductConfigurationLoader loader;
+        ////private readonly IConfigurationLoader loader;
 
-        public ProductConfigurationLoaderTests()
-        {
-            //loader = new 
-        }
+        ////public ProductConfigurationLoaderTests()
+        ////{
+        ////    //loader = new 
+        ////}
     }
 }

@@ -50,7 +50,7 @@
     <Compile Include="Configuration\ConfigurationItem.cs" />
     <Compile Include="Integration\IProductJsonConverter.cs" />
     <Compile Include="Integration\ConfigFileReader.cs" />
-    <Compile Include="Integration\ProductConfigurationLoader.cs" />
+    <Compile Include="Configuration\ConfigurationLoader.cs" />
     <Compile Include="Models\IRequest.cs" />
     <Compile Include="ViewModels\GenericViewModelFactory.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
