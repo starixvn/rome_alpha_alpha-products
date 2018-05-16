@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Integration;
     using NSubstitute;
@@ -207,6 +208,51 @@
                 };
 
             Assert.Throws<KeyNotFoundException>(() => DefaultConfigurationLoader.GetProductPropertyValue(key, extendedProperties));
+        }
+
+        [Fact]
+        public void Load_Always_ReturnConfigurationItems()
+        {
+            var loader = new DefaultConfigurationLoader(
+                siteName,
+                jsonConverter,
+                "Load_Always_ReturnConfigurationItems",
+                configFileReader,
+                isProductEnabled);
+            jsonConverter
+                .ToProductConfig(Arg.Any<string>())
+                .Returns(new Dictionary<string, string>
+                {
+                    { "productId", "100" },
+                    { "productName", "Product100" },
+                });
+            jsonConverter
+                .ToProductConfigs(Arg.Any<string>())
+                .Returns(new List<string> {
+                    "{"
+                      + "\"productId\": 1,"
+                      + "\"productName\": \"Sportsbook\","
+                      + "\"accountInfoProperties\": {"
+                        + "\"setting\": true,"
+                        + "\"status\": false"
+                      + "},"
+                      + "\"reportProperties\": {"
+                        + "\"showInLegend\": true,"
+                        + "\"hasMatchInfo\": true,"
+                        + "\"offerPlayForFun\": true"
+                      + "},"
+                      + "\"customerInfoProperties\": {"
+                        + "\"offerComm\": true,"
+                        + "\"offerPT\": true"
+                      + "}"
+                    + "}"
+                });
+
+            var configItems = loader.Load();
+
+            Assert.True(configItems.Count() == 1
+                && configItems.ElementAt(0).ProductId == 100
+                && configItems.ElementAt(0).ProductName == "Product100");
         }
     }
 

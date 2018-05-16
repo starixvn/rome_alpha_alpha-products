@@ -1,11 +1,11 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("Alpha.Products.AccountInfo.Setting.Tests")]
+[assembly: AssemblyTitle("Alpha.Products.AccountInfo.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Alpha.Products.AccountInfo.Setting.Tests")]
+[assembly: AssemblyProduct("Alpha.Products.AccountInfo.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
