@@ -4,7 +4,7 @@
 
     public interface IProductJsonConverter
     {
-        IDictionary<string, string> ToExtendProductPropertyData(string productJson);
+        IDictionary<string, string> ToProductConfig(string productJson);
 
         IList<string> ToProductConfigs(string productConfigJson);
     }

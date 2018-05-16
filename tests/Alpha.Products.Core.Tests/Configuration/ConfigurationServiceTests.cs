@@ -68,5 +68,46 @@
                 && enabledProducts.ElementAt(0).ProductId == 1
                 && enabledProducts.ElementAt(1).ProductId == 3);
         }
+
+        [Fact]
+        public void GetEnabledProductIds_Always_ReturnWithoutDisabledProduct()
+        {
+            var enabledProducts = configurationService.GetEnabledProductIds(null, DateTime.MinValue);
+
+            Assert.True(enabledProducts.Count() == 2
+                && enabledProducts.ElementAt(0) == 1
+                && enabledProducts.ElementAt(1) == 3);
+        }
+
+        [Fact]
+        public void GetEnabledProductIds_WithExpiredProduct_ReturnWithoutExpiredProduct()
+        {
+            var currentDate = new DateTime(2018, 2, 12);
+
+            var enabledProducts = configurationService.GetEnabledProductIds(null, currentDate);
+
+            Assert.True(enabledProducts.Count() == 1
+                && enabledProducts.ElementAt(0) == 3);
+        }
+
+        [Fact]
+        public void GetEnabledProductIds_PredicateIsFalse_ReturnNoProduct()
+        {
+            var currentDate = new DateTime(2018, 2, 12);
+
+            var enabledProducts = configurationService.GetEnabledProductIds((configItem) => false, currentDate);
+
+            Assert.Empty(enabledProducts);
+        }
+
+        [Fact]
+        public void GetEnabledProductIds_PredicateIsTrue_ReturnEnabledProducts()
+        {
+            var enabledProducts = configurationService.GetEnabledProductIds((configItem) => true, DateTime.MinValue);
+
+            Assert.True(enabledProducts.Count() == 2
+                && enabledProducts.ElementAt(0) == 1
+                && enabledProducts.ElementAt(1) == 3);
+        }
     }
 }

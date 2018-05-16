@@ -73,14 +73,20 @@
   <ItemGroup>
     <Compile Include="ApplicationContextTestHelper.cs" />
     <Compile Include="Configuration\ConfigurationServiceTests.cs" />
+    <Compile Include="Configuration\DefaultConfigurationLoaderTests.cs" />
+    <Compile Include="Configuration\GlobalProductSettingsTests.cs" />
+    <Compile Include="Integration\ConfigFileReaderTests.cs" />
     <Compile Include="Integration\ProductConfigurationLoaderTests.cs" />
+    <Compile Include="Models\CustomerProductStatusTests.cs" />
+    <Compile Include="Models\ExtendedRequestTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\ApplicationContextTests.cs" />
-    <Compile Include="Services\CustomerServiceImplTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="ProductConfiguration.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -78,9 +78,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Alpha.Products.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Alpha.Products.Core.1.0.0-beta2\lib\net461\Alpha.Products.Core.dll</HintPath>
-    </Reference>
     <Reference Include="AutoFixture, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\AutoFixture.4.2.0\lib\net452\AutoFixture.dll</HintPath>
       <Private>True</Private>
@@ -127,6 +124,10 @@
     <ProjectReference Include="..\..\..\..\samples\Alpha.Sample.AccountInfo.Console\Alpha.Sample.AccountInfo.Console.csproj">
       <Project>{CC77C06A-BB8A-4492-BBDD-8F96DD559AFE}</Project>
       <Name>Alpha.Sample.AccountInfo.Console</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Alpha.Products.Core\Alpha.Products.Core.csproj">
+      <Project>{7d532eac-4989-4d1a-bc8b-54a37ff5123d}</Project>
+      <Name>Alpha.Products.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Alpha.Products.AccountInfo\Alpha.Products.AccountInfo.csproj">
       <Project>{D00A2D4E-7115-48A5-A8A5-5DA2354CF1E9}</Project>

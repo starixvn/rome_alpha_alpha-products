@@ -17,9 +17,6 @@
     {
         protected Dictionary<string, object> dataBag = new Dictionary<string, object>();
 
-        protected ExtendedRequest()
-        { }
-
         public IExtendedRequest AddData<T>(string key, T value)
         {
             if (!string.IsNullOrWhiteSpace(key))
@@ -43,11 +40,22 @@
         public bool ContainKey(string key) => dataBag.ContainsKey(key);
 
         private static void ThrowException(string key)
-        {
-            var stackFrame = Array.Find(new StackTrace(true)
-                                .GetFrames(), frame => frame.GetFileName().Contains("ViewModel"));
+        { 
+            var stackFrame = Array.Find(
+                new StackTrace(true).GetFrames(), 
+                frame =>
+                {
+                    if(frame != null
+                        && frame.GetFileName() != null
+                        && frame.GetFileName().Contains("ViewModel"))
+                    {
+                        return true;
+                    }
 
-            throw new KeyNotFoundException($"Key {key} not found. Please review class file {stackFrame.GetFileName()} at line number {stackFrame.GetFileLineNumber()}");
+                    return false;
+                });
+
+            throw new KeyNotFoundException($"Key {key} not found. Please review class file {stackFrame?.GetFileName()} at line number {stackFrame?.GetFileLineNumber()}");
         }
     }
 }

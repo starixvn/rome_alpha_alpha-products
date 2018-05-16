@@ -70,7 +70,7 @@
                 throw new ArgumentNullException(nameof(productJson));
             }
 
-            var productConfig = jsonConverter.ToExtendProductPropertyData(productJson);
+            var productConfig = jsonConverter.ToProductConfig(productJson);
             var productId = int.Parse(productConfig["productId"]);
             var endSupportDate = GetEndSupportDate(productConfig);
             var extendedPropertyData = GetExtendedPropertyData(productConfig);
@@ -96,11 +96,13 @@
             var extendedPropertyName = $"{siteName}Properties";
 
             return productConfig.ContainsKey(extendedPropertyName)
-                            ? jsonConverter.ToExtendProductPropertyData(productConfig[extendedPropertyName])
+                            ? jsonConverter.ToProductConfig(productConfig[extendedPropertyName])
                             : new Dictionary<string, string>();
         }
 
-        internal protected static T BuildProductProperty<T>(IDictionary<string, string> productPropertyData)
+#pragma warning disable S2325 // Methods and properties that don't access instance data should be static
+        internal T BuildProductProperty<T>(IDictionary<string, string> productPropertyData)
+#pragma warning restore S2325 // Methods and properties that don't access instance data should be static
             where T : IExtendProductProperty
         {
             var productPropertyType = typeof(T);
