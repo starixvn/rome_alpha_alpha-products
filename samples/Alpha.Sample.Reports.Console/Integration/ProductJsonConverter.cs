@@ -8,7 +8,7 @@ namespace Alpha.Sample.Reports.Console.Integration
 
     public class ProductJsonConverter : IProductJsonConverter
     {
-        public IDictionary<string, string> ToExtendProductPropertyData(string productJson)
+        public IDictionary<string, string> ToProductConfig(string productJson)
             => JObject.Parse(productJson)
             .Properties()
             .ToDictionary(jproperty => jproperty.Name, jproperty => jproperty.Value.ToString());
