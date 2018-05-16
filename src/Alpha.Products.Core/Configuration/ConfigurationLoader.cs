@@ -100,7 +100,7 @@
                             : new Dictionary<string, string>();
         }
 
-        internal protected T BuildProductProperty<T>(IDictionary<string, string> productPropertyData)
+        internal protected static T BuildProductProperty<T>(IDictionary<string, string> productPropertyData)
             where T : IExtendProductProperty
         {
             var productPropertyType = typeof(T);

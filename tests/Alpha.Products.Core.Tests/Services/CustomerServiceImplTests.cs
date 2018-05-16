@@ -2,13 +2,13 @@
 {
     public class CustomerServiceImplTests
     {
-        //[Fact]
-        //public void GetCustomerProductStatus_CustomerIdIsLessThanZero_ThrowArgumentException()
-        //{
-        //    var customerId = -1;
-        //    var service = new CustomerServiceImpl();
+        ////[Fact]
+        ////public void GetCustomerProductStatus_CustomerIdIsLessThanZero_ThrowArgumentException()
+        ////{
+        ////    var customerId = -1;
+        ////    var service = new CustomerServiceImpl();
 
-        //    Assert.Throws<ArgumentException>(() => service.GetCustomerProductStatus(customerId));
-        //}
+        ////    Assert.Throws<ArgumentException>(() => service.GetCustomerProductStatus(customerId));
+        ////}
     }
 }

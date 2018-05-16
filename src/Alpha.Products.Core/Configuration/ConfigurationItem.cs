@@ -4,8 +4,6 @@
 
     public class ConfigurationItem : IConfigurationItem
     {
-        public ConfigurationItem() { }
-
         public ConfigurationItem(
             int productId,
             string productName,
