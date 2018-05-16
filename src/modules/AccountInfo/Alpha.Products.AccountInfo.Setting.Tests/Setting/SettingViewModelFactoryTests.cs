@@ -12,17 +12,22 @@
     using static Tests.Utility.AppProductConfigurationHelper;
     using static Tests.Utility.CustomerHelper;
     using static Alpha.Products.Core.Shared.ProductConstants;
+    using NSubstitute;
 
     [Trait("Setting", "SettingViewModelFactory")]
     public class SettingViewModelFactoryTests
     {
         private readonly SettingViewModelFactory factory;
+        private readonly IConfigurationLoader configurationLoader;
 
         public SettingViewModelFactoryTests()
         {
+            configurationLoader = Substitute.For<IConfigurationLoader>();
+            configurationLoader.Load().Returns(LoadApplicationProductConfiguration());
+
             SimpleServiceLocator
                .Instance
-               .Register<Func<IEnumerable<IConfigurationItem>>>(LoadApplicationProductConfiguration)
+               .Register<IConfigurationLoader>(configurationLoader)
                .Register<Func<int, string>>((productId) => $"Product Name of {productId}")
                .Register<Func<string, string>>(key => $"value of {key}");
 
