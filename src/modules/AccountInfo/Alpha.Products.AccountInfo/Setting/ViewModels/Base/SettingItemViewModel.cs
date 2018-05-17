@@ -14,7 +14,12 @@
             ISearchAccountInfoRequest request,
             int displayOrder = 0)
         {
-            Request = request ?? throw new ArgumentNullException(nameof(request));
+            if (request == null)
+            {
+                throw new ArgumentNullException(nameof(request));
+            }
+
+            Request = request;
             DisplayOrder = displayOrder;
         }
 
