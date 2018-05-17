@@ -8,18 +8,18 @@
     /// <summary>
     /// should implementation be located in consumer sites.
     /// </summary>
-    public class SearchAccountRequest : ExtendedRequest, ISearchAccountInfoRequest
+    public abstract class SearchAccountRequest : ExtendedRequest, ISearchAccountInfoRequest
     {
-        public SearchAccountRequest(
+        protected SearchAccountRequest(
             ICustomer actor,
             ICustomer searchAccount,
-            Func<string, string> GetResource = null,
-            Func<int, string> GetProductName = null)
+            Func<string, string> getResource = null,
+            Func<int, string> getProductName = null)
         {
             Actor = actor;
             SearchAccount = searchAccount;
-            this.GetResource = GetResource ?? SimpleServiceLocator.GetService<Func<string, string>>();
-            this.GetProductName = GetProductName ?? SimpleServiceLocator.GetService<Func<int, string>>();
+            this.GetResource = getResource ?? SimpleServiceLocator.GetService<Func<string, string>>();
+            this.GetProductName = getProductName ?? SimpleServiceLocator.GetService<Func<int, string>>();
         }
 
         public ICustomer Actor { get; }
@@ -39,6 +39,36 @@
 
         public Func<int, string> GetProductName { get; }
 
-        public Func<IConfigurationItem, bool> Predicate { get; }
+        public abstract Func<IConfigurationItem, bool> Predicate { get; }
+    }
+
+    public class SettingSearchAccountRequest : SearchAccountRequest
+    {
+        public SettingSearchAccountRequest(
+            ICustomer actor,
+            ICustomer searchAccount,
+            Func<string, string> getResource = null,
+            Func<int, string> getProductName = null)
+            : base(actor, searchAccount, getResource, getProductName)
+        {
+        }
+
+        public override Func<IConfigurationItem, bool> Predicate 
+            => config => (config.ExtendProductProperty as SearchAccountProperties).Setting;
+    }
+
+    public class StatusSearchAccountRequest : SearchAccountRequest
+    {
+        public StatusSearchAccountRequest(
+            ICustomer actor,
+            ICustomer searchAccount,
+            Func<string, string> getResource = null,
+            Func<int, string> getProductName = null)
+            : base(actor, searchAccount, getResource, getProductName)
+        {
+        }
+
+        public override Func<IConfigurationItem, bool> Predicate
+            => config => (config.ExtendProductProperty as SearchAccountProperties).Status;
     }
 }

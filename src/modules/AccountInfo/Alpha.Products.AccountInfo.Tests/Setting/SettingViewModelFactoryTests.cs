@@ -45,7 +45,7 @@
         [InlineData(28, typeof(DynamicProductViewModel))]
         public void GetViewModels_Returns_RightMappingProductViewModel(int productId, Type viewModelType)
         {
-            var request = new SearchAccountRequest(CreateSuper(), CreateMaster());
+            var request = new SettingSearchAccountRequest(CreateSuper(), CreateMaster());
 
             var viewModels = factory.GetViewModels(request);
 

@@ -63,7 +63,7 @@ namespace Alpha.Sample.AccountInfo.Console
         {
             var viewModelfactory = new SettingViewModelFactory();
 
-            var request = new SearchAccountRequest(actor, searchAccount);
+            var request = new SettingSearchAccountRequest(actor, searchAccount);
 
             request
                 .AddData(DataKey.Actor.CanEditDailyTransferOption, true)
@@ -87,7 +87,7 @@ namespace Alpha.Sample.AccountInfo.Console
 
             Console.WriteLine($"------------Account Info Edit Status------------\n");
 
-            var request = new SearchAccountRequest(actor, searchAccount);
+            var request = new StatusSearchAccountRequest(actor, searchAccount);
 
             request
                 .AddData(DataKey.Actor.HasUpdateAccountPermission, true)
