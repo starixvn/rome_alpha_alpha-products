@@ -2,7 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
+    using Alpha.Products.Core.Configuration;
     using Core.Models;
+    using NSubstitute;
     using Status.ViewModels.Base;
     using Utility;
     using Xunit;
@@ -15,8 +17,10 @@
         [Fact]
         public void Url_Start_With_BaseAddress()
         {
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(15);
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ProductStatusItemViewModel(request, 15);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             Assert.StartsWith(BaseAddress, viewModel.Url, StringComparison.OrdinalIgnoreCase);
         }
@@ -24,8 +28,10 @@
         [Fact]
         public void Url_QueryString_Returns_CustId_Of_SearchAccount()
         {
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(15);
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ProductStatusItemViewModel(request, 15);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             Assert.True(viewModel.Url.IndexOf($"custid={request.SearchAccount.Id}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -35,7 +41,9 @@
         {
             var request = RequestHelper.CreateRequest(4, 3);
             const int productId = 15;
-            var viewModel = new ProductStatusItemViewModel(request, productId);
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(productId);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             Assert.True(viewModel.Url.IndexOf($"productid={productId}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -43,8 +51,10 @@
         [Fact]
         public void Url_QueryString_Returns_SearchAccount_Username()
         {
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(15);
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ProductStatusItemViewModel(request, 15);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             Assert.True(viewModel.Url.IndexOf($"custName={request.SearchAccount.Username}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -53,8 +63,10 @@
         [ClassData(typeof(ActorAndSearchAccountLevelTestData))]
         public void Url_QueryString_Returns_SearchAccount_RoleLevel(byte actorLevel, byte searchAccountLevel)
         {
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(15);
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
-            var viewModel = new ProductStatusItemViewModel(request, 15);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             Assert.True(viewModel.Url.IndexOf($"&custRoleId={request.SearchAccount.CusomerLevelValue}", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -62,8 +74,10 @@
         [Fact]
         public void Url_QueryString_Contains_UID_Paramater()
         {
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(15);
             var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ProductStatusItemViewModel(request, 15);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             Assert.True(viewModel.Url.IndexOf("uid=", StringComparison.OrdinalIgnoreCase) >= 0);
         }
@@ -73,10 +87,12 @@
         [InlineData(false, true)]
         public void Return_Disabled_By_Actor_HasUpdateAccountPermission(bool hasUpdateAccountPermission, bool expectedValue)
         {
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(15);
             var request = RequestHelper.CreateRequest(4, 3);
             request.AddData("Actor.HasUpdateAccountPermission", hasUpdateAccountPermission);
 
-            var viewModel = new ProductStatusItemViewModel(request, 15);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             Assert.Equal(expectedValue, viewModel.Disabled);
         }
@@ -85,10 +101,12 @@
         [ClassData(typeof(ActorAndCrossDownlineSearchAccountLevelTestData))]
         public void Disabled_Is_True_When_SearchAccount_Is_Not_DirectDownline_Of_Actor(byte actorLevel, byte searchAccountLevel)
         {
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(15);
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);
             request.AddData("Actor.HasUpdateAccountPermission", true);
 
-            var viewModel = new ProductStatusItemViewModel(request, 15);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             Assert.True(viewModel.Disabled);
         }
@@ -103,13 +121,15 @@
                 new CustomerProductStatus(21, hidden: false)
             };
 
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(21);
             var actorAccount = CustomerHelper.CreateCustomer(1, actorLevel, customerProductStatus: customerProductStatus);
             var searchAccount = CustomerHelper.CreateCustomer(2, searchAccountLevel);
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
             request.AddData("Actor.HasUpdateAccountPermission", true);
 
             // Act
-            var viewModel = new ProductStatusItemViewModel(request, 21);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             // Assert
             Assert.True(viewModel.Visible);
@@ -125,13 +145,15 @@
                 new CustomerProductStatus(21, hidden: false)
             };
 
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(21);
             var actorAccount = CustomerHelper.CreateCustomer(1, actorLevel, customerProductStatus: customerProductStatus);
             var searchAccount = CustomerHelper.CreateCustomer(2, searchAccountLevel);
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
             request.AddData("Actor.HasUpdateAccountPermission", true);
 
             // Act
-            var viewModel = new ProductStatusItemViewModel(request, 21);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             // Assert
             Assert.False(viewModel.Visible);
@@ -146,13 +168,15 @@
                 new CustomerProductStatus(21, hidden: true)
             };
 
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(21);
             var actorAccount = CustomerHelper.CreateCustomer(1, 4);
             var searchAccount = CustomerHelper.CreateCustomer(2, 3, customerProductStatus: customerProductStatus);
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
             request.AddData("Actor.HasUpdateAccountPermission", true);
 
             // Act
-            var viewModel = new ProductStatusItemViewModel(request, 21);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             // Assert
             Assert.False(viewModel.Visible);
@@ -169,13 +193,15 @@
                 new CustomerProductStatus(21, disabled: disabled)
             };
 
+            var configItem = Substitute.For<IConfigurationItem>();
+            configItem.ProductId.Returns(21);
             var actorAccount = CustomerHelper.CreateCustomer(1, 4);
             var searchAccount = CustomerHelper.CreateCustomer(2, 3, customerProductStatus: customerProductStatus);
             var request = RequestHelper.CreateRequestFromCustomers(actorAccount, searchAccount);
             request.AddData("Actor.HasUpdateAccountPermission", true);
 
             // Act
-            var viewModel = new ProductStatusItemViewModel(request, 21);
+            var viewModel = new ProductStatusItemViewModel(request, configItem);
 
             // Assert
             Assert.Equal(expectedValue, viewModel.Checked);

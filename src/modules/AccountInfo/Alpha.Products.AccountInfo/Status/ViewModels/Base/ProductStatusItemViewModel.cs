@@ -5,28 +5,26 @@
     using System.Collections.ObjectModel;
     using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
+    using Alpha.Products.Core.Configuration;
     using static Alpha.Products.Core.Shared.ProductConstants;
 
     public class ProductStatusItemViewModel : StatusItemViewModel
     {
-        private readonly IReadOnlyCollection<int> ProductsHaveStatusOnSportOrBetTypeLevel
-            = new ReadOnlyCollection<int>(new List<int> { Keno, AllBet });
+        private readonly IConfigurationItem productItem;
 
-        private readonly int ProductId;
-
-        public ProductStatusItemViewModel(ISearchAccountInfoRequest request, int productId)
+        public ProductStatusItemViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request)
         {
-            ProductId = productId;
+            this.productItem = productItem;
         }
 
-        public override string Text => Request.GetProductName(ProductId);
+        public override string Text => Request.GetProductName(productItem.ProductId);
 
-        public override int DisplayOrder => ProductId * 10;
+        public override int DisplayOrder => productItem.ProductId * 10;
 
         public override string Url
             => "productstatus3rd/index?" + string.Join("&",
-                                          $"productid={ProductId}",
+                                          $"productid={productItem.ProductId}",
                                           $"custId={SearchAccount.Id}",
                                           $"custName={SearchAccount.Username}",
                                           $"custRoleId={SearchAccount.CusomerLevelValue}",
@@ -35,15 +33,17 @@
         public override bool Disabled
             => base.Disabled
             || Actor.IsNotDirectUplineOf(SearchAccount)
-            || SearchAccount.Upline.ProductStatusOf(ProductId).Disabled;
+            || SearchAccount.Upline.ProductStatusOf(productItem.ProductId).Disabled;
 
         public override bool Visible
             => Actor.IsDirectUplineOf(SearchAccount)
-            && SearchAccount.CanSeeProduct(ProductId);
+            && SearchAccount.CanSeeProduct(productItem.ProductId);
 
         public bool IsEditOnProductLevel
-            => ProductsHaveStatusOnSportOrBetTypeLevel.Contains(ProductId);
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
+            => (productItem.ExtendProductProperty as SearchAccountProperties).StatusOnProductLevel;
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
 
-        public override bool Checked => SearchAccount.ProductStatusOf(ProductId).Enabled;
+        public override bool Checked => SearchAccount.ProductStatusOf(productItem.ProductId).Enabled;
     }
 }

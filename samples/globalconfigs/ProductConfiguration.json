@@ -5,16 +5,13 @@
       "productName": "Sportsbook1",
       "accountInfoProperties": {
         "setting": true,
-        "status": false
+        "status": false,
+        "statusOnProductLevel": false
       },
       "reportProperties": {
         "showInLegend": true,
         "hasMatchInfo": true,
         "offerPlayForFun": true
-      },
-      "customerInfoProperties": {
-        "offerComm": true,
-        "offerPT": true
       }
     },
     {
@@ -23,16 +20,13 @@
       "endSupportDate": "2018-2-2",
       "accountInfoProperties": {
         "setting": true,
-        "status": true
+        "status": true,
+        "statusOnProductLevel": false
       },
       "reportProperties": {
         "showInLegend": false,
         "hasMatchInfo": true,
         "offerPlayForFun": false
-      },
-      "customerInfoProperties": {
-        "offerComm": true,
-        "offerPT": true
       }
     },
     {
@@ -40,16 +34,13 @@
       "productName": "Number Game",
       "accountInfoProperties": {
         "setting": false,
-        "status": false
+        "status": false,
+        "statusOnProductLevel": false
       },
       "reportProperties": {
         "showInLegend": true,
-        "hasMatchInfo": false,
+        "hasMatchInfo": true,
         "offerPlayForFun": false
-      },
-      "customerInfoProperties": {
-        "offerComm": true,
-        "offerPT": true
       }
     },
     {
@@ -57,16 +48,190 @@
       "productName": "Casino",
       "accountInfoProperties": {
         "setting": true,
-        "status": true
+        "status": true,
+        "statusOnProductLevel": true
       },
       "reportProperties": {
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": true
+      }
+    },
+    {
+      "productId": 4,
+      "productName": "Live Casino",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": false
       },
-      "customerInfoProperties": {
-        "offerComm": true,
-        "offerPT": false
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 5,
+      "productName": "Virtual Sports",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": true
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": true,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 8,
+      "productName": "Keno",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": false
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 12,
+      "productName": "Gold Deluxe",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": false,
+        "statusOnProductLevel": false
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 15,
+      "productName": "Colossus Bét",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": true
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 16,
+      "productName": "Sportsbook 2",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": false,
+        "statusOnProductLevel": false
+      }
+    },
+    {
+      "productId": 21,
+      "productName": "Allbet",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": false
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 22,
+      "productName": "Macau Games",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": true
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 23,
+      "productName": "NG2",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": true
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 24,
+      "productName": "Fishing World",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": true
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 26,
+      "productName": "Lucky3",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": true
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 28,
+      "productName": "Lottery",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": true
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
+      }
+    },
+    {
+      "productId": 30,
+      "productName": "Bullfighting",
+      "accountInfoProperties": {
+        "setting": true,
+        "status": true,
+        "statusOnProductLevel": true
+      },
+      "reportProperties": {
+        "showInLegend": true,
+        "hasMatchInfo": false,
+        "offerPlayForFun": false
       }
     }
   ]

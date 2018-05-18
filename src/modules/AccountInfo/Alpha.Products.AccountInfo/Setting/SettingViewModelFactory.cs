@@ -31,9 +31,9 @@
             yield return new RemoveOtpViewModel(request, displayOrder: LastProductSettingItemIndex + 3);
         }
 
-        protected override ISettingItemViewModel GetProductViewModel(int productId, ISearchAccountInfoRequest request)
+        protected override ISettingItemViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)
         {
-            switch (productId)
+            switch (productItem.ProductId)
             {
                 case Sportsbook:
                     return new SportsbookViewModel(request);
@@ -51,7 +51,7 @@
                     return new ColossusBetsViewModel(request);
 
                 default:
-                    return new DynamicProductViewModel(request, productId);
+                    return new DynamicProductViewModel(request, productItem.ProductId);
             }
         }
     }

@@ -11,7 +11,7 @@
         {
         }
 
-        protected override ProductViewModel GetProductViewModel(int productId, IRequest request)
-            => new ProductViewModel(productId, request.GetProductName(productId));
+        protected override ProductViewModel GetProductViewModel(IConfigurationItem productItem, IRequest request)
+            => new ProductViewModel(productItem.ProductId, request.GetProductName(productItem.ProductId));
     }
 }

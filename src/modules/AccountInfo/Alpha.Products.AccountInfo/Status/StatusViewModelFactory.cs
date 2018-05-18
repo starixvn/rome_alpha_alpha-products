@@ -25,7 +25,7 @@
             yield return new ConfirmDoubleCommViewModel(request);
         }
 
-        protected override IStatusItemViewModel GetProductViewModel(int productId, ISearchAccountInfoRequest request)
-            => new ProductStatusItemViewModel(request, productId);
+        protected override IStatusItemViewModel GetProductViewModel(IConfigurationItem productItem, ISearchAccountInfoRequest request)
+            => new ProductStatusItemViewModel(request, productItem);
     }
 }

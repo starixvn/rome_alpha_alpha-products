@@ -24,24 +24,28 @@
             : Enumerable.Empty<TView>();
 
         internal IEnumerable<TView> GetProductViewModels(TRequest request)
-            => GetProductIds(request)
-            .Select(productId => GetProductViewModel(productId, request));
+            => GetEnabledProductItems(request)
+            .Select(productItem => GetProductViewModel(productItem, request));
 
         protected virtual IEnumerable<TView> GetNonProductViewModels(TRequest request)
             => Enumerable.Empty<TView>();
 
-        protected abstract TView GetProductViewModel(int productId, TRequest request);
+        protected abstract TView GetProductViewModel(IConfigurationItem productItem, TRequest request);
 
-        protected IEnumerable<int> GetProductIds(TRequest request)
+        protected IEnumerable<IConfigurationItem> GetEnabledProductItems(TRequest request)
         {
-            var enableProductIds = ConfigurationService
-                .GetEnabledProductIds(request.Predicate);
+            var enabledProductItems = ConfigurationService
+                .GetEnabledProductItems(request.Predicate);
 
-            return request.Actor.GetProductStatus()
-              .Where(productStatus
-                  => productStatus.CanBeSeen
-                  && enableProductIds.Contains(productStatus.ProductId))
-              .Select(ps => ps.ProductId);
+            return request
+                .Actor
+                .GetProductStatus()
+                .Where(productStatus
+                      => productStatus.CanBeSeen
+                      && enabledProductItems.Any(productItem => productItem.ProductId == productStatus.ProductId))
+                .Select(ps 
+                        => enabledProductItems.First(
+                        productItem => productItem.ProductId == ps.ProductId));
         }
     }
 }
