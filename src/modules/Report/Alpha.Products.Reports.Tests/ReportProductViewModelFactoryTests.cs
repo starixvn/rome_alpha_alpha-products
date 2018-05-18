@@ -32,8 +32,8 @@
             var viewModels = factory.GetViewModels(request);
 
             Assert.True(viewModels.Count() == 1
-                && viewModels.ElementAt(0).Name == "Product Name"
-                && viewModels.ElementAt(0) is ProductViewModel);
+                && viewModels.ElementAt(0) != null
+                && viewModels.ElementAt(0).Name == "Product Name");
         }
     }
 }
