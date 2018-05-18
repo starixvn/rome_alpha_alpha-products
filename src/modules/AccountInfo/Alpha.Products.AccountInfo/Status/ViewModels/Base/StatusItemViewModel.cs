@@ -1,8 +1,6 @@
 ﻿namespace Alpha.Products.AccountInfo.Status.ViewModels.Base
 {
     using System;
-    using System.Linq;
-    using System.Text;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Models;
 

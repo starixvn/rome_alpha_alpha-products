@@ -43,7 +43,7 @@
                 .Where(productStatus
                       => productStatus.CanBeSeen
                       && enabledProductItems.Any(productItem => productItem.ProductId == productStatus.ProductId))
-                .Select(ps 
+                .Select(ps
                         => enabledProductItems.First(
                         productItem => productItem.ProductId == ps.ProductId));
         }

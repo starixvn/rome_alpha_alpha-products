@@ -1,8 +1,8 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
     using System;
-    using Alpha.Products.AccountInfo.Tests.Utility;
     using Alpha.Products.AccountInfo.Setting.ViewModels;
+    using Alpha.Products.AccountInfo.Tests.Utility;
     using Xunit;
 
     [Trait("Setting.ViewModels", "ResetPasswordViewModel")]

@@ -101,7 +101,8 @@
         }
 
 #pragma warning disable S2325 // Methods and properties that don't access instance data should be static
-        internal protected T BuildProductProperty<T>(IDictionary<string, string> productPropertyData)
+
+        protected internal T BuildProductProperty<T>(IDictionary<string, string> productPropertyData)
 #pragma warning restore S2325 // Methods and properties that don't access instance data should be static
             where T : IExtendProductProperty
         {

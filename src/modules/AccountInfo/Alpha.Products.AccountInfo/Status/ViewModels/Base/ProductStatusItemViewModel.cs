@@ -1,12 +1,8 @@
 ﻿namespace Alpha.Products.AccountInfo.Status.ViewModels.Base
 {
     using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Configuration;
-    using static Alpha.Products.Core.Shared.ProductConstants;
 
     public class ProductStatusItemViewModel : StatusItemViewModel
     {
@@ -42,6 +38,7 @@
         public bool IsEditOnProductLevel
 #pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             => (productItem.ExtendProductProperty as SearchAccountProperties).StatusOnProductLevel;
+
 #pragma warning restore S3215 // "interface" instances should not be cast to concrete types
 
         public override bool Checked => SearchAccount.ProductStatusOf(productItem.ProductId).Enabled;

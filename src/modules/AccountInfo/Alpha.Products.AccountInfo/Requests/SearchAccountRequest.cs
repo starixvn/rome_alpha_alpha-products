@@ -53,9 +53,10 @@
         {
         }
 
-        public override Func<IConfigurationItem, bool> Predicate 
+        public override Func<IConfigurationItem, bool> Predicate
 #pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             => config => (config.ExtendProductProperty as SearchAccountProperties).Setting;
+
 #pragma warning restore S3215 // "interface" instances should not be cast to concrete types
     }
 
@@ -73,6 +74,7 @@
         public override Func<IConfigurationItem, bool> Predicate
 #pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             => config => (config.ExtendProductProperty as SearchAccountProperties).Status;
+
 #pragma warning restore S3215 // "interface" instances should not be cast to concrete types
     }
 }

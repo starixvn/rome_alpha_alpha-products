@@ -40,12 +40,12 @@
         public bool ContainKey(string key) => dataBag.ContainsKey(key);
 
         private static void ThrowException(string key)
-        { 
+        {
             var stackFrame = Array.Find(
-                new StackTrace(true).GetFrames(), 
+                new StackTrace(true).GetFrames(),
                 frame =>
                 {
-                    if(frame != null
+                    if (frame != null
                         && frame.GetFileName() != null
                         && frame.GetFileName().Contains("ViewModel"))
                     {

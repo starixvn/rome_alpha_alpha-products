@@ -1,18 +1,17 @@
 ﻿namespace Alpha.Products.AccountInfo.Setting
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Base;
     using Alpha.Products.AccountInfo.Setting.ViewModels.Products;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Services;
+    using NSubstitute;
     using Xunit;
+    using static Alpha.Products.Core.Shared.ProductConstants;
     using static Tests.Utility.AppProductConfigurationHelper;
     using static Tests.Utility.CustomerHelper;
-    using static Alpha.Products.Core.Shared.ProductConstants;
-    using NSubstitute;
 
     [Trait("Setting", "SettingViewModelFactory")]
     public class SettingViewModelFactoryTests

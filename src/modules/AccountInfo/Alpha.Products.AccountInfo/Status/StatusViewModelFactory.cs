@@ -6,7 +6,6 @@
     using Alpha.Products.AccountInfo.Status.ViewModels.Base;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.ViewModels;
-    using static Alpha.Products.Core.Shared.ProductConstants;
 
     public sealed class StatusViewModelFactory
         : GenericViewModelFactory<ISearchAccountInfoRequest, IStatusItemViewModel>

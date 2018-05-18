@@ -44,6 +44,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "globalconfigs", "globalconf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Products.AccountInfo.Tests", "src\modules\AccountInfo\Alpha.Products.AccountInfo.Tests\Alpha.Products.AccountInfo.Tests.csproj", "{B8E0E958-763B-423B-8E63-E9B99EB99B59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpha.Products.Reports.Tests", "src\modules\Report\Alpha.Products.Reports.Tests\Alpha.Products.Reports.Tests.csproj", "{2EF2598C-FDE2-410A-9786-6DCB8E3F8305}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +84,10 @@ Global
 		{B8E0E958-763B-423B-8E63-E9B99EB99B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8E0E958-763B-423B-8E63-E9B99EB99B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8E0E958-763B-423B-8E63-E9B99EB99B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EF2598C-FDE2-410A-9786-6DCB8E3F8305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EF2598C-FDE2-410A-9786-6DCB8E3F8305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EF2598C-FDE2-410A-9786-6DCB8E3F8305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EF2598C-FDE2-410A-9786-6DCB8E3F8305}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -100,6 +106,7 @@ Global
 		{6117A355-4748-4EE0-84C2-7BE58335CC4B} = {5BAC77A4-6047-4349-B408-3F34BD510F40}
 		{7BB39035-E550-4DCC-930B-EEAD536C6605} = {95802836-483B-487E-9383-49B431DB5300}
 		{B8E0E958-763B-423B-8E63-E9B99EB99B59} = {24769E7A-BA90-4437-A5C9-81AA2F6D525D}
+		{2EF2598C-FDE2-410A-9786-6DCB8E3F8305} = {8E578321-001F-41FA-9ED4-ABED8B30A142}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A20A29C-BF15-4FF7-A528-9F5F76D35505}

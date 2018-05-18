@@ -7,8 +7,6 @@
 
     public interface ConfigurationService
     {
-        IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate, DateTime? currentDate = null);
-
         IEnumerable<IConfigurationItem> GetEnabledProductItems(Func<IConfigurationItem, bool> predicate, DateTime? currentDate = null);
     }
 
@@ -30,9 +28,5 @@
                     configItem.Enabled
                     && configItem.EndSupportDate >= (currentDate ?? DateTime.Now)
                     && (predicate == null || predicate(configItem)));
-
-        public IEnumerable<int> GetEnabledProductIds(Func<IConfigurationItem, bool> predicate, DateTime? currentDate = null)
-            => GetEnabledProductItems(predicate, currentDate)
-                .Select(configuration => configuration.ProductId);
     }
 }
