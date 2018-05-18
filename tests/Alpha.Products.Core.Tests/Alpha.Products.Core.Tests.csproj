@@ -79,6 +79,8 @@
     <Compile Include="Models\CustomerProductStatusTests.cs" />
     <Compile Include="Models\ExtendedRequestTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SimpleServiceLocatorTests.cs" />
+    <Compile Include="ViewModels\ProductViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

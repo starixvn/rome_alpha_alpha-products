@@ -58,7 +58,6 @@
     <Compile Include="Configuration\ConfigurationService.cs" />
     <Compile Include="Services\SimpleServiceLocator.cs" />
     <Compile Include="Models\ExtendedRequest.cs" />
-    <Compile Include="Models\Entity.cs" />
     <Compile Include="Shared\ProductConstants.cs" />
     <Compile Include="Models\CustomerProductStatus.cs" />
     <Compile Include="Models\Customer.cs" />
