@@ -6,8 +6,8 @@
 
     public class DCSProductViewModel : ReviewProductSettingViewModel
     {
-        public DCSProductViewModel(IReviewSettingRequest request, int productId, int displayOrder = 5)
-            : base(request, productId, displayOrder)
+        public DCSProductViewModel(IReviewSettingRequest request, bool visisible, int productId, int displayOrder = 5)
+            : base(request, visisible, productId, displayOrder)
         {
         }
 
@@ -23,5 +23,7 @@
                 ["isedit"] = "false",
                 ["uplineLevel"] = Actor.CustomerLevel.Value.ToString(),
             };
+
+        public override bool Visible => base.Visible && Actor.CanSeeProduct(ProductId);
     }
 }

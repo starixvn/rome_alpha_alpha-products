@@ -7,8 +7,8 @@
 
     public class GoldDeluxeViewModel : ReviewProductSettingViewModel
     {
-        public GoldDeluxeViewModel(IReviewSettingRequest request, int displayOrder = 3)
-            : base(request, GoldDeluxe, displayOrder)
+        public GoldDeluxeViewModel(IReviewSettingRequest request, bool visisible, int displayOrder = 3)
+            : base(request, visisible, GoldDeluxe, displayOrder)
         {
         }
 
@@ -28,5 +28,7 @@
                 ["language"] = "E",
                 ["isedit"] = "false"
             };
+
+        public override bool Visible => base.Visible && Actor.CanSeeProduct(ProductId);
     }
 }

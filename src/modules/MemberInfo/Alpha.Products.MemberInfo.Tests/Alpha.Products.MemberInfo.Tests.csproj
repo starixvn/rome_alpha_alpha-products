@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Alpha.Products.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Alpha.Products.Core.1.0.0-beta4\lib\net461\Alpha.Products.Core.dll</HintPath>
+      <HintPath>..\..\..\..\packages\Alpha.Products.Core.1.0.0-beta6\lib\net461\Alpha.Products.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
@@ -75,12 +75,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\ReviewSettingRequestTests.cs" />
+    <Compile Include="ReviewCustomerConfigurationLoaderForTesting.cs" />
+    <Compile Include="ReviewCustomerConfigurationLoaderTests.cs" />
     <Compile Include="ReviewSetting\ReviewSettingViewModelFactoryTests.cs" />
+    <Compile Include="ReviewSetting\ViewModels\ColossusBetsViewModelTests.cs" />
+    <Compile Include="ReviewSetting\ViewModels\DCSProductViewModelTests.cs" />
+    <Compile Include="ReviewSetting\ViewModels\GoldDeluxeViewModelTests.cs" />
+    <Compile Include="ReviewSetting\ViewModels\KenoViewModelTests.cs" />
+    <Compile Include="ReviewSetting\ViewModels\RNGCasinoViewModelTests.cs" />
     <Compile Include="ReviewSetting\ViewModels\SportsbookMinPTViewModelTests.cs" />
     <Compile Include="Utility\AppProductConfigurationHelper.cs" />
     <Compile Include="Utility\CustomerHelper.cs" />
     <Compile Include="Utility\RequestHelper.cs" />
     <Compile Include="Utility\ReviewSettingRequestStub.cs" />
+    <Compile Include="Utility\ReviewSettingRequestStubTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

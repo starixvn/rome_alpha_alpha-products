@@ -5,5 +5,7 @@
     public interface IReviewSettingRequest : IRequest, IExtendedRequest
     {
         ICustomer ReviewedCustomer { get; }
+
+        bool ActorIsEdittingDirectDownline { get; }
     }
 }

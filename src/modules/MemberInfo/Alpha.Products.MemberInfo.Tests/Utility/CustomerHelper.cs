@@ -19,7 +19,8 @@
                         new CustomerProductStatus(22),
                         new CustomerProductStatus(24),
                         new CustomerProductStatus(5),
-                        new CustomerProductStatus(28)
+                        new CustomerProductStatus(28),
+                        new CustomerProductStatus(29, false, true)
                     });
 
         public static ICustomer CreateSuper(int custId = 1)

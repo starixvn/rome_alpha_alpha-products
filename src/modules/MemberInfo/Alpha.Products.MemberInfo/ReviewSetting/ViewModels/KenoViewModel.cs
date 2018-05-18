@@ -7,8 +7,8 @@
 
     public class KenoViewModel : ReviewProductSettingViewModel
     {
-        public KenoViewModel(IReviewSettingRequest request, int displayOrder = 2)
-            : base(request, Keno, displayOrder)
+        public KenoViewModel(IReviewSettingRequest request, bool visisible, int displayOrder = 2)
+            : base(request, visisible, Keno, displayOrder)
         {
         }
 
@@ -39,5 +39,7 @@
                 ["subAccid"] = Actor.SubAccountId.ToString(),
                 ["isedit"] = "0"
             };
+
+        public override bool Visible => base.Visible && Actor.CanSeeProduct(ProductId);
     }
 }

@@ -3,7 +3,7 @@
     using System;
     using Core.Configuration;
     using Core.Models;
-    using Requests;
+    using MemberInfo.Requests;
 
     public class ReviewSettingRequestStub : ExtendedRequest, IReviewSettingRequest
     {
@@ -34,5 +34,7 @@
         public Func<int, string> GetProductName { get; }
 
         public Func<IConfigurationItem, bool> Predicate => _ => true;
+
+        public bool ActorIsEdittingDirectDownline => Actor.IsDirectUplineOf(ReviewedCustomer);
     }
 }

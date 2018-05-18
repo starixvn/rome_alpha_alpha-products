@@ -20,20 +20,22 @@
             yield return new SportsbookMinPTViewModel(request);
         }
 
-        protected override IReviewSettingViewModel GetProductViewModel(int productId, IReviewSettingRequest request)
+        protected override IReviewSettingViewModel GetProductViewModel(IConfigurationItem productItem, IReviewSettingRequest request)
         {
-            switch (productId)
+            var visible = (productItem.ExtendProductProperty as MemberInfoProperties).ReviewSetting;
+
+            switch (productItem.ProductId)
             {
                 case RNGCasino:
-                    return new RNGCasinoViewModel(request);
+                    return new RNGCasinoViewModel(request, visible);
                 case Keno:
-                    return new KenoViewModel(request);
+                    return new KenoViewModel(request, visible);
                 case GoldDeluxe:
-                    return new GoldDeluxeViewModel(request);
+                    return new GoldDeluxeViewModel(request, visible);
                 case ColossusBets:
-                    return new ColossusBetsViewModel(request);
+                    return new ColossusBetsViewModel(request, visible);
                 default:
-                    return new DCSProductViewModel(request, productId);
+                    return new DCSProductViewModel(request, visible, productItem.ProductId);
             }
         }
     }

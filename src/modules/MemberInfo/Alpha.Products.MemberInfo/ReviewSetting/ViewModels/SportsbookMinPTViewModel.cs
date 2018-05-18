@@ -21,5 +21,7 @@
                 ["user"] = ReviewedCustomer.Username,
                 ["isedit"] = "false"
             };
+
+        public override bool Visible => base.Visible && ReviewedCustomer.IsNotMember;
     }
 }

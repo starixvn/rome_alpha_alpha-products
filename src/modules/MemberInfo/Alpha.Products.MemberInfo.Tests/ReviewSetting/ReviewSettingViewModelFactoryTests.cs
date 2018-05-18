@@ -1,15 +1,14 @@
 ﻿namespace Alpha.Products.MemberInfo.Tests.ReviewSetting
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using Core.Configuration;
     using Core.Services;
+    using MemberInfo.Requests;
     using MemberInfo.ReviewSetting;
     using MemberInfo.ReviewSetting.Base;
     using MemberInfo.ReviewSetting.ViewModels;
     using NSubstitute;
-    using Requests;
     using Xunit;
     using static Core.Shared.ProductConstants;
     using static Utility.AppProductConfigurationHelper;

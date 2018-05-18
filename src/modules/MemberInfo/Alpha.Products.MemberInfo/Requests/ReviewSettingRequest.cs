@@ -34,5 +34,7 @@
         public Func<int, string> GetProductName { get; }
 
         public Func<IConfigurationItem, bool> Predicate { get; }
+
+        public bool ActorIsEdittingDirectDownline => Actor.IsDirectUplineOf(ReviewedCustomer);
     }
 }

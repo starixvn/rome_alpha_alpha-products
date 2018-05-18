@@ -1,7 +1,7 @@
 ﻿namespace Alpha.Products.MemberInfo.Tests.Utility
 {
     using System;
-    using Requests;
+    using MemberInfo.Requests;
 
     public static class RequestHelper
     {
@@ -23,5 +23,13 @@
 
         public static IReviewSettingRequest CreateRequest(byte actorLevel, byte reviewedCustomerLevel)
             => CreateRequest(actorLevel, reviewedCustomerLevel, null, null);
+
+        public static ReviewSettingRequest CreateReviewSettingRequest(byte actorLevel, byte reviewedCustomerLevel)
+        {
+            var actor = CustomerHelper.CreateCustomer(1, actorLevel);
+            var searchAccount = CustomerHelper.CreateCustomer(2, reviewedCustomerLevel);
+
+            return new ReviewSettingRequest(actor, searchAccount, GetString, GetProductName);
+        }
     }
 }

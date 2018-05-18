@@ -12,6 +12,9 @@
         "showInLegend": true,
         "hasMatchInfo": true,
         "offerPlayForFun": true
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -27,6 +30,9 @@
         "showInLegend": false,
         "hasMatchInfo": true,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": false
       }
     },
     {
@@ -41,6 +47,9 @@
         "showInLegend": true,
         "hasMatchInfo": true,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": false
       }
     },
     {
@@ -55,6 +64,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": true
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -69,6 +81,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": false
       }
     },
     {
@@ -83,6 +98,9 @@
         "showInLegend": true,
         "hasMatchInfo": true,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -97,6 +115,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -111,6 +132,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -125,6 +149,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -134,6 +161,9 @@
         "setting": true,
         "status": false,
         "statusOnProductLevel": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -148,6 +178,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -162,6 +195,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -176,6 +212,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -190,6 +229,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -204,6 +246,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -218,6 +263,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     },
     {
@@ -232,6 +280,9 @@
         "showInLegend": true,
         "hasMatchInfo": false,
         "offerPlayForFun": false
+      },
+      "memberInfoProperties": {
+        "reviewSetting": true
       }
     }
   ]

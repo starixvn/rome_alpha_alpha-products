@@ -7,8 +7,8 @@
 
     public class RNGCasinoViewModel : ReviewProductSettingViewModel
     {
-        public RNGCasinoViewModel(IReviewSettingRequest request, int displayOrder = 1)
-            : base(request, RNGCasino, displayOrder)
+        public RNGCasinoViewModel(IReviewSettingRequest request, bool visisible, int displayOrder = 1)
+            : base(request, visisible, RNGCasino, displayOrder)
         {
         }
 
@@ -21,5 +21,8 @@
                 ["username"] = ReviewedCustomer.Username,
                 ["isedit"] = "false"
             };
+
+        public override bool Visible
+            => base.Visible && Actor.ProductStatusOf(ProductId).Synced;
     }
 }
