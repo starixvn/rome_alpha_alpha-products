@@ -20,7 +20,7 @@
 
         protected ICustomer SearchAccount => Request.SearchAccount;
 
-        public virtual string Text => Request.GetResource($"{GetType().Name}.Text");
+        public virtual string Text => Request.GetResource($"{GetType().Name}Text");
 
         public abstract string Url { get; }
 

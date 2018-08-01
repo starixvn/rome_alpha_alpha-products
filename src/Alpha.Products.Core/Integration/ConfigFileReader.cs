@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Products.Core.Integration
 {
     using System.IO;
+    using System.Web;
 
     public interface IConfigFileReader
     {
@@ -11,12 +12,11 @@
     {
         public string ReadProductConfig(string relativePath)
         {
-            var currentDirectory = Directory.GetCurrentDirectory();
-            var absoluteConfigFilePath = Path.Combine(currentDirectory, relativePath);
-            if (File.Exists(absoluteConfigFilePath))
+            var configFilePath = HttpRuntime.AppDomainAppPath + relativePath;
+            if (File.Exists(configFilePath))
             {
                 // Read file without locking file
-                using (FileStream fileStream = new FileStream(relativePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                using (FileStream fileStream = new FileStream(configFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
                     using (StreamReader streamReader = new StreamReader(fileStream))
                     {
