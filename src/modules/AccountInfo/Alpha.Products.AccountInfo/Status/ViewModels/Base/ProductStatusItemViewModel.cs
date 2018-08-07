@@ -19,7 +19,7 @@
         public override int DisplayOrder => productItem.ProductId * 10;
 
         public override string Url
-            => "productstatus3rd/index?" + string.Join("&",
+            => "ProductStatus?" + string.Join("&",
                                           $"productid={productItem.ProductId}",
                                           $"custId={SearchAccount.Id}",
                                           $"custName={SearchAccount.Username}",

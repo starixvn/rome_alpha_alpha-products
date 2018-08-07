@@ -12,7 +12,7 @@
         }
 
         protected override string BaseAddress
-            => $"{Actor.CustomerLevel.DisplayName}/EditMinPT{SearchAccount.CustomerLevel.DisplayName}";
+            => $"_MemberInfo/PositionTaking/{Actor.CustomerLevel.DisplayName}/EditMinPT{SearchAccount.CustomerLevel.DisplayName}.aspx";
 
         protected override Dictionary<string, string> QueryStringParamaters
             => new Dictionary<string, string>

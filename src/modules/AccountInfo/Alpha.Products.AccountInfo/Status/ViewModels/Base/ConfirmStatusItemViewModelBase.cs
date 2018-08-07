@@ -10,6 +10,6 @@
         {
         }
 
-        public virtual string ConfirmMessage => Request.GetResource($"{GetType().Name}.ConfirmMessage");
+        public virtual string ConfirmMessage => Request.GetResource($"{GetType().Name}Message");
     }
 }
