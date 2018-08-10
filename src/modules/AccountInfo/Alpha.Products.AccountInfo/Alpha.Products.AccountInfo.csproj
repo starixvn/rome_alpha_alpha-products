@@ -76,7 +76,7 @@
     <Compile Include="Setting\ViewModels\Products\SportsbookViewModel.cs" />
     <Compile Include="Status\StatusViewModelFactory.cs" />
     <Compile Include="Status\ViewModels\Base\ConfirmStatusItemViewModelBase.cs" />
-    <Compile Include="Status\ViewModels\ConfirmAllowAutoPTViewModel.cs" />
+    <Compile Include="Status\ViewModels\ConfirmAllowAutoMasterPTViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmAllowOutrightViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmClosedViewModel.cs" />
     <Compile Include="Status\ViewModels\ConfirmDoubleCommViewModel.cs" />

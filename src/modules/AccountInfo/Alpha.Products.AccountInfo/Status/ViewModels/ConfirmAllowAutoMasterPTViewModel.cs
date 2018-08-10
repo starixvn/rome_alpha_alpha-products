@@ -9,6 +9,16 @@
         {
         }
 
+        public override string ConfirmMessage
+        {
+            get
+            {
+                var suffixMessage = Checked ? "InCaseEnabledMessage" : "InCaseDisabledMessage";
+
+                return Request.GetResource($"{GetType().Name}{suffixMessage}");
+            }
+        }
+
         public override string Url => "_AccountInfo/Handlers/UpdateAutoMasterPTStatus.ashx";
 
         public override bool Visible

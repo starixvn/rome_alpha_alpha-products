@@ -9,6 +9,18 @@
         {
         }
 
+        public override string ConfirmMessage
+        {
+            get
+            {
+                var suffixMessage = Request.SearchAccount.IsMember ?
+                    Checked ? "InCaseSuspendedMemberMessage" : "InCaseUnsuspendedMemberMessage" :
+                    Checked ? "InCaseSuspendedMasterOrAgentMessage" : "InCaseUnsuspendedMasterOrAgentMessage";
+
+                return Request.GetResource($"{GetType().Name}{suffixMessage}");
+            }
+        }
+
         public override string Url => "_AccountInfo/Handlers/UpdateSuspendedStatus.ashx";
 
         public override bool Disabled => base.Disabled || Request.GetData<bool>(DataKey.SearchAccount.Upline.IsSuspended);

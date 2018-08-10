@@ -9,6 +9,18 @@
         {
         }
 
+        public override string ConfirmMessage
+        {
+            get
+            {
+                var suffixMessage = Request.SearchAccount.IsMember ?
+                    Checked ? "InCaseEnabledMemberMessage" : "InCaseDisabledMemberMessage" :
+                    Checked ? "InCaseEnableMasterOrAgentMessage" : "InCaseDisabledMasterOrAgentMessage";
+
+                return Request.GetResource($"{GetType().Name}{suffixMessage}");
+            }
+        }
+
         public override string Url => "_AccountInfo/Handlers/UpdateDoubleCommStatus.ashx";
 
         public override bool Disabled
