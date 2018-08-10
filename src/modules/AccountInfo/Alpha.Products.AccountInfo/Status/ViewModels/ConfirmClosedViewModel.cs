@@ -13,13 +13,13 @@
         {
             get
             {
-                var suffixMessage = Request.SearchAccount.IsMember ? 
-                    Checked ? "InCaseClosedMemberMessage" : "InCaseOpenMemberMessage" : 
-                    Checked ? "InCaseClosedMasterOrAgentMessage" : "InCaseOpenMasterOrAgentMessage";
+                var suffixMessage = !Request.SearchAccount.IsMember && Checked ?
+                    "InCaseClosedDownlinesMessage" : "InCaseChangeClosedStatusMessage";
 
                 return Request.GetResource($"{GetType().Name}{suffixMessage}");
             }
         }
+
 
         public override string Url => "_AccountInfo/Handlers/UpdateClosedStatus.ashx";
 
