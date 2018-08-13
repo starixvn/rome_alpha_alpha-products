@@ -21,7 +21,8 @@
             }
         }
 
-        public override string Url => "_AccountInfo/Handlers/UpdateSuspendedStatus.ashx";
+        public override string Url 
+            => $"{Request.MicrositePaths["OldMainPath"]}_AccountInfo/Handlers/UpdateSuspendedStatus.ashx";
 
         public override bool Disabled => base.Disabled || Request.GetData<bool>(DataKey.SearchAccount.Upline.IsSuspended);
 

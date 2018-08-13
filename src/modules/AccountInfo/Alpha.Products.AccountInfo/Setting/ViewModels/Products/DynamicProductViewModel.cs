@@ -14,7 +14,8 @@
         {
         }
 
-        protected override string BaseAddress => "dcs/viewcustomersetting";
+        protected override string BaseAddress 
+            => $"{Request.MicrositePaths["OldMainPath"]}dcs/viewcustomersetting";
 
         protected override Dictionary<string, string> QueryStringParamaters
         {

@@ -19,7 +19,8 @@
             }
         }
 
-        public override string Url => "_AccountInfo/Handlers/UpdateAutoMasterPTStatus.ashx";
+        public override string Url 
+            => $"{Request.MicrositePaths["OldMainPath"]}_AccountInfo/Handlers/UpdateAutoMasterPTStatus.ashx";
 
         public override bool Visible
             => base.Visible

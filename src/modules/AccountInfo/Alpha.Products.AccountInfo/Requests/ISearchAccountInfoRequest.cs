@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Products.AccountInfo.Requests
 {
     using Alpha.Products.Core.Models;
+    using System.Collections.Generic;
 
     public interface ISearchAccountInfoRequest : IRequest, IExtendedRequest
     {
@@ -9,5 +10,7 @@
         bool ActorIsEdittingDirectDownline { get; }
 
         bool ActorIsNotEdittingDirectDownline { get; }
+
+        IDictionary<string, string> MicrositePaths { get; }
     }
 }

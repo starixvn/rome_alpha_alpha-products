@@ -21,7 +21,8 @@
             }
         }
 
-        public override string Url => "_AccountInfo/Handlers/UpdateDoubleCommStatus.ashx";
+        public override string Url 
+            => $"{Request.MicrositePaths["OldMainPath"]}_AccountInfo/Handlers/UpdateDoubleCommStatus.ashx";
 
         public override bool Disabled
             => base.Disabled

@@ -12,9 +12,10 @@
         }
 
         protected override string BaseAddress
-            => "customersetting/kenosetting/kenosetting/" + (SearchAccount.IsMember
-                    ? $"{Actor.CustomerLevel.DisplayName}EditMember?isMultipleEdit=0"
-                    : $"Edit{SearchAccount.CustomerLevel.DisplayName}");
+            => Request.MicrositePaths["OldMainPath"]+ "customersetting/kenosetting/kenosetting/" + 
+            (SearchAccount.IsMember
+            ? $"{Actor.CustomerLevel.DisplayName}EditMember?isMultipleEdit=0"
+            : $"Edit{SearchAccount.CustomerLevel.DisplayName}");
 
         protected override Dictionary<string, string> QueryStringParamaters
          => new Dictionary<string, string>

@@ -1,9 +1,10 @@
 ﻿namespace Alpha.Products.AccountInfo.Requests
 {
-    using System;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Services;
+    using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// should implementation be located in consumer sites.
@@ -13,11 +14,13 @@
         protected SearchAccountRequest(
             ICustomer actor,
             ICustomer searchAccount,
+            IDictionary<string, string> micrositePaths,
             Func<string, string> getResource = null,
             Func<int, string> getProductName = null)
         {
             Actor = actor;
             SearchAccount = searchAccount;
+            MicrositePaths = micrositePaths;
             this.GetResource = getResource ?? SimpleServiceLocator.GetService<Func<string, string>>();
             this.GetProductName = getProductName ?? SimpleServiceLocator.GetService<Func<int, string>>();
         }
@@ -39,6 +42,8 @@
 
         public Func<int, string> GetProductName { get; }
 
+        public IDictionary<string, string> MicrositePaths { get; }
+
         public abstract Func<IConfigurationItem, bool> Predicate { get; }
     }
 
@@ -47,9 +52,10 @@
         public SettingSearchAccountRequest(
             ICustomer actor,
             ICustomer searchAccount,
+            IDictionary<string, string> micrositePaths,
             Func<string, string> getResource = null,
             Func<int, string> getProductName = null)
-            : base(actor, searchAccount, getResource, getProductName)
+            : base(actor, searchAccount, micrositePaths, getResource, getProductName)
         {
         }
 
@@ -65,9 +71,10 @@
         public StatusSearchAccountRequest(
             ICustomer actor,
             ICustomer searchAccount,
+            IDictionary<string, string> micrositePaths,
             Func<string, string> getResource = null,
             Func<int, string> getProductName = null)
-            : base(actor, searchAccount, getResource, getProductName)
+            : base(actor, searchAccount, micrositePaths, getResource, getProductName)
         {
         }
 

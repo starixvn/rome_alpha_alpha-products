@@ -20,13 +20,15 @@
                     ? $"by{Actor.CustomerLevel.DisplayName}"
                     : string.Empty;
 
-                return $"CustomerSetting/Casino/{searchAccountLevel}/Edit{searchAccountLevel}{editBy}/{SearchAccount.Id}/{Actor.Id}";
+                return $"{Request.MicrositePaths["OldMainPath"]}CustomerSetting/Casino/{searchAccountLevel}/Edit{searchAccountLevel}{editBy}";
             }
         }
 
         protected override Dictionary<string, string> QueryStringParamaters
             => new Dictionary<string, string>
             {
+                ["id"] = SearchAccount.Id.ToString(),
+                ["uplineid"] = Actor.Id.ToString(),
                 ["username"] = SearchAccount.Username
             };
 

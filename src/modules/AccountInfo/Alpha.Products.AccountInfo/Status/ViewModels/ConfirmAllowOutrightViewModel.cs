@@ -19,7 +19,8 @@
             }
         }
 
-        public override string Url => "_AccountInfo/Handlers/UpdateOutrightStatus.ashx";
+        public override string Url 
+            => $"{Request.MicrositePaths["OldMainPath"]}_AccountInfo/Handlers/UpdateOutrightStatus.ashx";
 
         public override bool Disabled
             => base.Disabled || !Request.GetData<bool>(DataKey.SearchAccount.Upline.IsAllowedOutright);

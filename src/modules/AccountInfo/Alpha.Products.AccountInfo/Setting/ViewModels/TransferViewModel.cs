@@ -11,7 +11,8 @@
         {
         }
 
-        protected override string BaseAddress => "_MemberInfo/TransferCondition/EditTransferCondition.aspx";
+        protected override string BaseAddress 
+            => $"{Request.MicrositePaths["OldMainPath"]}_MemberInfo/TransferCondition/EditTransferCondition.aspx";
 
         protected override Dictionary<string, string> QueryStringParamaters
           => new Dictionary<string, string>
