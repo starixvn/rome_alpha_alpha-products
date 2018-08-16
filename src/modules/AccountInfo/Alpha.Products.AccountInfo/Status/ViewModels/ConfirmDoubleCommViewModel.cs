@@ -1,6 +1,7 @@
 ﻿namespace Alpha.Products.AccountInfo.Status.ViewModels
 {
     using Alpha.Products.AccountInfo.Requests;
+    using System;
 
     public class ConfirmDoubleCommViewModel : ConfirmStatusItemViewModelBase
     {
@@ -22,7 +23,10 @@
         }
 
         public override string Url 
-            => $"{Request.MicrositePaths["OldMainPath"]}_AccountInfo/Handlers/UpdateDoubleCommStatus.ashx";
+            => $"{Request.MicrositePaths["OldMainPath"]}_AccountInfo/Handlers/UpdateDoubleCommStatus.ashx?" + string.Join("&",
+                                          $"custId={SearchAccount.Id}",
+                                          $"doubleCommLosing={Checked}",
+                                          $"uid={Guid.NewGuid()}");
 
         public override bool Disabled
             => base.Disabled

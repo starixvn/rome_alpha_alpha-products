@@ -13,14 +13,17 @@
         {
             get
             {
-                var suffixMessage = Checked ? "InCaseEnabledMessage" : "InCaseDisabledMessage";
+                var suffixMessage = Checked ? "InCaseDisabledMessage" :"InCaseEnabledMessage";
 
                 return Request.GetResource($"{GetType().Name}{suffixMessage}");
             }
         }
 
-        public override string Url 
-            => $"{Request.MicrositePaths["OldMainPath"]}_AccountInfo/Handlers/UpdateAutoMasterPTStatus.ashx";
+        public override string Url
+            => $"{Request.MicrositePaths["AccountInfoPath"]}AccountInfo/UpdateAutoMasterPT";
+
+        public string Param => string.Format("{0}{1}{2}",
+           "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"DisableAutoMasterPT\":\"{!Checked}\"", "}");
 
         public override bool Visible
             => base.Visible
