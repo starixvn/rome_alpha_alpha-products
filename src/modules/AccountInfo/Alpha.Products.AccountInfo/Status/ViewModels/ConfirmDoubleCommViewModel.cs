@@ -15,18 +15,18 @@
             get
             {
                 var suffixMessage = Request.SearchAccount.IsMember ?
-                    Checked ? "InCaseEnabledMemberMessage" : "InCaseDisabledMemberMessage" :
-                    Checked ? "InCaseEnableMasterOrAgentMessage" : "InCaseDisabledMasterOrAgentMessage";
+                    Checked ? "InCaseDisabledMemberMessage" : "InCaseEnabledMemberMessage" :
+                    Checked ? "InCaseDisabledMasterOrAgentMessage" : "InCaseEnableMasterOrAgentMessage" ;
 
                 return Request.GetResource($"{GetType().Name}{suffixMessage}");
             }
         }
 
-        public override string Url 
-            => $"{Request.MicrositePaths["OldMainPath"]}_AccountInfo/Handlers/UpdateDoubleCommStatus.ashx?" + string.Join("&",
-                                          $"custId={SearchAccount.Id}",
-                                          $"doubleCommLosing={Checked}",
-                                          $"uid={Guid.NewGuid()}");
+        public override string Url
+            => $"{Request.MicrositePaths["AccountInfoPath"]}AccountInfo/UpdateDoubleComm";
+
+        public string Param => string.Format("{0}{1}{2}",
+            "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"DoubleComm\":\"{!Checked}\"", "}");
 
         public override bool Disabled
             => base.Disabled

@@ -23,7 +23,7 @@
             => $"{Request.MicrositePaths["AccountInfoPath"]}AccountInfo/UpdateOutright";
 
         public string Param => string.Format("{0}{1}{2}", 
-            "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"DisableOutright\":\"{!Checked}\"", "}");
+            "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"DisableOutright\":\"{Checked}\"", "}");
 
         public override bool Disabled
             => base.Disabled || !Request.GetData<bool>(DataKey.SearchAccount.Upline.IsAllowedOutright);

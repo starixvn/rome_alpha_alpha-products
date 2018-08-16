@@ -23,7 +23,7 @@
             => $"{Request.MicrositePaths["AccountInfoPath"]}AccountInfo/UpdateAutoMasterPT";
 
         public string Param => string.Format("{0}{1}{2}",
-           "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"DisableAutoMasterPT\":\"{!Checked}\"", "}");
+           "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"DisableAutoMasterPT\":\"{Checked}\"", "}");
 
         public override bool Visible
             => base.Visible
