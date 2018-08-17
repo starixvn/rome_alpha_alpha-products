@@ -27,7 +27,7 @@
              => $"{Request.MicrositePaths["AccountInfoPath"]}AccountInfo/UpdateSuspended";
 
         public string Param => string.Format("{0}{1}{2}",
-          "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"Closed\":\"{!Checked}\",\"SyncedCasino\":\"{SyncedCasino}\"", "}");
+          "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"Suspended\":\"{!Checked}\",\"SyncedCasino\":\"{SyncedCasino}\"", "}");
 
         public bool SyncedCasino => Request.SearchAccount.ProductStatusOf(ProductConstants.RNGCasino).Synced;
 
