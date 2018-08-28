@@ -1,7 +1,8 @@
 ﻿namespace Alpha.Products.Core.Models
 {
-    using System;
     using Alpha.Products.Core.Configuration;
+    using System;
+    using System.Collections.Generic;
 
     public interface IRequest
     {
@@ -14,5 +15,7 @@
         Func<int, string> GetProductName { get; }
 
         Func<string, string> GetResource { get; }
+
+        Func<string, string, string> GetMicroSiteUrl { get; }
     }
 }

@@ -12,7 +12,7 @@
         }
 
         protected override string BaseAddress
-            => $"{Request.MicrositePaths["OldMainPath"]}customersetting/ColossusBetSetting/ColossusBetSetting/EditSetting";
+            => $"{OldMainUrl}customersetting/ColossusBetSetting/ColossusBetSetting/EditSetting";
 
         protected override Dictionary<string, string> QueryStringParamaters
         {

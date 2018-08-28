@@ -10,7 +10,5 @@
         bool ActorIsEdittingDirectDownline { get; }
 
         bool ActorIsNotEdittingDirectDownline { get; }
-
-        IDictionary<string, string> MicrositePaths { get; }
     }
 }

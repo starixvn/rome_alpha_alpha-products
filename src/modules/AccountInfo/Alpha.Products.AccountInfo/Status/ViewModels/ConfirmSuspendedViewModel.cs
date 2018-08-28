@@ -22,9 +22,7 @@
             }
         }
 
-        //TO DO hard code
-        public override string Url
-             => $"{Request.MicrositePaths["AccountInfoPath"]}AccountInfo/UpdateSuspended";
+        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateSuspended";
 
         public string Param => string.Format("{0}{1}{2}",
           "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"Suspended\":\"{!Checked}\",\"SyncedCasino\":\"{SyncedCasino}\"", "}");

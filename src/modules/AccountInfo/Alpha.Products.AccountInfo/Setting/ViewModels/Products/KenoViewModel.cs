@@ -12,7 +12,7 @@
         }
 
         protected override string BaseAddress
-            => Request.MicrositePaths["OldMainPath"]+ "customersetting/kenosetting/kenosetting/" + 
+            => OldMainUrl + "customersetting/kenosetting/kenosetting/" + 
             (SearchAccount.IsMember
             ? $"{Actor.CustomerLevel.DisplayName}EditMember?isMultipleEdit=0"
             : $"Edit{SearchAccount.CustomerLevel.DisplayName}");

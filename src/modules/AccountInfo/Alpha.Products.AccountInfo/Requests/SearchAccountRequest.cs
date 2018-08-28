@@ -14,15 +14,15 @@
         protected SearchAccountRequest(
             ICustomer actor,
             ICustomer searchAccount,
-            IDictionary<string, string> micrositePaths,
             Func<string, string> getResource = null,
-            Func<int, string> getProductName = null)
+            Func<int, string> getProductName = null,
+            Func<string, string, string> getMicroSiteUrl = null)
         {
             Actor = actor;
             SearchAccount = searchAccount;
-            MicrositePaths = micrositePaths;
-            this.GetResource = getResource ?? SimpleServiceLocator.GetService<Func<string, string>>();
-            this.GetProductName = getProductName ?? SimpleServiceLocator.GetService<Func<int, string>>();
+            GetResource = getResource ?? SimpleServiceLocator.GetService<Func<string, string>>();
+            GetProductName = getProductName ?? SimpleServiceLocator.GetService<Func<int, string>>();
+            GetMicroSiteUrl = getMicroSiteUrl ?? SimpleServiceLocator.GetService<Func<string, string, string>>();
         }
 
         public ICustomer Actor { get; }
@@ -42,7 +42,7 @@
 
         public Func<int, string> GetProductName { get; }
 
-        public IDictionary<string, string> MicrositePaths { get; }
+        public Func<string, string, string> GetMicroSiteUrl { get; }
 
         public abstract Func<IConfigurationItem, bool> Predicate { get; }
     }
@@ -52,10 +52,10 @@
         public SettingSearchAccountRequest(
             ICustomer actor,
             ICustomer searchAccount,
-            IDictionary<string, string> micrositePaths,
             Func<string, string> getResource = null,
-            Func<int, string> getProductName = null)
-            : base(actor, searchAccount, micrositePaths, getResource, getProductName)
+            Func<int, string> getProductName = null,
+            Func<string, string, string> getMicroSiteUrl = null)
+            : base(actor, searchAccount, getResource, getProductName, getMicroSiteUrl)
         {
         }
 
@@ -71,10 +71,10 @@
         public StatusSearchAccountRequest(
             ICustomer actor,
             ICustomer searchAccount,
-            IDictionary<string, string> micrositePaths,
             Func<string, string> getResource = null,
-            Func<int, string> getProductName = null)
-            : base(actor, searchAccount, micrositePaths, getResource, getProductName)
+            Func<int, string> getProductName = null,
+            Func<string, string, string> getMicroSiteUrl= null)
+            : base(actor, searchAccount, getResource, getProductName, getMicroSiteUrl)
         {
         }
 

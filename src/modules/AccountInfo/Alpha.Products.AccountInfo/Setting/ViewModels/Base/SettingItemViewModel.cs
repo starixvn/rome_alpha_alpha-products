@@ -41,6 +41,10 @@
 
         protected abstract Dictionary<string, string> QueryStringParamaters { get; }
 
+        protected virtual string OldMainUrl => Request.GetMicroSiteUrl(DataKey.Microsites.OldMain,"~/");
+
+        protected virtual string MainUrl => Request.GetMicroSiteUrl(DataKey.Microsites.Main, "~/");
+
         public virtual bool Visible => Request.ActorIsEdittingDirectDownline;
     }
 }

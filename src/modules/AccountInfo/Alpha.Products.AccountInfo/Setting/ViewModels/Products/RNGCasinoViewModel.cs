@@ -20,7 +20,7 @@
                     ? $"by{Actor.CustomerLevel.DisplayName}"
                     : string.Empty;
 
-                return $"{Request.MicrositePaths["OldMainPath"]}CustomerSetting/Casino/{searchAccountLevel}/Edit{searchAccountLevel}{editBy}";
+                return $"{OldMainUrl}CustomerSetting/Casino/{searchAccountLevel}/Edit{searchAccountLevel}{editBy}";
             }
         }
 

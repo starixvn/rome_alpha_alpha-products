@@ -1,9 +1,9 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.Utility
 {
-    using System;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Models;
+    using System;
 
     /// <summary>
     /// should implementation be located in consumer sites.
@@ -44,5 +44,7 @@
         public Func<int, string> GetProductName { get; }
 
         public Func<IConfigurationItem, bool> Predicate => _ => true;
+
+        public Func<string, string, string> GetMicroSiteUrl { get; }
     }
 }

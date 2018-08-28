@@ -12,7 +12,7 @@
         }
 
         protected override string BaseAddress
-            => $"{Request.MicrositePaths["OldMainPath"]}_MemberInfo/PositionTaking/{Actor.CustomerLevel.DisplayName}/EditMinPT{SearchAccount.CustomerLevel.DisplayName}.aspx";
+            => $"{OldMainUrl}_MemberInfo/PositionTaking/{Actor.CustomerLevel.DisplayName}/EditMinPT{SearchAccount.CustomerLevel.DisplayName}.aspx";
 
         protected override Dictionary<string, string> QueryStringParamaters
             => new Dictionary<string, string>

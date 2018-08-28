@@ -1,9 +1,9 @@
 ﻿namespace Alpha.Products.Reports.Requests
 {
-    using System;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Services;
+    using System;
 
     public class ReportProductRequest : IRequest
     {
@@ -33,5 +33,7 @@
         public bool IsValid => true;
 
         public Func<string, string> GetResource { get; }
+
+        public Func<string, string, string> GetMicroSiteUrl { get; }
     }
 }

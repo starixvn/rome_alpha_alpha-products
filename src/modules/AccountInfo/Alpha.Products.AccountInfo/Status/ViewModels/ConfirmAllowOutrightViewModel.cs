@@ -19,8 +19,7 @@
             }
         }
 
-        public override string Url
-            => $"{Request.MicrositePaths["AccountInfoPath"]}AccountInfo/UpdateOutright";
+        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateOutright";
 
         public string Param => string.Format("{0}{1}{2}", 
             "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"DisableOutright\":\"{Checked}\"", "}");

@@ -18,8 +18,7 @@
 
         public override int DisplayOrder => productItem.ProductId * 10;
 
-        public override string Url
-            => Request.MicrositePaths["AccountInfoPath"] + "ProductStatus?" + string.Join("&",
+        public override string Url => AccountInfoUrl + "ProductStatus?" + string.Join("&",
                                           $"productid={productItem.ProductId}",
                                           $"custId={SearchAccount.Id}",
                                           $"custName={SearchAccount.Username}",

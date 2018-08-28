@@ -22,8 +22,7 @@
             }
         }
 
-        public override string Url
-            => $"{Request.MicrositePaths["AccountInfoPath"]}AccountInfo/UpdateDoubleComm";
+        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateDoubleComm";
 
         public string Param => string.Format("{0}{1}{2}",
             "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"DoubleComm\":\"{!Checked}\"", "}");

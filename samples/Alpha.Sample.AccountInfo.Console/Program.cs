@@ -20,6 +20,14 @@ namespace Alpha.Sample.AccountInfo.Console
     {
         private const int subAccountId = 0;
 
+        private static IDictionary<string, Func<string, string>> MicrositeUrls =
+          new Dictionary<string, Func<string, string>>
+          {
+                { "OldMainUrl", OldMainUrl }
+          };
+
+        private static string OldMainUrl(string virtualPath = "~/") => string.Empty;
+
         private static void Main()
         {
             try
@@ -50,7 +58,8 @@ namespace Alpha.Sample.AccountInfo.Console
             .Instance
             .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter()))
             .Register<Func<int, string>>(CacheRef.GetProductName)
-            .Register<Func<string, string>>(Resource1.ResourceManager.GetString);
+            .Register<Func<string, string>>(Resource1.ResourceManager.GetString)
+            .Register<IDictionary<string, Func<string, string>>>(MicrositeUrls);
         }
 
         private static void ClearScreen()

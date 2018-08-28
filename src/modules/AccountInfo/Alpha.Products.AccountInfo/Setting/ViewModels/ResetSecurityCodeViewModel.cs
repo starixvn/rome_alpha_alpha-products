@@ -11,8 +11,7 @@
         {
         }
 
-        protected override string BaseAddress 
-            => $"{Request.MicrositePaths["MainPath"]}SecurityCode/ResetSecurityCode";
+        protected override string BaseAddress => $"{MainUrl}SecurityCode/ResetSecurityCode";
 
         protected override Dictionary<string, string> QueryStringParamaters
           => new Dictionary<string, string>

@@ -15,8 +15,7 @@
         }
 
         protected override string BaseAddress 
-            => Request.MicrositePaths["OldMainPath"] + 
-              (Request.SearchAccount.IsMember ? EditMemberCommisionUrl : EditCommissionUrl);
+            => OldMainUrl + (Request.SearchAccount.IsMember ? EditMemberCommisionUrl : EditCommissionUrl);
 
         protected override Dictionary<string, string> QueryStringParamaters
         {

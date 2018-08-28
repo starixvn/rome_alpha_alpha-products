@@ -12,8 +12,7 @@
         {
         }
 
-        protected override string BaseAddress 
-            => $"{Request.MicrositePaths["MainPath"]}Otp/ResetOtp";
+        protected override string BaseAddress => $"{MainUrl}Otp/ResetOtp";
 
         protected override Dictionary<string, string> QueryStringParamaters
            => new Dictionary<string, string>

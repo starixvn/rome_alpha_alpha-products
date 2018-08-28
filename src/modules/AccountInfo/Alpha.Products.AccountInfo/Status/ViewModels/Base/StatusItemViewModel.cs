@@ -31,5 +31,7 @@
         public virtual bool Disabled => !Request.GetData<bool>("Actor.HasUpdateAccountPermission");
 
         public abstract bool Checked { get; }
+
+        protected virtual string AccountInfoUrl => Request.GetMicroSiteUrl(DataKey.Microsites.AccountInfo, "~/");
     }
 }

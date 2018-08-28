@@ -28,5 +28,12 @@
             public const string HasUpdateAccountPermission = "Actor.HasUpdateAccountPermission";
             public const string CanEditDailyTransferOption = "Actor.CanEditDailyTransferOption";
         }
+
+        public static class Microsites
+        {
+            public const string AccountInfo = "AccountInfo";
+            public const string Main = "Main";
+            public const string OldMain = "OldMain";
+        }
     }
 }

@@ -29,7 +29,7 @@
             {
                 var useCase = $"{Actor.CustomerLevel.DisplayName}/Edit{SearchAccount.CustomerLevel.DisplayName}";
 
-                return $"{Request.MicrositePaths["OldMainPath"]}_MemberInfo/PositionTaking/{useCase}.aspx";
+                return $"{OldMainUrl}_MemberInfo/PositionTaking/{useCase}.aspx";
             }
         }
     }

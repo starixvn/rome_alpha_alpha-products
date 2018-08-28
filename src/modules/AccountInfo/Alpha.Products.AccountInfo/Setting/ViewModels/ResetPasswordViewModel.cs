@@ -11,8 +11,7 @@
         {
         }
 
-        protected override string BaseAddress 
-            => $"{Request.MicrositePaths["MainPath"]}Password/ResetMainAccountPassword";
+        protected override string BaseAddress => $"{MainUrl}Password/ResetMainAccountPassword";
 
         protected override Dictionary<string, string> QueryStringParamaters
           => new Dictionary<string, string>

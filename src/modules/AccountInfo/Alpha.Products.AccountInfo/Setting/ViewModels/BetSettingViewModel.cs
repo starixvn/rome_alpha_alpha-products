@@ -12,7 +12,7 @@
         }
 
         protected override string BaseAddress 
-            => $"{Request.MicrositePaths["OldMainPath"]}_MemberInfo/BetSetting/EditBetSetting.aspx";
+            => $"{OldMainUrl}_MemberInfo/BetSetting/EditBetSetting.aspx";
 
         protected override Dictionary<string, string> QueryStringParamaters
             => new Dictionary<string, string>

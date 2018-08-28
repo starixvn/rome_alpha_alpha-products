@@ -12,7 +12,7 @@
         }
 
         protected override string BaseAddress 
-            => $"{Request.MicrositePaths["OldMainPath"]}GoldDeluxeSetting/GoldDeluxe/EditSetting";
+            => $"{OldMainUrl}GoldDeluxeSetting/GoldDeluxe/EditSetting";
 
         protected override Dictionary<string, string> QueryStringParamaters
             => new Dictionary<string, string>

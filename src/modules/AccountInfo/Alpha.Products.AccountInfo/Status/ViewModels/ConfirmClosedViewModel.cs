@@ -21,9 +21,7 @@
             }
         }
 
-        //TO DO hard code
-        public override string Url
-             => $"{Request.MicrositePaths["AccountInfoPath"]}AccountInfo/UpdateClosed";
+        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateClosed";
 
         public string Param => string.Format("{0}{1}{2}",
           "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"Closed\":\"{!Checked}\",\"SyncedCasino\":\"{SyncedCasino}\"", "}");
