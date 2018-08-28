@@ -1,12 +1,20 @@
 ﻿namespace Alpha.Products.AccountInfo.Status.ViewModels.Base
 {
     using System;
+    using System.Collections.Generic;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Configuration;
+    using Alpha.Products.Core.Shared;
 
     public class ProductStatusItemViewModel : StatusItemViewModel
     {
         private readonly IConfigurationItem productItem;
+        private readonly List<int> productsAllowedSuperViewAgent = new List<int>
+        {
+            ProductConstants.Keno,
+            ProductConstants.ColossusBets,
+            ProductConstants.RNGCasino
+        };
 
         public ProductStatusItemViewModel(ISearchAccountInfoRequest request, IConfigurationItem productItem)
             : base(request)
@@ -16,7 +24,9 @@
 
         public override string Text => Request.GetProductName(productItem.ProductId);
 
-        public override int DisplayOrder => productItem.ProductId * 10;
+        public override int DisplayOrder => ProductId * 10;
+
+        public int ProductId => productItem.ProductId;
 
         public override string Url => AccountInfoUrl + "ProductStatus?" + string.Join("&",
                                           $"productid={productItem.ProductId}",
@@ -27,12 +37,15 @@
 
         public override bool Disabled
             => base.Disabled
+            || productsAllowedSuperViewAgent.Contains(ProductId)
             || Actor.IsNotDirectUplineOf(SearchAccount)
             || SearchAccount.Upline.ProductStatusOf(productItem.ProductId).Disabled;
 
-        public override bool Visible
-            => Actor.IsDirectUplineOf(SearchAccount)
-            && SearchAccount.CanSeeProduct(productItem.ProductId);
+        public override bool Visible=>
+            productsAllowedSuperViewAgent.Contains(ProductId) ? 
+            SearchAccount.CanSeeProduct(productItem.ProductId):
+            Actor.IsDirectUplineOf(SearchAccount) && SearchAccount.CanSeeProduct(productItem.ProductId);
+
 
         public bool IsEditOnProductLevel
 #pragma warning disable S3215 // "interface" instances should not be cast to concrete types
