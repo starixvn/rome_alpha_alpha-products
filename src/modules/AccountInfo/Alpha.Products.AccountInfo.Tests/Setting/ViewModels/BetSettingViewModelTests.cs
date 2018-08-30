@@ -8,7 +8,7 @@
     [Trait("Setting.ViewModels", "BetSettingViewModel")]
     public class BetSettingViewModelTests
     {
-        private const string BaseAddress = "_MemberInfo/BetSetting/EditBetSetting.aspx";
+        private const string BaseAddress = "MicroSiteName/_MemberInfo/BetSetting/EditBetSetting.aspx";
 
         [Fact]
         public void Url_Starts_With_BaseAddress()

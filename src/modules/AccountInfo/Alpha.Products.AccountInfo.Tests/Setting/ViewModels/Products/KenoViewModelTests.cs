@@ -11,11 +11,11 @@
     public class KenoViewModelTests
     {
         [Theory]
-        [InlineData(4, 3, "customersetting/kenosetting/kenosetting/EditMaster")]
-        [InlineData(4, 1, "customersetting/kenosetting/kenosetting/SuperEditMember")]
-        [InlineData(3, 2, "customersetting/kenosetting/kenosetting/EditAgent")]
-        [InlineData(3, 1, "customersetting/kenosetting/kenosetting/MasterEditMember")]
-        [InlineData(2, 1, "customersetting/kenosetting/kenosetting/AgentEditMember")]
+        [InlineData(4, 3, "MicroSiteName/customersetting/kenosetting/kenosetting/EditMaster")]
+        [InlineData(4, 1, "MicroSiteName/customersetting/kenosetting/kenosetting/SuperEditMember")]
+        [InlineData(3, 2, "MicroSiteName/customersetting/kenosetting/kenosetting/EditAgent")]
+        [InlineData(3, 1, "MicroSiteName/customersetting/kenosetting/kenosetting/MasterEditMember")]
+        [InlineData(2, 1, "MicroSiteName/customersetting/kenosetting/kenosetting/AgentEditMember")]
         public void Url_Start_With_BaseAddress(byte actorLevel, byte searchAccountLevel, string baseAddress)
         {
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);

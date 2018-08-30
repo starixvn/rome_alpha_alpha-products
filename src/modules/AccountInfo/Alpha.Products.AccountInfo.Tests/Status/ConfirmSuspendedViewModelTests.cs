@@ -8,7 +8,7 @@
     [Trait("Status.ViewModels", "ConfirmSuspendedViewModel")]
     public class ConfirmSuspendedViewModelTests
     {
-        private const string BaseAddress = "_AccountInfo/Handlers/UpdateSuspendedStatus.ashx";
+        private const string BaseAddress = "MicroSiteName/AccountInfo/UpdateSuspended";
 
         [Fact]
         public void Url_Start_With_BaseAddress()

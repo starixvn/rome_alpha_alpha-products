@@ -8,7 +8,7 @@
     [Trait("Status.ViewModels", "ConfirmAllowAutoPTViewModel")]
     public class ConfirmAllowAutoPTViewModelTests
     {
-        private const string BaseAddress = "_AccountInfo/Handlers/UpdateAutoMasterPTStatus.ashx";
+        private const string BaseAddress = "MicroSiteName/AccountInfo/UpdateAutoMasterPT";
 
         [Fact]
         public void Url_Start_With_BaseAddress()

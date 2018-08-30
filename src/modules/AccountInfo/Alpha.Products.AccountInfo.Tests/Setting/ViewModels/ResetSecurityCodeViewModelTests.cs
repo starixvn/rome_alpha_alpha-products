@@ -8,7 +8,7 @@
     [Trait("Setting.ViewModels", "ResetSecurityCodeViewModel")]
     public class ResetSecurityCodeViewModelTests
     {
-        private const string BaseAddress = "SecurityCode/ResetSecurityCode";
+        private const string BaseAddress = "MicroSiteName/SecurityCode/ResetSecurityCode";
 
         [Fact]
         public void Url_Starts_With_BaseAddress()

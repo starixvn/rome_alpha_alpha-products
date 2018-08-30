@@ -8,7 +8,7 @@
     [Trait("Setting.ViewModels", "TransferViewModel")]
     public class TransferViewModelTests
     {
-        private const string BaseAddress = "_MemberInfo/TransferCondition/EditTransferCondition.aspx";
+        private const string BaseAddress = "MicroSiteName/_MemberInfo/TransferCondition/EditTransferCondition.aspx";
 
         [Fact]
         public void Url_Starts_With_BaseAddress()

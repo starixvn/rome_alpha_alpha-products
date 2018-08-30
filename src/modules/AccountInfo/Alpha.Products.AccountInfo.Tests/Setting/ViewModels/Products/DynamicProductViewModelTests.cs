@@ -10,7 +10,7 @@
     [Trait("Setting.ViewModels", "Product.DynamicProductViewModel")]
     public class DynamicProductViewModelTests
     {
-        private const string BaseAddress = "dcs/viewcustomersetting";
+        private const string BaseAddress = "MicroSiteName/dcs/viewcustomersetting";
 
         [Fact]
         public void Url_Start_With_BaseAddress()

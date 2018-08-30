@@ -8,7 +8,7 @@
     [Trait("Status.ViewModels", "ConfirmClosedViewModel")]
     public class ConfirmClosedViewModelTests
     {
-        private const string BaseAddress = "_AccountInfo/Handlers/UpdateClosedStatus.ashx";
+        private const string BaseAddress = "MicroSiteName/AccountInfo/UpdateClosed";
 
         [Fact]
         public void Url_Start_With_BaseAddress()

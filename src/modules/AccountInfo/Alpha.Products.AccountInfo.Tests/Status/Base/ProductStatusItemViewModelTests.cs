@@ -12,7 +12,7 @@
     [Trait("Status.ViewModels.Base", "ProductStatusItemViewModel")]
     public class ProductStatusItemViewModelTests
     {
-        private const string BaseAddress = "productstatus3rd/index?";
+        private const string BaseAddress = "MicroSiteName/ProductStatus?";
 
         [Fact]
         public void Url_Start_With_BaseAddress()
@@ -88,7 +88,7 @@
         public void Return_Disabled_By_Actor_HasUpdateAccountPermission(bool hasUpdateAccountPermission, bool expectedValue)
         {
             var configItem = Substitute.For<IConfigurationItem>();
-            configItem.ProductId.Returns(15);
+            configItem.ProductId.Returns(5);
             var request = RequestHelper.CreateRequest(4, 3);
             request.AddData("Actor.HasUpdateAccountPermission", hasUpdateAccountPermission);
 

@@ -8,7 +8,7 @@
     [Trait("Setting.ViewModels", "RemoveOtpViewModel")]
     public class RemoveOtpViewModelTests
     {
-        private const string BaseAddress = "Otp/ResetOtp";
+        private const string BaseAddress = "MicroSiteName/Otp/ResetOtp";
 
         [Fact]
         public void Url_Starts_With_BaseAddress()

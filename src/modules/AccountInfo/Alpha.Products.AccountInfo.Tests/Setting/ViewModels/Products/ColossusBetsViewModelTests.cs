@@ -10,7 +10,7 @@
     [Trait("Setting.ViewModels", "Product.ColossusBetsViewModel")]
     public class ColossusBetsViewModelTests
     {
-        private const string BaseAddress = "customersetting/ColossusBetSetting/ColossusBetSetting/EditSetting";
+        private const string BaseAddress = "MicroSiteName/customersetting/ColossusBetSetting/ColossusBetSetting/EditSetting";
 
         [Fact]
         public void Url_Start_With_BaseAddress()

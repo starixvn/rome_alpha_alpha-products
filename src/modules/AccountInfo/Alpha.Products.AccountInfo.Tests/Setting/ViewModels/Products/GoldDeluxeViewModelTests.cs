@@ -10,7 +10,7 @@
     [Trait("Setting.ViewModels", "Product.GoldDeluxeViewModel")]
     public class GoldDeluxeViewModelTests
     {
-        private const string BaseAddress = "GoldDeluxeSetting/GoldDeluxe/EditSetting";
+        private const string BaseAddress = "MicroSiteName/GoldDeluxeSetting/GoldDeluxe/EditSetting";
 
         [Fact]
         public void Url_Start_With_BaseAddress()

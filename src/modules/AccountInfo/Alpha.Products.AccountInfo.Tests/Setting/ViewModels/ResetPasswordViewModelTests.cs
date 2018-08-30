@@ -8,7 +8,7 @@
     [Trait("Setting.ViewModels", "ResetPasswordViewModel")]
     public class ResetPasswordViewModelTests
     {
-        private const string BaseAddress = "Password/ResetMainAccountPassword";
+        private const string BaseAddress = "MicroSiteName/Password/ResetMainAccountPassword";
 
         [Fact]
         public void Url_Start_With_BaseAddress()

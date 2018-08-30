@@ -8,7 +8,7 @@
     [Trait("Status.ViewModels", "ConfirmDoubleCommViewModel")]
     public class ConfirmDoubleCommViewModelTests
     {
-        private const string BaseAddress = "_AccountInfo/Handlers/UpdateDoubleCommStatus.ashx";
+        private const string BaseAddress = "MicroSiteName/AccountInfo/UpdateDoubleComm";
 
         [Fact]
         public void Url_Start_With_BaseAddress()

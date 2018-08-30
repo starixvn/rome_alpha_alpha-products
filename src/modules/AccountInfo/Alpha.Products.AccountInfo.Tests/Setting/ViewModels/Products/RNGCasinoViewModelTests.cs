@@ -11,11 +11,11 @@
     public class RNGCasinoViewModelTests
     {
         [Theory]
-        [InlineData(4, 3, "CustomerSetting/Casino/Master/EditMaster")]
-        [InlineData(4, 1, "CustomerSetting/Casino/Member/EditMemberBySuper")]
-        [InlineData(3, 2, "CustomerSetting/Casino/Agent/EditAgent")]
-        [InlineData(3, 1, "CustomerSetting/Casino/Member/EditMemberByMaster")]
-        [InlineData(2, 1, "CustomerSetting/Casino/Member/EditMember")]
+        [InlineData(4, 3, "MicroSiteName/CustomerSetting/Casino/Master/EditMaster")]
+        [InlineData(4, 1, "MicroSiteName/CustomerSetting/Casino/Member/EditMemberBySuper")]
+        [InlineData(3, 2, "MicroSiteName/CustomerSetting/Casino/Agent/EditAgent")]
+        [InlineData(3, 1, "MicroSiteName/CustomerSetting/Casino/Member/EditMemberByMaster")]
+        [InlineData(2, 1, "MicroSiteName/CustomerSetting/Casino/Member/EditMember")]
         public void Url_Start_With_BaseAddress(byte actorLevel, byte searchAccountLevel, string baseAddress)
         {
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);

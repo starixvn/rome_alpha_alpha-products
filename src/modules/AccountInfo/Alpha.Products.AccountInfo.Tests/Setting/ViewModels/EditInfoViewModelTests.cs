@@ -8,7 +8,7 @@
     [Trait("Setting.ViewModels", "InfoViewModel")]
     public class EditInfoViewModelTests
     {
-        private const string BaseAddress = "_AccountInfo/EditCustomerInfo.aspx";
+        private const string BaseAddress = "MicroSiteName/_AccountInfo/EditCustomerInfo.aspx";
 
         [Fact]
         public void Url_Starts_With_BaseAddress()

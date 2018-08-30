@@ -8,7 +8,7 @@
     [Trait("Status.ViewModels", "ConfirmAllowOutrightViewModel")]
     public class ConfirmAllowOutrightViewModelTests
     {
-        private const string BaseAddress = "_AccountInfo/Handlers/UpdateOutrightStatus.ashx";
+        private const string BaseAddress = "MicroSiteName/AccountInfo/UpdateOutright";
 
         [Fact]
         public void Url_Start_With_BaseAddress()

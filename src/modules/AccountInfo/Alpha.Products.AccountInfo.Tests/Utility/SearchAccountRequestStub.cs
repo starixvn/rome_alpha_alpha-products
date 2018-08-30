@@ -14,12 +14,14 @@
             ICustomer actor,
             ICustomer searchAccount,
             Func<string, string> GetResource = null,
-            Func<int, string> GetProductName = null)
+            Func<int, string> GetProductName = null,
+            Func<string, string, string> GetMicroSiteUrl = null)
         {
             Actor = actor;
             SearchAccount = searchAccount;
             this.GetResource = GetResource ?? ((key) => key);
             this.GetProductName = GetProductName ?? ((productId) => $"Product Name of {productId}");
+            this.GetMicroSiteUrl = GetMicroSiteUrl ?? ((microSiteName, virtualPath) => $"microSiteName/");
         }
 
         public SearchAccountRequestStub(ICustomer actor, ICustomer searchAccount)

@@ -8,8 +8,8 @@
     [Trait("Setting.ViewModels", "CommissionViewModel")]
     public class CommissionViewModelTests
     {
-        private const string EditCommisionUrl = "_MemberInfo/EditCommission/EditCommission.aspx";
-        private const string EditMemberCommisionUrl = "_MemberInfo/EditCommission/EditMemberCommission.aspx";
+        private const string EditCommisionUrl = "MicroSiteName/_MemberInfo/EditCommission/EditCommission.aspx";
+        private const string EditMemberCommisionUrl = "MicroSiteName/_MemberInfo/EditCommission/EditMemberCommission.aspx";
 
         [Fact]
         public void Url_Starts_With_EditCommisionUrl_When_Search_Account_Is_Not_Member()
@@ -17,7 +17,7 @@
             var request = RequestHelper.CreateRequest(4, 3);
             var viewModel = new CommissionViewModel(request);
 
-            Assert.StartsWith(EditMemberCommisionUrl, viewModel.Url, StringComparison.OrdinalIgnoreCase);
+            Assert.StartsWith(EditCommisionUrl, viewModel.Url, StringComparison.OrdinalIgnoreCase);
         }
 
         [Fact]
@@ -26,7 +26,7 @@
             var request = RequestHelper.CreateRequest(2, 1);
             var viewModel = new CommissionViewModel(request);
 
-            Assert.StartsWith(EditCommisionUrl, viewModel.Url, StringComparison.OrdinalIgnoreCase);
+            Assert.StartsWith(EditMemberCommisionUrl, viewModel.Url, StringComparison.OrdinalIgnoreCase);
         }
 
         [Fact]

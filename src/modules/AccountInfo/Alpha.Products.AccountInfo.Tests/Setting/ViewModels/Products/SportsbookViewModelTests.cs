@@ -9,11 +9,11 @@
     public class SportsbookViewModelTests
     {
         [Theory]
-        [InlineData(4, 3, "/_MemberInfo/PositionTaking/Super/EditMaster.aspx")]
-        [InlineData(4, 1, "/_MemberInfo/PositionTaking/Super/EditMember.aspx")]
-        [InlineData(3, 2, "/_MemberInfo/PositionTaking/Master/EditAgent.aspx")]
-        [InlineData(3, 1, "/_MemberInfo/PositionTaking/Master/EditMember.aspx")]
-        [InlineData(2, 1, "/_MemberInfo/PositionTaking/Agent/EditMember.aspx")]
+        [InlineData(4, 3, "MicroSiteName/_MemberInfo/PositionTaking/Super/EditMaster.aspx")]
+        [InlineData(4, 1, "MicroSiteName/_MemberInfo/PositionTaking/Super/EditMember.aspx")]
+        [InlineData(3, 2, "MicroSiteName/_MemberInfo/PositionTaking/Master/EditAgent.aspx")]
+        [InlineData(3, 1, "MicroSiteName/_MemberInfo/PositionTaking/Master/EditMember.aspx")]
+        [InlineData(2, 1, "MicroSiteName/_MemberInfo/PositionTaking/Agent/EditMember.aspx")]
         public void Url_Start_With_BaseAddress(byte actorLevel, byte searchAccountLevel, string baseAddress)
         {
             var request = RequestHelper.CreateRequest(actorLevel, searchAccountLevel);

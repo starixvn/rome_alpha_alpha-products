@@ -8,6 +8,7 @@
     {
         private static readonly Func<string, string> GetString = (key) => key;
         private static readonly Func<int, string> GetProductName = (productId) => $"ProductName-{productId}";
+        private static readonly Func<string, string, string> GetMicroSiteUrl = (microSiteName, virtualPath) => $"MicroSiteName/";
 
         public static ISearchAccountInfoRequest CreateRequestFromCustomers(ICustomer actor, ICustomer searchAccount)
             => new SearchAccountRequestStub(actor, searchAccount, GetString, GetProductName);
@@ -17,16 +18,22 @@
             byte searchAccountLevel,
             Func<string, string> getString,
             Func<int, string> getProductName,
+            Func<string, string, string> getMicroSiteUrl,
             bool uplineLevel = false)
         {
             var actor = CustomerHelper.CreateCustomer(1, actorLevel);
             var searchAccount = CustomerHelper.CreateCustomer(2, searchAccountLevel);
 
-            return new SearchAccountRequestStub(actor, searchAccount, getString ?? GetString, getProductName ?? GetProductName);
+            return new SearchAccountRequestStub(
+                actor, 
+                searchAccount, 
+                getString ?? GetString, 
+                getProductName ?? GetProductName,
+                getMicroSiteUrl ?? GetMicroSiteUrl);
         }
 
         public static ISearchAccountInfoRequest CreateRequest(byte actorLevel, byte searchAccountLevel)
-            => CreateRequest(actorLevel, searchAccountLevel, null, null);
+            => CreateRequest(actorLevel, searchAccountLevel, null, null, null);
 
         public static ISearchAccountInfoRequest CreateRequest(byte actorLevel, bool actorIsMainAccount, byte searchAccountLevel)
         {
