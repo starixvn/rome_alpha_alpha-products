@@ -15,17 +15,22 @@
             get
             {
                 var suffixMessage = Request.SearchAccount.IsMember ?
-                    Checked ? "InCaseUnsuspendedMemberMessage" : "InCaseSuspendedMemberMessage" : 
+                    Checked ? "InCaseUnsuspendedMemberMessage" : "InCaseSuspendedMemberMessage" :
                     Checked ? "InCaseUnsuspendedMasterOrAgentMessage" : "InCaseSuspendedMasterOrAgentMessage";
 
                 return Request.GetResource($"{GetType().Name}{suffixMessage}");
             }
         }
 
-        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateSuspended";
+        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateCustomerStatus";
 
         public string Param => string.Format("{0}{1}{2}",
-          "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"Suspended\":\"{!Checked}\",\"SyncedCasino\":\"{SyncedCasino}\"", "}");
+            "{",
+            $"\"SearchAccountId\":\"{SearchAccount.Id}\"," +
+            $"\"StatusName\":\"{DataKey.StatusMapping.Suspended}\"," +
+            $"\"StatusValue\":\"{!Checked}\"," +
+            $"\"SyncedCasino3rd\":\"{SyncedCasino}\"",
+            "}");
 
         public bool SyncedCasino => Request.SearchAccount.ProductStatusOf(ProductConstants.RNGCasino).Synced;
 

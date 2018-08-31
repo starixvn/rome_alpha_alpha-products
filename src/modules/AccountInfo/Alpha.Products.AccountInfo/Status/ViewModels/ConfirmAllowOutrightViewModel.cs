@@ -19,10 +19,15 @@
             }
         }
 
-        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateOutright";
+        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateCustomerStatus";
 
         public string Param => string.Format("{0}{1}{2}", 
-            "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"DisableOutright\":\"{Checked}\"", "}");
+            "{", 
+            $"\"SearchAccountId\":\"{SearchAccount.Id}\"," +
+            $"\"StatusName\":\"{DataKey.StatusMapping.DisableOutright}\"," +
+            $"\"StatusValue\":\"{Checked}\"," +
+            $"\"SyncedCasino3rd\":\"False\"",
+            "}");
 
         public override bool Disabled
             => base.Disabled || !Request.GetData<bool>(DataKey.SearchAccount.Upline.IsAllowedOutright);

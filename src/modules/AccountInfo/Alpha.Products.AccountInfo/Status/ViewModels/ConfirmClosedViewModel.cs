@@ -21,10 +21,15 @@
             }
         }
 
-        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateClosed";
+        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateCustomerStatus";
 
         public string Param => string.Format("{0}{1}{2}",
-          "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"Closed\":\"{!Checked}\",\"SyncedCasino\":\"{SyncedCasino}\"", "}");
+            "{", 
+            $"\"SearchAccountId\":\"{SearchAccount.Id}\"," +
+            $"\"StatusName\":\"{DataKey.StatusMapping.Closed}\"," +
+            $"\"StatusValue\":\"{!Checked}\"," +
+            $"\"SyncedCasino3rd\":\"{SyncedCasino}\"",
+            "}");
 
         public bool SyncedCasino => Request.SearchAccount.ProductStatusOf(ProductConstants.RNGCasino).Synced;
 

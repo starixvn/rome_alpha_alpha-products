@@ -20,10 +20,15 @@
         }
 
         public override string Url
-            => $"{AccountInfoUrl}AccountInfo/UpdateAutoMasterPT";
+            => $"{AccountInfoUrl}AccountInfo/UpdateCustomerStatus";
 
         public string Param => string.Format("{0}{1}{2}",
-           "{", $"\"SearchAccountId\":\"{SearchAccount.Id}\",\"DisableAutoMasterPT\":\"{Checked}\"", "}");
+           "{", 
+            $"\"SearchAccountId\":\"{SearchAccount.Id}\"," +
+            $"\"StatusName\":\"{DataKey.StatusMapping.DisableAutoMasterPT}\"," +
+            $"\"StatusValue\":\"{Checked}\"," +
+            $"\"SyncedCasino3rd\":\"False\"",
+            "}");
 
         public override bool Visible
             => base.Visible
