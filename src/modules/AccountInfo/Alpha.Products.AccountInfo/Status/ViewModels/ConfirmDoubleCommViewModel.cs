@@ -1,7 +1,6 @@
 ﻿namespace Alpha.Products.AccountInfo.Status.ViewModels
 {
     using Alpha.Products.AccountInfo.Requests;
-    using System;
 
     public class ConfirmDoubleCommViewModel : ConfirmStatusItemViewModelBase
     {
@@ -22,21 +21,17 @@
             }
         }
 
-        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateCustomerStatus";
-
-        public string Param => string.Format("{0}{1}{2}",
-            "{", 
-            $"\"SearchAccountId\":\"{SearchAccount.Id}\"," +
-            $"\"StatusName\":\"{DataKey.StatusMapping.DoubleComm}\"," +
-            $"\"StatusValue\":\"{!Checked}\"," +
-            $"\"SyncedCasino3rd\":\"False\"",
-            "}");
-
         public override bool Disabled
             => base.Disabled
                 || !Request.GetData<bool>(DataKey.SearchAccount.Upline.IsAllowedDoubleComm)
                 || Request.ActorIsNotEdittingDirectDownline;
 
         public override bool Checked => Request.GetData<bool>(DataKey.SearchAccount.IsAllowedDoubleComm);
+
+        protected override string StatusName => DataKey.StatusMapping.DoubleComm;
+
+        protected override bool StatusValue => !Checked;
+
+        protected override bool SyncedCasino3rd => false;
     }
 }

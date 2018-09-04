@@ -1,6 +1,5 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
-    using System;
     using Status.ViewModels;
     using Utility;
     using Xunit;
@@ -8,17 +7,6 @@
     [Trait("Status.ViewModels", "ConfirmDoubleCommViewModel")]
     public class ConfirmDoubleCommViewModelTests
     {
-        private const string BaseAddress = "MicroSiteName/AccountInfo/UpdateDoubleComm";
-
-        [Fact]
-        public void Url_Start_With_BaseAddress()
-        {
-            var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ConfirmDoubleCommViewModel(request);
-
-            Assert.StartsWith(BaseAddress, viewModel.Url, StringComparison.OrdinalIgnoreCase);
-        }
-
         [Fact]
         public void Disabled_Is_True_When_Actor_Does_Not_HasUpdateAccountPermission()
         {

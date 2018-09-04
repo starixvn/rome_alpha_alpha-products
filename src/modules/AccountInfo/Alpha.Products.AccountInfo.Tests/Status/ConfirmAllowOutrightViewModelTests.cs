@@ -1,6 +1,5 @@
 ﻿namespace Alpha.Products.AccountInfo.Tests.ViewModels
 {
-    using System;
     using Status.ViewModels;
     using Utility;
     using Xunit;
@@ -8,17 +7,6 @@
     [Trait("Status.ViewModels", "ConfirmAllowOutrightViewModel")]
     public class ConfirmAllowOutrightViewModelTests
     {
-        private const string BaseAddress = "MicroSiteName/AccountInfo/UpdateOutright";
-
-        [Fact]
-        public void Url_Start_With_BaseAddress()
-        {
-            var request = RequestHelper.CreateRequest(4, 3);
-            var viewModel = new ConfirmAllowOutrightViewModel(request);
-
-            Assert.True(viewModel.Url.StartsWith(BaseAddress, StringComparison.OrdinalIgnoreCase) == true);
-        }
-
         [Theory]
         [InlineData(true, true)]
         [InlineData(false, false)]

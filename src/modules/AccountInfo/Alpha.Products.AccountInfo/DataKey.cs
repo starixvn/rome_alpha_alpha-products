@@ -29,13 +29,6 @@
             public const string CanEditDailyTransferOption = "Actor.CanEditDailyTransferOption";
         }
 
-        public static class Microsites
-        {
-            public const string AccountInfo = "AccountInfo";
-            public const string Main = "Main";
-            public const string OldMain = "OldMain";
-        }
-
         public static class StatusMapping
         {
             public const string DisableAutoMasterPT = "DisableAutoMPT";

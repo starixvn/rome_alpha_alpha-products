@@ -54,6 +54,7 @@
     <Compile Include="Integration\ConfigFileReader.cs" />
     <Compile Include="Configuration\ConfigurationLoader.cs" />
     <Compile Include="Models\IRequest.cs" />
+    <Compile Include="Shared\MicroSiteConstants.cs" />
     <Compile Include="ViewModels\GenericViewModelFactory.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />

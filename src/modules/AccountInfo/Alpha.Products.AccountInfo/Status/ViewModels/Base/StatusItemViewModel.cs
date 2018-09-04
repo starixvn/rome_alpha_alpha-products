@@ -3,6 +3,7 @@
     using System;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Models;
+    using Alpha.Products.Core.Shared;
 
     public abstract class StatusItemViewModel : IStatusItemViewModel
     {
@@ -32,6 +33,6 @@
 
         public abstract bool Checked { get; }
 
-        protected virtual string AccountInfoUrl => Request.GetMicroSiteUrl(DataKey.Microsites.AccountInfo, "~/");
+        protected virtual string AccountInfoUrl => Request.GetMicroSiteUrl(MicroSiteConstants.AccountInfo, "~/");
     }
 }

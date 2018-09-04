@@ -5,6 +5,7 @@
     using System.Linq;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.Core.Models;
+    using Alpha.Products.Core.Shared;
 
     public abstract class SettingItemViewModel : ISettingItemViewModel
     {
@@ -41,9 +42,9 @@
 
         protected abstract Dictionary<string, string> QueryStringParamaters { get; }
 
-        protected virtual string OldMainUrl => Request.GetMicroSiteUrl(DataKey.Microsites.OldMain,"~/");
+        protected virtual string OldMainUrl => Request.GetMicroSiteUrl(MicroSiteConstants.OldMain,"~/");
 
-        protected virtual string MainUrl => Request.GetMicroSiteUrl(DataKey.Microsites.Main, "~/");
+        protected virtual string MainUrl => Request.GetMicroSiteUrl(MicroSiteConstants.Main, "~/");
 
         public virtual bool Visible => Request.ActorIsEdittingDirectDownline;
     }

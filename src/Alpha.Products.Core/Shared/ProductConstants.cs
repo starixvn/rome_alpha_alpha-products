@@ -6,6 +6,7 @@
         public const int NumberGame = 3;
         public const int VirtualSports = 5;
         public const int Keno = 8;
+        public const int ESport = 11;
         public const int GoldDeluxe = 12;
         public const int Sportsbook2 = 16;
         public const int RNGCasino = 6;

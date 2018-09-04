@@ -22,20 +22,14 @@
             }
         }
 
-        public override string Url => $"{AccountInfoUrl}AccountInfo/UpdateCustomerStatus";
-
-        public string Param => string.Format("{0}{1}{2}",
-            "{",
-            $"\"SearchAccountId\":\"{SearchAccount.Id}\"," +
-            $"\"StatusName\":\"{DataKey.StatusMapping.Suspended}\"," +
-            $"\"StatusValue\":\"{!Checked}\"," +
-            $"\"SyncedCasino3rd\":\"{SyncedCasino}\"",
-            "}");
-
-        public bool SyncedCasino => Request.SearchAccount.ProductStatusOf(ProductConstants.RNGCasino).Synced;
-
         public override bool Disabled => base.Disabled || Request.GetData<bool>(DataKey.SearchAccount.Upline.IsSuspended);
 
         public override bool Checked => Request.GetData<bool>(DataKey.SearchAccount.IsSuspended);
+
+        protected override string StatusName => DataKey.StatusMapping.Suspended;
+
+        protected override bool StatusValue => !Checked;
+
+        protected override bool SyncedCasino3rd => Request.SearchAccount.ProductStatusOf(ProductConstants.RNGCasino).Synced;
     }
 }
