@@ -10,16 +10,16 @@
 
     public class ConfigFileReader : IConfigFileReader
     {
-        private readonly string appDomainAppPath;
+        private readonly string appDomainPath;
 
-        public ConfigFileReader(string appDomainAppPath = null)
+        public ConfigFileReader(string appDomainPath = null)
         {
-            this.appDomainAppPath = appDomainAppPath ?? HttpRuntime.AppDomainAppPath;
+            this.appDomainPath = appDomainPath ?? HttpContext.Current.Server.MapPath("../");
         }
 
         public string ReadProductConfig(string relativePath)
         {
-            var configFilePath = appDomainAppPath + relativePath;
+            var configFilePath = appDomainPath + relativePath;
             if (File.Exists(configFilePath))
             {
                 // Read file without locking file
