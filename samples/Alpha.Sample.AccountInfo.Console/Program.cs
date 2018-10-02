@@ -3,10 +3,12 @@ namespace Alpha.Sample.AccountInfo.Console
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using Alpha.Products.AccountInfo;
     using Alpha.Products.AccountInfo.Requests;
     using Alpha.Products.AccountInfo.Status;
     using Alpha.Products.Core.Configuration;
+    using Alpha.Products.Core.Integration;
     using Alpha.Products.Core.Models;
     using Alpha.Products.Core.Services;
     using Alpha.RemotingRef;
@@ -20,13 +22,13 @@ namespace Alpha.Sample.AccountInfo.Console
     {
         private const int subAccountId = 0;
 
-        private static IDictionary<string, Func<string, string>> MicrositeUrls =
-          new Dictionary<string, Func<string, string>>
-          {
-                { "OldMainUrl", OldMainUrl }
-          };
+        //private static IDictionary<string, Func<string, string>> MicrositeUrls =
+        //  new Dictionary<string, Func<string, string>>
+        //  {
+        //        { "OldMainUrl", OldMainUrl }
+        //  };
 
-        private static string OldMainUrl(string virtualPath = "~/") => string.Empty;
+        private static string OldMainUrl(string micrositeName, string virtualPath = "~/") => string.Empty;
 
         private static void Main()
         {
@@ -46,7 +48,7 @@ namespace Alpha.Sample.AccountInfo.Console
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex);
             }
 
             Console.ReadKey();
@@ -54,12 +56,15 @@ namespace Alpha.Sample.AccountInfo.Console
 
         private static void StartConfiguration()
         {
+            var currentDirectory = Directory.GetCurrentDirectory();
+            var absoluteConfigFilePath = Path.Combine(currentDirectory, GlobalProductSettings.ProductConfigFileRelativePath);
+
             SimpleServiceLocator
             .Instance
-            .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter()))
+            .Register<IConfigurationLoader>(new SearchAccountConfigurationLoader(new ProductJsonConverter(), absoluteConfigFilePath))
             .Register<Func<int, string>>(CacheRef.GetProductName)
             .Register<Func<string, string>>(Resource1.ResourceManager.GetString)
-            .Register<IDictionary<string, Func<string, string>>>(MicrositeUrls);
+            .Register<Func<string, string, string>>(OldMainUrl);
         }
 
         private static void ClearScreen()

@@ -17,7 +17,7 @@
     public class DefaultConfigurationLoader : IConfigurationLoader
     {
         private readonly IProductJsonConverter jsonConverter;
-        private readonly string productConfigFileRelativePath;
+        private readonly string productConfigFilePath;
         private readonly Func<int, bool> isProductEnabled;
         private readonly IConfigFileReader configFileReader;
         private static IEnumerable<IConfigurationItem> cachedConfigurationItems;
@@ -26,22 +26,22 @@
         public DefaultConfigurationLoader(
             string siteName,
             IProductJsonConverter jsonConverter,
-            string jsonConfigFileRelativePath = null,
+            string productConfigFilePath,
             IConfigFileReader configFileReader = null,
             Func<int, bool> isProductEnabled = null)
         {
             this.siteName = siteName;
-            this.productConfigFileRelativePath = jsonConfigFileRelativePath ?? GlobalProductSettings.ProductConfigFileRelativePath;
+            this.productConfigFilePath = productConfigFilePath;
             this.jsonConverter = jsonConverter;
             this.isProductEnabled = isProductEnabled ?? GlobalProductSettings.IsProductEnabled;
-            this.configFileReader = configFileReader ?? new ConfigFileReader();
+            this.configFileReader = configFileReader ?? new ConfigFileReader(productConfigFilePath);
         }
 
         public IEnumerable<IConfigurationItem> Load()
         {
             if (cachedConfigurationItems == null || !cachedConfigurationItems.Any())
             {
-                var productsJsonString = configFileReader.ReadProductConfig(productConfigFileRelativePath);
+                var productsJsonString = configFileReader.ReadProductConfig(productConfigFilePath);
                 var productConfigs = jsonConverter.ToProductConfigs(productsJsonString);
                 var configurationItems = new List<IConfigurationItem>();
 

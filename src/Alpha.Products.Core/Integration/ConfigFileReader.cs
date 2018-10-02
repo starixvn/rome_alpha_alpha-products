@@ -1,7 +1,6 @@
 ﻿namespace Alpha.Products.Core.Integration
 {
     using System.IO;
-    using System.Web;
 
     public interface IConfigFileReader
     {
@@ -10,20 +9,19 @@
 
     public class ConfigFileReader : IConfigFileReader
     {
-        private readonly string appDomainPath;
+        private readonly string filePath;
 
-        public ConfigFileReader(string appDomainPath = null)
+        public ConfigFileReader(string filePath)
         {
-            this.appDomainPath = appDomainPath ?? HttpContext.Current.Server.MapPath("../");
+            this.filePath = filePath;
         }
 
         public string ReadProductConfig(string relativePath)
         {
-            var configFilePath = appDomainPath + relativePath;
-            if (File.Exists(configFilePath))
+            if (File.Exists(filePath))
             {
                 // Read file without locking file
-                using (FileStream fileStream = new FileStream(configFilePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                using (var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                 {
                     using (StreamReader streamReader = new StreamReader(fileStream))
                     {
@@ -31,10 +29,8 @@
                     }
                 }
             }
-            else
-            {
-                throw new FileNotFoundException($"Cannot find json file: {relativePath}");
-            }
+
+            throw new FileNotFoundException($"Cannot find json file: {relativePath}");
         }
     }
 }

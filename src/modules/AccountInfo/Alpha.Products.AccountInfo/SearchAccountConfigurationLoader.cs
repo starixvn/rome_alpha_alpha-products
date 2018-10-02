@@ -6,8 +6,8 @@
 
     public class SearchAccountConfigurationLoader : DefaultConfigurationLoader
     {
-        public SearchAccountConfigurationLoader(IProductJsonConverter jsonConverter, string jsonConfigFileRelativePath = null)
-            : base("accountInfo", jsonConverter, jsonConfigFileRelativePath)
+        public SearchAccountConfigurationLoader(IProductJsonConverter jsonConverter, string productConfigFilePath)
+            : base("accountInfo", jsonConverter, productConfigFilePath)
         {
         }
 
