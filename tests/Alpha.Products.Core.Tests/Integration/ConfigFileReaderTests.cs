@@ -12,18 +12,18 @@
     {
         private readonly string appDomainAppPath = string.Empty;
 
-        //[Fact]
-        //public void ReadProductConfig_FileIsExist_ReturnFileContent()
-        //{
-        //    var fileContent = new ConfigFileReader(appDomainAppPath).ReadProductConfig("ProductConfiguration.json");
+        [Fact]
+        public void ReadProductConfig_FileIsExist_ReturnFileContent()
+        {
+            var fileContent = new ConfigFileReader("ProductConfiguration.json").ReadProductConfig();
 
-        //    Assert.Equal("file content 1", fileContent);
-        //}
+            Assert.Equal("file content 1", fileContent);
+        }
 
         [Fact]
         public void ReadProductConfig_FileIsNotExist_ThrowFileNotFoundException()
         {
-            Assert.Throws<FileNotFoundException>(() => new ConfigFileReader(appDomainAppPath).ReadProductConfig("ProductConfiguration1.json"));
+            Assert.Throws<FileNotFoundException>(() => new ConfigFileReader("ProductConfiguration1.json").ReadProductConfig());
         }
     }
 }

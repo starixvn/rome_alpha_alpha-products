@@ -4,7 +4,7 @@
 
     public interface IConfigFileReader
     {
-        string ReadProductConfig(string relativePath);
+        string ReadProductConfig();
     }
 
     public class ConfigFileReader : IConfigFileReader
@@ -16,7 +16,7 @@
             this.filePath = filePath;
         }
 
-        public string ReadProductConfig(string relativePath)
+        public string ReadProductConfig()
         {
             if (File.Exists(filePath))
             {
@@ -30,7 +30,7 @@
                 }
             }
 
-            throw new FileNotFoundException($"Cannot find json file: {relativePath}");
+            throw new FileNotFoundException($"Cannot find json file: {filePath}");
         }
     }
 }
