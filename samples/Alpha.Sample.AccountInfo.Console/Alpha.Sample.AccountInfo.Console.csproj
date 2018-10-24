@@ -50,6 +50,9 @@
     <CodeAnalysisRuleSet>Alpha.Sample.AccountInfo.Console.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Alpha.Products.AccountInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Alpha.Products.AccountInfo.1.0.0-beta91\lib\net461\Alpha.Products.AccountInfo.dll</HintPath>
+    </Reference>
     <Reference Include="Alpha.Products.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Alpha.Products.Core.1.0.0-beta92\lib\net461\Alpha.Products.Core.dll</HintPath>
     </Reference>
@@ -94,12 +97,6 @@
     <None Include="Alpha.Sample.AccountInfo.Console.ruleset" />
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\modules\AccountInfo\Alpha.Products.AccountInfo\Alpha.Products.AccountInfo.csproj">
-      <Project>{d00a2d4e-7115-48a5-a8a5-5da2354cf1e9}</Project>
-      <Name>Alpha.Products.AccountInfo</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resource1.resx">
