@@ -32,8 +32,9 @@
     <CodeAnalysisRuleSet>Alpha.Products.Reports.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpha.Products.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Alpha.Products.Core.1.0.0-beta91\lib\net461\Alpha.Products.Core.dll</HintPath>
+    <Reference Include="Alpha.Products.Core, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\packages\Alpha.Products.Core.1.0.0.1\lib\net461\Alpha.Products.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
