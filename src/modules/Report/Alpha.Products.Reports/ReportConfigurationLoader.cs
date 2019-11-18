@@ -2,13 +2,14 @@
 namespace Alpha.Products.Reports
 {
     using System.Collections.Generic;
+    using System.Configuration;
     using Alpha.Products.Core.Configuration;
     using Alpha.Products.Core.Integration;
 
     public class ReportConfigurationLoader : DefaultConfigurationLoader
     {
         public ReportConfigurationLoader(IProductJsonConverter jsonConverter)
-            : base("report", jsonConverter)
+            : base("report", jsonConverter, ConfigurationManager.AppSettings["ProductConfigsFileRelativePath"])
         {
         }
 
