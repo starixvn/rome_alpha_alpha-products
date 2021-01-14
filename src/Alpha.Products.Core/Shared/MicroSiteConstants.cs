@@ -12,5 +12,6 @@
         public const string ExTotalBetsForecast = "ExTotalBetsForecast";
         public const string HowToUse = "HowToUse";
         public const string ViewLog = "ViewLog";
+        public const string Ng2 = "Ng2";
     }
 }
