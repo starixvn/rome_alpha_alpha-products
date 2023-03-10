@@ -30,20 +30,6 @@
       }
     },
     {
-      "productId": 3,
-      "productName": "Number Game",
-      "accountInfoProperties": {
-        "setting": false,
-        "status": false,
-        "statusOnProductLevel": false
-      },
-      "reportProperties": {
-        "showInLegend": true,
-        "hasMatchInfo": true,
-        "offerPlayForFun": false
-      }
-    },
-    {
       "productId": 6,
       "productName": "Casino",
       "accountInfoProperties": {
@@ -82,20 +68,6 @@
       "reportProperties": {
         "showInLegend": true,
         "hasMatchInfo": true,
-        "offerPlayForFun": false
-      }
-    },
-    {
-      "productId": 8,
-      "productName": "Keno",
-      "accountInfoProperties": {
-        "setting": true,
-        "status": true,
-        "statusOnProductLevel": false
-      },
-      "reportProperties": {
-        "showInLegend": true,
-        "hasMatchInfo": false,
         "offerPlayForFun": false
       }
     },

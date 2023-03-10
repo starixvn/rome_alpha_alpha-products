@@ -20,8 +20,7 @@
 
             configurationLoader.Load().Returns(new List<IConfigurationItem> {
                 new ConfigurationItem(1, "Sportsbook", true, new DateTime(2017, 12, 12)),
-                new ConfigurationItem(2, "Racing", false),
-                new ConfigurationItem(3, "NumberGame", true, new DateTime(2018, 3, 12))
+                new ConfigurationItem(2, "Racing", false)
             });
         }
 
@@ -30,9 +29,8 @@
         {
             var enabledProducts = configurationService.GetEnabledProductItems(null, DateTime.MinValue);
 
-            Assert.True(enabledProducts.Count() == 2
-                && enabledProducts.ElementAt(0).ProductId == 1
-                && enabledProducts.ElementAt(1).ProductId == 3);
+            Assert.True(enabledProducts.Count() == 1
+                && enabledProducts.ElementAt(0).ProductId == 1);
         }
 
         [Fact]
@@ -42,8 +40,7 @@
 
             var enabledProducts = configurationService.GetEnabledProductItems(null, currentDate);
 
-            Assert.True(enabledProducts.Count() == 1
-                && enabledProducts.ElementAt(0).ProductId == 3);
+            Assert.True(!enabledProducts.Any());
         }
 
         [Fact]
@@ -61,9 +58,8 @@
         {
             var enabledProducts = configurationService.GetEnabledProductItems((configItem) => true, DateTime.MinValue);
 
-            Assert.True(enabledProducts.Count() == 2
-                && enabledProducts.ElementAt(0).ProductId == 1
-                && enabledProducts.ElementAt(1).ProductId == 3);
+            Assert.True(enabledProducts.Count() == 1
+                && enabledProducts.ElementAt(0).ProductId == 1);
         }
     }
 }

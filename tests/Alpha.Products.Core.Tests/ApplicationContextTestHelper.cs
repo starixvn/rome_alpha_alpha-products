@@ -10,9 +10,7 @@ namespace Alpha.Products.Core.Tests
             => new ReadOnlyCollection<ConfigurationItem>(
                 new List<ConfigurationItem> {
                     new ConfigurationItem(1, "Sportsbook"),
-                    new ConfigurationItem(3, "Number Game", false),
                     new ConfigurationItem(5, "Virtual Sports", true),
-                    new ConfigurationItem(6, "RNG Casino", true),
-                    new ConfigurationItem(8, "Keno", true)});
+                    new ConfigurationItem(6, "RNG Casino", true)});
     }
 }
