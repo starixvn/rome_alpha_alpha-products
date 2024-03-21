@@ -12,6 +12,8 @@
 
         bool IsValid { get; }
 
+        Func<int, string> GetProductGroupName { get; }
+
         Func<int, string> GetProductName { get; }
 
         Func<string, string> GetResource { get; }

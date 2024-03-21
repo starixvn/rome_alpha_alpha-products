@@ -9,7 +9,7 @@
         [Fact]
         public void CanBeSeen_StatusIsNotSynced_ReturnFalse()
         {
-            var customerProductStatus = new CustomerProductStatus(1, false, hidden: true, synced: false);
+            var customerProductStatus = new CustomerProductStatus(1, false, hidden: true);
 
             Assert.False(customerProductStatus.CanBeSeen);
         }
@@ -17,7 +17,7 @@
         [Fact]
         public void CanBeSeen_StatusIsHidden_ReturnFalse()
         {
-            var customerProductStatus = new CustomerProductStatus(1, false, hidden: true, synced: true);
+            var customerProductStatus = new CustomerProductStatus(1, false, hidden: true);
 
             Assert.False(customerProductStatus.CanBeSeen);
         }
@@ -25,7 +25,7 @@
         [Fact]
         public void Enabled_StatusIsDisabled_ReturnFalse()
         {
-            var customerProductStatus = new CustomerProductStatus(1, disabled: true, hidden: false, synced: true);
+            var customerProductStatus = new CustomerProductStatus(1, disabled: true, hidden: false);
 
             Assert.False(customerProductStatus.Enabled);
         }

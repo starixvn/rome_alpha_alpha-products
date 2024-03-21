@@ -19,6 +19,7 @@
         public IEnumerable<TView> GetViewModels(TRequest request)
             => request?.IsValid == true
             ? GetNonProductViewModels(request)
+                .Concat(GetProductGroupViewModels(request))
                 .Concat(GetProductViewModels(request))
                 .OrderBy(viewModel => viewModel.DisplayOrder)
             : Enumerable.Empty<TView>();
@@ -42,10 +43,29 @@
                 .GetProductStatus()
                 .Where(productStatus
                       => productStatus.CanBeSeen
+                      && productStatus.ProductGroupId == null
                       && enabledProductItems.Any(productItem => productItem.ProductId == productStatus.ProductId))
                 .Select(ps
                         => enabledProductItems.First(
                         productItem => productItem.ProductId == ps.ProductId));
+        }
+
+        protected IEnumerable<TView> GetProductGroupViewModels(TRequest request)
+            => GetEnabledProductGroupIds(request)
+            .Select(productGroupId => GetProductGroupViewModel(productGroupId, request));
+
+        protected abstract TView GetProductGroupViewModel(int productGroupId, TRequest request);
+
+        protected virtual IEnumerable<int> GetEnabledProductGroupIds(TRequest request)
+        {
+            var groupIds = request
+                .Actor
+                .GetProductStatus()
+                .Where(productStatus => productStatus.CanBeSeen && productStatus.ProductGroupId != null)
+                .Select(p => p.ProductGroupId.Value);
+
+            return groupIds
+                .Distinct();
         }
     }
 }
