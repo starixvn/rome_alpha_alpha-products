@@ -95,7 +95,7 @@ namespace Alpha.Products.Core.Models
         {
             var userProductStatus = ProductStatusOf(productId);
 
-            return userProductStatus?.Hidden == false && userProductStatus.Synced;
+            return userProductStatus?.Hidden == false;
         }
 
         public CustomerProductStatus ProductStatusOf(int productId)

@@ -6,7 +6,6 @@
         bool Disabled { get; }
         bool Enabled { get; }
         bool Hidden { get; }
-        bool Synced { get; }
         bool CanBeSeen { get; }
     }
 
@@ -16,19 +15,19 @@
             int productId,
             bool disabled = false,
             bool hidden = false,
-            bool synced = true)
+            int? productGroupId = null)
         {
             ProductId = productId;
             Disabled = disabled;
             Hidden = hidden;
-            Synced = synced;
+            ProductGroupId = productGroupId;
         }
 
         public int ProductId { get; }
         public bool Disabled { get; }
         public bool Enabled => !Disabled;
         public bool Hidden { get; }
-        public bool Synced { get; }
-        public bool CanBeSeen => Synced && !Hidden;
+        public bool CanBeSeen => !Hidden;
+        public int? ProductGroupId { get; }
     }
 }
