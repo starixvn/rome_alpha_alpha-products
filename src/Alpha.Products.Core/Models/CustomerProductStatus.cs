@@ -7,6 +7,7 @@
         bool Enabled { get; }
         bool Hidden { get; }
         bool CanBeSeen { get; }
+        int? ProductGroupId { get; }
     }
 
     public class CustomerProductStatus : ICustomerProductStatus

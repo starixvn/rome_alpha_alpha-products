@@ -55,7 +55,6 @@
     <Compile Include="Shared\MicroSiteConstants.cs" />
     <Compile Include="ViewModels\GenericViewModelFactory.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
-    <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="Configuration\ConfigurationService.cs" />
     <Compile Include="Services\SimpleServiceLocator.cs" />
     <Compile Include="Models\ExtendedRequest.cs" />
