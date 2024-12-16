@@ -26,6 +26,7 @@ namespace Alpha.Products.Core.Models
         int SubAccountId { get; }
         ICustomer Upline { get; }
         string Username { get; }
+        int AgentId { get; }
 
         bool CanSeeProduct(int productId);
 
@@ -70,11 +71,13 @@ namespace Alpha.Products.Core.Models
             int subAccountId,
             string username,
             byte userLevelValue,
+            int agentId,
             IEnumerable<CustomerProductStatus> customerProductStatus,
             ICustomer upline)
             : this(id, subAccountId, username, userLevelValue, customerProductStatus)
         {
             Upline = upline;
+            AgentId = agentId;
         }
 
         public int Id { get; }
@@ -90,6 +93,8 @@ namespace Alpha.Products.Core.Models
         public bool IsSubAccount => SubAccountId > 0;
 
         public bool IsMainAccount => !IsSubAccount;
+
+        public int AgentId { get; }
 
         public bool CanSeeProduct(int productId)
         {
