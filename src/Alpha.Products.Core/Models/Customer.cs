@@ -48,6 +48,8 @@ namespace Alpha.Products.Core.Models
     public class Customer : ICustomer
     {
         private readonly IEnumerable<CustomerProductStatus> customerProductStatus;
+        private const int DirectMemberOfMasterAgentId = -3;
+        private const int DirectMemberOfSuperAgentId = -4;
 
         public Customer()
         { }
@@ -130,7 +132,9 @@ namespace Alpha.Products.Core.Models
             => CustomerLevel.Value > customer.CustomerLevel.Value;
 
         public bool IsDirectUplineOf(ICustomer customer)
-            => CustomerLevel.IsDirectUplineOf(customer.CustomerLevel);
+            => (CustomerLevel.IsDirectUplineOf(customer.CustomerLevel)
+                || (IsSuper && customer.AgentId == DirectMemberOfSuperAgentId))
+                || (IsMaster && customer.AgentId == DirectMemberOfMasterAgentId);
 
         public bool IsNotDirectUplineOf(ICustomer customer)
             => !IsDirectUplineOf(customer);
